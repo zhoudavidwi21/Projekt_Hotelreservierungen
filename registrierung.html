@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierungs_Site</title>
+</head>
+<body>
+    <form action="registrierung.html" method="get">
+        <ul>
+        <li>
+            <label for="Anrede">Anrede *</label>
+            <br>
+            <select name="Anrede" id="Anrede">
+                <option value=""></option>
+                <option value="Firma">Firma</option>
+                <option value="Herr">Herr</option>
+                <option value="Frau">Frau</option>
+                <option value="Divers">Divers</option>
+            </select>
+        </li>
+        <li>
+            <label for="Firmenname">Firmenname (optional)</label>
+            <br> 
+            <input type="text" id="Firmenname" name="Firmenname">            
+        </li>
+        <li>
+            <label for="Vorname">Vorname *</label>
+            <br> 
+            <input type="text" id="Vorname" name="Vorname" required>            
+        </li>
+        <li>
+            <label for="Nachname">Nachname *</label>
+            <br> 
+            <input type="text" id="Nachname" name="Nachname" required>            
+        </li>
+        <li>
+            <label for="email">email *</label>
+            <br> 
+            <input type="email" id="email" name="email" required>            
+        </li>
+        <li>
+            <label for="Username">Username *</label>
+            <br> 
+            <input type="text" id="Username" name="Username" required>            
+        </li>
+        <li>
+            <label for="Password">Password *</label>
+            <br> 
+            <input type="password" id="Password" name="Password" required>            
+        </li>
+        <li>
+            <label for="Password">Password wiederholen *</label>
+            <br> 
+            <input type="password" id="Password" name="Password" required>            
+        </li>  
+        <br>
+            <button type="submit">registrieren</button>    
+        </ul>       
+    </form>
+    <ul>
+    <p>* Eingabe erforderlich</p>
+    </ul>
+</body>
+</html>
