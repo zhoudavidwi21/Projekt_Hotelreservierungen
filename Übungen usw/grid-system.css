@@ -12,7 +12,7 @@
 @media only screen and (min-width: 768px)  {
   /* we have a padding of 1 rem on each side so we have to remove 1 rem on each side of the with to fit the box */
   .col-1 { width: calc(8.33% - 2rem); }
-  .col-2 { width: calc(1.66% - 2rem); }
+  .col-2 { width: calc(16.66% - 2rem); }
   .col-3 { width: calc(25% - 2rem); }
   .col-4 { width: calc(33.33% - 2rem); }
   .col-5 { width: calc(41.66% - 2rem); }
