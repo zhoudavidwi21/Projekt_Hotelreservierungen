@@ -1,0 +1,4 @@
+nach der Registrierung auf register_confirmed.html verlinken
+AGBs-Seite erstellen
+Datenschutz-Seite erstellen
+News-Seite erstellen
