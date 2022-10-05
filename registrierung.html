@@ -13,15 +13,16 @@
     <form action="registrierung.html" method="get">
         <ul>
         <li>
-            <label for="Anrede">Anrede *</label>
-            <br>
-            <select name="Anrede" id="Anrede">
-                <option value=""></option>
-                <option value="Firma">Firma</option>
-                <option value="Herr">Herr</option>
-                <option value="Frau">Frau</option>
-                <option value="Divers">Divers</option>
-            </select>
+            <div>
+            <label for="anrede">Anrede *</label>
+            <select class="form-select" aria-label="Default select example" id="anrede">
+                <option selected>Anrede auswählen</option>
+                <option value="firma">Firma</option>
+                <option value="herr">Herr</option>
+                <option value="frau">Frau</option>
+                <option value="divers">Divers</option>
+              </select>
+            </div>
         </li>
         <li>
             <label for="Firmenname">Firmenname (optional)</label>
