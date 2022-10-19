@@ -2,6 +2,8 @@ nach der Registrierung auf register_confirmed.html verlinken
 AGBs-Seite erstellen - was bedeutet "&nbsp;" ? --> done
 Datenschutz-Seite erstellen --> done
 News-Seite erstellen
+redirect Countdown anzeigen
+
 
 
 
@@ -10,3 +12,16 @@ Vorlagen:
 https://www.hotelpachernighof.at/about/
 https://www.oehv.at/themen-recht/rechtsinformation/agbh-deutsch-1/
 https://www.wko.at/branchen/tourismus-freizeitwirtschaft/hotellerie/Allgemeine_Geschaeftsbedingungen_fuer_die_Hotellerie_(AGBH).html
+
+
+
+
+
+Fotos - Quellenverzeichnis:
+---------------------------
+
+
+
+Befehle, Shortcuts, usw.:
+-------------------------
+"format document" Shift+Alt+F
