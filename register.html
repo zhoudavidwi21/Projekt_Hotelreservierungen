@@ -15,27 +15,18 @@
   <title>Registrierung</title>
 
 
-  <style>
-    main {
-      background-color: rgba(32, 95, 15, 0.278)
-    }
-  </style>
-
   <!-- Template login -->
   <link href="./css_Daten/login_register.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
 
-  <style>
-    body {
-      background-color: rgba(32, 95, 15, 0.278)
-    }
-  </style>
 
   <main class="form-signin w-100 m-auto">
     <form>
+
       <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="" width="144" height="114">
+
       <h1 class="h3 mb-3 fw-normal">Bitte hier registrieren ...</h1>
       <p>* Eingabe erforderlich</p>
 
@@ -91,12 +82,13 @@
 
       <div class="d-grid gap-1">
         <!-- <div class="d-grid gap-1 col-6 mx-auto"> - kleiner und zentriert, geht auch mit m-auto -->
-        <button class="w-100 btn btn-lg btn-primary" type="submit">registrieren</button>
-        <button class="w-100 btn btn-lg btn-primary" type="reset">Eingaben löschen</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit"
+          formaction="register_confirmed.html">registrieren</button>
+
+        <button class="w-100 btn btn-lg btn-outline-primary" type="reset">Eingaben löschen</button>
       </div>
 
 <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
-
 
     </form>
   </main>
