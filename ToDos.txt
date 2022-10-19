@@ -24,4 +24,5 @@ Fotos - Quellenverzeichnis:
 
 Befehle, Shortcuts, usw.:
 -------------------------
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 "format document" Shift+Alt+F
