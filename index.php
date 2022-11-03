@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="" rel="stylesheet">
+
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -20,58 +21,7 @@
 
 <body>
 
-  <!-- Header - Navbar -->
-  <nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Auswahl
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./register.html">registrieren</a></li>
-              <li><a class="dropdown-item" href="./login.html">anmelden</a></li>
-              <li><a class="dropdown-item" href="./reservieren.html">Zimmer reservieren</a></li>
-              <li><a class="dropdown-item" href="./newsbeitraege.html">Newsbeiträge ansehen</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="./datenschutz.html">Datenschutz</a></li>
-              <li><a class="dropdown-item" href="./agbs.html">AGBs</a></li>
-              <li><a class="dropdown-item" href="./hilfe.html">Hilfe/FAQs</a></li>
-              <li><a class="dropdown-item" href="./impressum.html">Impressum</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-        <div class="d-flex gap-1">
-          <a class="btn btn-primary" href="login.html" role="button">anmelden</a>
-          <a class="btn btn-outline-primary" href="register.html" role="button">registrieren</a>
-
-        </div>
-
-        <!--        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        -->
-      </div>
-    </div>
-  </nav>
+<?php include "Commons/header.php"; ?>
 
   <main>
 
@@ -258,37 +208,11 @@
 
     </div><!-- /.container -->
 
-
-    <!-- FOOTER -->
-    <footer class="container">
-      <p class="float-end"><a href="#">Back to top</a></p>
-      <p>© 2017–2022 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </footer>
   </main>
 
+  <?php include "Commons/footer.php"; ?>
 
 
-  <!-- unser Footer -->
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
-
-      <a href="/"
-        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap" />
-        </svg>
-      </a>
-
-      <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="./hilfe.html" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="./impressum.html" class="nav-link px-2 text-muted">Impressum</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">nach oben</a></li>
-      </ul>
-    </footer>
-  </div>
 </body>
 
 </html>
