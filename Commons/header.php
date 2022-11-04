@@ -33,6 +33,10 @@
               <li><a class="dropdown-item" href="register.php">registrieren</a></li>
               <li><a class="dropdown-item" href="login.php">anmelden</a></li>
               <li><a class="dropdown-item" href="reservieren.php">Zimmer reservieren</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="kulinarik.php">Restaurant/Kulinarik</a></li>
               <li><a class="dropdown-item" href="newsbeitraege.php">Newsbeiträge ansehen</a></li>
               <li>
                 <hr class="dropdown-divider">
