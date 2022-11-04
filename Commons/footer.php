@@ -16,7 +16,7 @@
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
         <li class="nav-item"><a href="./hilfe.html" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="./impressum.html" class="nav-link px-2 text-muted">Impressum</a></li>
+        <li class="nav-item"><a href="./impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">nach oben</a></li>
       </ul>
     </footer>

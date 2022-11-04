@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -30,17 +30,17 @@
               Auswahl
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./register.html">registrieren</a></li>
-              <li><a class="dropdown-item" href="./login.html">anmelden</a></li>
-              <li><a class="dropdown-item" href="./reservieren.html">Zimmer reservieren</a></li>
-              <li><a class="dropdown-item" href="./newsbeitraege.html">Newsbeiträge ansehen</a></li>
+              <li><a class="dropdown-item" href="register.php">registrieren</a></li>
+              <li><a class="dropdown-item" href="login.php">anmelden</a></li>
+              <li><a class="dropdown-item" href="reservieren.php">Zimmer reservieren</a></li>
+              <li><a class="dropdown-item" href="newsbeitraege.php">Newsbeiträge ansehen</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="./datenschutz.html">Datenschutz</a></li>
-              <li><a class="dropdown-item" href="./agbs.html">AGBs</a></li>
-              <li><a class="dropdown-item" href="./hilfe.html">Hilfe/FAQs</a></li>
-              <li><a class="dropdown-item" href="./impressum.html">Impressum</a></li>
+              <li><a class="dropdown-item" href="datenschutz.php">Datenschutz</a></li>
+              <li><a class="dropdown-item" href="agbs.php">AGBs</a></li>
+              <li><a class="dropdown-item" href="hilfe_faqs.php">Hilfe/FAQs</a></li>
+              <li><a class="dropdown-item" href="./impressum.php">Impressum</a></li>
             </ul>
           </li>
           <li class="nav-item">

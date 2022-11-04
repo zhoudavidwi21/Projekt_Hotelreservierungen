@@ -1,8 +1,10 @@
-nach der Registrierung auf register_confirmed.html verlinken
+nach der Registrierung auf register_confirmed.html verlinken --> done
 AGBs-Seite erstellen - was bedeutet "&nbsp;" ? --> done
 Datenschutz-Seite erstellen --> done
 News-Seite erstellen
 redirect Countdown anzeigen
+login/register - Spaltenbreiten fluid???
+
 
 
 
