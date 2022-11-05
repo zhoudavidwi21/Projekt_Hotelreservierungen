@@ -1,12 +1,18 @@
+offene Punkte:
+--------------
+News-Seite erstellen
+Reservieren-Seite erstellen
+Impressum Informationspflicht vervollständigen 
+
+
+erledigte Punkte:
+-----------------
 nach der Registrierung auf register_confirmed.html verlinken --> done
 AGBs-Seite erstellen - was bedeutet "&nbsp;" ? --> done
 Datenschutz-Seite erstellen --> done
-News-Seite erstellen
-redirect Countdown anzeigen
-login/register - Spaltenbreiten fluid???
-
-
-
+redirect Countdown anzeigen --> done
+buttons beim Klicken blau -> ändern!!! --> done
+login/register - Spaltenbreiten fluid??? --> done
 
 
 Vorlagen:
@@ -16,7 +22,6 @@ https://www.oehv.at/themen-recht/rechtsinformation/agbh-deutsch-1/
 https://www.wko.at/branchen/tourismus-freizeitwirtschaft/hotellerie/Allgemeine_Geschaeftsbedingungen_fuer_die_Hotellerie_(AGBH).html
 
 reset css --> ausprobieren, löscht alle browserseitigen Einstellungen z.B. bei HTML ohne Bootstrap oder ähnlichen Vorlagen
-
 
 
 
@@ -31,3 +36,8 @@ Befehle, Shortcuts, usw.:
 -------------------------
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 "format document" Shift+Alt+F
+
+Quellen für Scripts, Infos, usw.:
+---------------------------------
+https://stackoverflow.com/questions/4575789/show-redirecting-in-countdown-timer-php
+php.de/forum/webentwicklung/php-einsteiger/91770-countdown-mit-php

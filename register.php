@@ -87,12 +87,10 @@
 
             <div class="d-grid gap-1">
               <!-- <div class="d-grid gap-1 col-6 mx-auto"> - kleiner und zentriert, geht auch mit m-auto -->
-              <button class="w-100 btn btn-lg btn-primary" type="submit" formaction="register_confirmed.php">registrieren</button>
+              <button class="w-100 btn btn-lg btn-primary btn-brown" type="submit" formaction="register_confirmed.php">registrieren</button>
 
-              <button class="w-100 btn btn-lg btn-outline-primary" type="reset">Eingaben löschen</button>
+              <button class="w-100 btn btn-lg btn-outline-primary btn-brown-outline" type="reset">Eingaben löschen</button>
             </div>
-
-            <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 
           </form>
         </main>

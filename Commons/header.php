@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Header</title>
+
+      <!-- Template background -->
+  <link rel="stylesheet" href="css_Daten/button.css">
 </head>
+
 <body>
 
   <!-- Header - Navbar -->
   <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Navigation</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,14 +24,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Startseite</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Auswahl
+              Menü
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="register.php">registrieren</a></li>
@@ -52,8 +56,8 @@
           </li>
         </ul>
         <div class="d-flex gap-1">
-          <a class="btn header-btn btn-primary" href="login.html" role="button">anmelden</a>
-          <a class="btn header-outline-btn btn-outline-primary" href="register.html" role="button">registrieren</a>
+          <a class="btn btn-primary btn-brown" href="login.php" role="button">anmelden</a>
+          <a class="btn btn-brown-outline btn-outline-primary" href="register.php" role="button">registrieren</a>
 
         </div>
 

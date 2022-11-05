@@ -6,23 +6,5 @@ body nav{
     background-color: rgba(170, 106, 34, 0.804)
 }
 
-.header-btn{
-    color:rgba(67, 46, 22, 0.804);
-    background-color: blanchedalmond;
-    border-color:rgb(0, 0, 0);
-    --bs-btn-active-color: var(rgb(203, 34, 54));
-    --bs-btn-hover-bg: #(shade-color (rgba(170, 106, 34, 0.804)));
-    --bs-btn-hover-border-color: #(shade-color (rgb(0, 0, 0)));
-
-}
-
-.header-outline-btn{
-    color:rgba(67, 46, 22, 0.804);
-    border-color:rgb(0, 0, 0);
-    --bs-btn-hover-bg: #(shade-color (rgba(170, 106, 34, 0.804)));
-    --bs-btn-hover-border-color: #(shade-color (rgb(0, 0, 0)));
-
-
-}
 
 

@@ -15,6 +15,7 @@
   <!-- Template background -->
   <link rel="stylesheet" href="css_Daten/background.css">
 
+
 </head>
 
 <body>
@@ -49,9 +50,8 @@
 
             <div class="d-grid gap-1">
               <!-- <div class="d-grid gap-1 col-6 mx-auto"> - kleiner und zentriert, geht auch mit m-auto -->
-              <button class="w-100 btn btn-lg btn-primary" type="submit">anmelden</button>
-
-              <a class="w-100 btn btn-lg btn-primary" href="./register.html" role="button">registrieren</a>
+              <button class="w-100 btn btn-lg btn-primary btn-brown" type="submit">anmelden</button>
+              <a class="w-100 btn btn-lg btn-outline-primary btn-brown-outline" href="./register.php" role="button">registrieren</a>
             </div>
 
           </form>

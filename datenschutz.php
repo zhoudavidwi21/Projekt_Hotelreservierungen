@@ -101,13 +101,13 @@
           auf unserer Webseite bereitgestellt werden.</p>
         <p>Weitere Informationen über den Umgang mit Nutzerdaten des Diensteanbieters „Google“ können Sie der
           Datenschutzerklärung entnehmen:</p>
-        <p><a href="https://policies.google.com/privacy?hl=de">https://policies.google.com/privacy?hl=de</a>.
+        <p><a href="https://policies.google.com/privacy?hl=de" target="_blank">https://policies.google.com/privacy?hl=de</a>.
         </p>
         <p>Google verarbeitet die Daten auch in den USA, hat sich jedoch dem
           <br />
           EU-US Privacy-Shield unterworfen.
         </p>
-        <p><a href="https://www.privacyshield.gov/EU-US-Framework">https://www.privacyshield.gov/EU-US-Framework</a> </p>
+        <p><a href="https://www.privacyshield.gov/EU-US-Framework" target="_blank">https://www.privacyshield.gov/EU-US-Framework</a> </p>
 
         <h5>Google Fonts</h5>
         <p>Unsere Website verwendet Schriftarten von „Google Fonts“. Der Dienstanbieter dieser Funktion ist:</p>
@@ -124,20 +124,20 @@
           von Inhalten. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.</p>
         <p>Weitere Informationen zu Google Fonts erhalten Sie unter folgendem Link:</p>
         <li>
-          <a href="https://developers.google.com/fonts/faq">https://developers.google.com/fonts/faq</a>
+          <a href="https://developers.google.com/fonts/faq" target="_blank">https://developers.google.com/fonts/faq</a>
         </li>
 
         <p>Weitere Informationen über den Umgang mit Nutzerdaten von Google können Sie der Datenschutzerklärung entnehmen:
         </p>
         <li>
-          <a href="https://policies.google.com/privacy?hl=de">https://policies.google.com/privacy?hl=de</a>.
+          <a href="https://policies.google.com/privacy?hl=de" target="_blank">https://policies.google.com/privacy?hl=de</a>.
         </li>
 
         <p>Google verarbeitet die Daten auch in den USA, hat sich jedoch dem
           <br />
           EU-US Privacy-Shield unterworfen.
         </p>
-        <p><a href="https://www.privacyshield.gov/EU-US-Framework">https://www.privacyshield.gov/EU-US-Framework </a></p>
+        <p><a href="https://www.privacyshield.gov/EU-US-Framework" target="_blank">https://www.privacyshield.gov/EU-US-Framework </a></p>
         <h5>Server-Log Files</h5>
         <p>Diese Webseite und der damit verbundene Provider erhebt im Zuge der Webseitennutzung automatisch Informationen
           im Rahmen sogenannter „Server-Log Files“. Dies betrifft insbesondere:</p>
@@ -191,7 +191,7 @@
           <b>Email:</b> office@hotel-zur-kastanie.at
         </p>
 
-        <p>Quelle: <b><a href="https://fairesRecht.at/">fairesRecht.at</a></b> in Kooperation mit <b><a href="https://fairesspiel.at/">Geld zur&uuml;ck fordern Online Glücksspiel</a></b>
+        <p>Quelle: <b><a href="https://fairesRecht.at/" target="_blank">fairesRecht.at</a></b> in Kooperation mit <b><a href="https://fairesspiel.at/" target="_blank">Geld zur&uuml;ck fordern Online Glücksspiel</a></b>
         </p>
 
       </div>

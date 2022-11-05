@@ -10,12 +10,12 @@
       <!-- unser Footer -->
   <div class="container-fluid">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
+      <p class="col-md-4 mb-0 text-muted">&copy; 2022 Hotel zur Kastanie GmbH</p>
 
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="./hilfe.html" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="./hilfe_faqs.php" class="nav-link px-2 text-muted">Hilfe/FAQs</a></li>
         <li class="nav-item"><a href="./impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">nach oben</a></li>
       </ul>
