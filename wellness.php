@@ -19,7 +19,7 @@
 
 <body>
 
-  <?php include "Commons/header.php"; ?>
+  <?php include "commons/header.php"; ?>
 
   <div class="text-center container-fluid">
     <div class="row">
