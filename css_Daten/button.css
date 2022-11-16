@@ -18,4 +18,18 @@
     --bs-btn-active-border-color: rgb(0, 0, 0);
 }
 
-
+/* Button template */
+.btn-test {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: rgb(187, 24, 24); /* Farbe der Schrift */
+    --bs-btn-bg: rgb(24, 89, 230); /* Hintergrundfarbe */
+    --bs-btn-border-color: rgb(89, 230, 24); /* Rahmenfarbe */
+    --bs-btn-border-radius: 0.55rem; /* Rahmenradius */
+    --bs-btn-hover-color: rgb(0, 0, 0); /* Farbe der Schrift beim Hover */
+    --bs-btn-hover-bg: rgb(210, 223, 27); /* Hintergrundfarbe beim Hover */
+    --bs-btn-hover-border-color: rgb(0, 0, 0); /* Rahmenfarbe beim Hover */
+    --bs-btn-focus-shadow-rgb: rgb(174, 0, 255); /* Schattenfarbe beim Fokus */
+    --bs-btn-active-color: rgb(174, 0, 255); /* Farbe der Schrift beim Klick */
+    --bs-btn-active-bg: rgb(0, 255, 191); /* Hintergrundfarbe beim Klick */
+    --bs-btn-active-border-color: rgb(255, 0, 0); /* Rahmenfarbe beim Klick */
+} 
