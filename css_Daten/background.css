@@ -1,11 +1,11 @@
 /*Hintergrund Farbe Website*/
 body{
-    background-color: rgba(72, 216, 35, 0.486);
+    background-color: rgb(54, 78, 199);
 }
 
 /*Hintergrund Farbe Header*/
 body nav{
-    background-color: rgba(0, 66, 0, 0.479);
+    background-color: rgba(219, 0, 37, 0.479);
 }
 
 
