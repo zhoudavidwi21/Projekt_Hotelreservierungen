@@ -28,11 +28,23 @@
       <div class="col-10">
 
         <h1>Köstlichkeiten in unserem Restaurant ...</h1>
-        <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
-        <p>
-          Inhalt fehlt noch !!!
-        </p>
+        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img src="Images/Kulinarik/Kulinarik_01.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Kulinarik/Kulinarik_02.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Kulinarik/Kulinarik_03.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Kulinarik/Kulinarik_04.jpg" class="d-block w-100" alt="">
+            </div>
+          </div>
+        </div>
 
       </div>
       <div class="col">

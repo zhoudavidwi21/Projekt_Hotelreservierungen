@@ -43,10 +43,10 @@
           Tel.: +43 2732 123456789 <br>
           Tel.: +43 2732 123456789 10 <br>
           email: office@hotel-zur-kastanie.at <br>
-          Homepage: <a href="http://projekt-hotel.frischmann.or.at">http://projekt-hotel.frischmann.or.at</a> <br><br>
+          Homepage: <a href="http://projekt-hotel.frischmann.or.at"target="_blank">http://projekt-hotel.frischmann.or.at</a> <br><br>
           Mitglied der WKÖ, WKNÖ, Landesinnung Hotelerie, Bundesinnung Hotelerie <br><br>
           Berufsrecht: <br>
-          Gewerbeordnung: www.ris.bka.gv.at <br> <br>
+          Gewerbeordnung: <a href="http://ris.bka.gv.at"target="_blank">http://ris.bka.gv.at</a><br> <br>
           Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten: <a href="http://ec.europa.eu/odr" target="_blank">http://ec.europa.eu/odr</a>. <br>
           Sie können allfällige Beschwerde auch an die oben angegebene E-Mail-Adresse richten. <br><br>
           Geschäftsführer: <br><br>

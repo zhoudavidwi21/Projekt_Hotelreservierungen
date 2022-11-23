@@ -2,7 +2,8 @@ offene Punkte:
 --------------
 News-Seite erstellen
 Reservieren-Seite erstellen
-Impressum Informationspflicht vervollständigen 
+Bilder index.php und andere carousel-Bilder anpassen
+Fehlermeldung bei Linke-Eingabe auf Seite z.B durch User "Nicht erlaubte Seite - nur für Admins"
 
 
 erledigte Punkte:
@@ -13,6 +14,7 @@ Datenschutz-Seite erstellen --> done
 redirect Countdown anzeigen --> done
 buttons beim Klicken blau -> ändern!!! --> done
 login/register - Spaltenbreiten fluid??? --> done
+Impressum Informationspflicht vervollständigen --> done
 
 -----------
 24.11.2022:
