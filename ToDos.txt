@@ -14,6 +14,10 @@ redirect Countdown anzeigen --> done
 buttons beim Klicken blau -> ändern!!! --> done
 login/register - Spaltenbreiten fluid??? --> done
 
+-----------
+24.11.2022:
+Sessions mit eingeloggten Admin/User der Zugriff auf bestimmte Seiten hat
+
 
 Vorlagen:
 ---------
