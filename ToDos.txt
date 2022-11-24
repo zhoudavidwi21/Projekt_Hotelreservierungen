@@ -2,7 +2,7 @@ offene Punkte:
 --------------
 News-Seite erstellen
 Reservieren-Seite erstellen
-Bilder index.php und andere carousel-Bilder anpassen
+Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern
 Fehlermeldung bei Linke-Eingabe auf Seite z.B durch User "Nicht erlaubte Seite - nur für Admins"
 
 
@@ -44,6 +44,11 @@ Befehle, Shortcuts, usw.:
 -------------------------
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 "format document" Shift+Alt+F
+
+Browser-Cache löschen für Aktualisierung der Website:
+-----------------------------------------------------
+https://hilfe.all-connect.net/de/Browser_zeigt_nach_Aktualisierung_weiter_die_alte_Website
+https://hilfe.all-connect.net/de/Browser-Cache_zu_l%C3%B6schen/Chrome
 
 Quellen für Scripts, Infos, usw.:
 ---------------------------------
