@@ -27,7 +27,7 @@
       </div>
       <div class="col-10">
 
-        <h1>Reservieren</h1>
+        <h1>Zimmer reservieren</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
         <p>

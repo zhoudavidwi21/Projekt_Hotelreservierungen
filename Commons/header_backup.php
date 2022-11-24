@@ -33,8 +33,6 @@
             <a class="nav-link" href="#">Link</a>
           </li>
 -->          
-
-<!-- Menü für alle Personen -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menü
@@ -42,11 +40,11 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="register.php">Registrieren</a></li>
               <li><a class="dropdown-item" href="login.php">Anmelden</a></li>
+              <li><a class="dropdown-item" href="reservieren.php">Zimmer reservieren</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="kulinarik.php">Restaurant/Kulinarik</a></li>
-              <li><a class="dropdown-item" href="zimmer_ansehen.php">Zimmer ansehen</a></li>
               <li><a class="dropdown-item" href="newsbeitraege.php">Newsbeiträge ansehen</a></li>
               <li>
                 <hr class="dropdown-divider">
@@ -61,24 +59,6 @@
             <a class="nav-link disabled">Disabled</a>
           </li>
 -->          
-
-<!-- Menü für eingeloggte Personen -->
-<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Menü
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
-             </ul>
-          </li>
         </ul>
         <div class="d-flex gap-1">
           <a class="btn btn-primary btn-brown" href="login.php" role="button">anmelden</a>
