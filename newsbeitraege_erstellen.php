@@ -22,31 +22,34 @@
   <?php include "Commons/header.php"; ?>
 
   <?php
-  $uploadDir = "uploads/";
+  $uploadDir = "Uploads/";
   //$file = $_FILES["file"];
 
   if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
   }
 
-  //echo "<pre>";print_r($_FILES);"</pre";
+// echo "<pre>";print_r($_FILES);"</pre";
 
   //$testupload = move_uploaded_file($file["tmp_name"])
 
   if (
     $_SERVER["REQUEST_METHOD"] === "POST"
     && isset($_FILES["file"])
-  ) {
-    if (move_uploaded_file(
-      $_FILES["file"]["tmp_name"],
-      $uploadDir . $_FILES["file"]["name"]
-    )) {
-      echo "Datei wurde erfolgreich\n hochgeladen!";
-      echo "<br>";
+    ) {
+        if (move_uploaded_file(
+            $_FILES["file"]["tmp_name"],
+            $uploadDir.$_FILES["file"]["name"]
+        )
+
+    )    {
+        echo "Datei wurde erfolgreich\n hochgeladen!";
+        echo "<br>";
     } else {
-      echo "Fehler beim Upload!\n";
+        echo "Fehler beim Upload!\n";
+        }
     }
-  }
+    
 
   //move_uploaded_file($file["tmp_name"], "uploads/".$file["name"]);
 
@@ -63,30 +66,30 @@
 
         <h4><label for="file">Bitte hier Daten hochladen</label></h4>
         <form enctype="multipart/form-data" method="POST">
-          <input type="file" id="file"><br>
+          <input type="file" id="file" name="file"><br>
           <button class="w-100 btn btn-lg btn-primary btn-brown" type="submit">Upload</button>
         </form>
-        
+
         <div style="text-align: left">
-        <p><h5>Vorhandene Dateien:</h5></p>
-        <ul>
-
-          <?php
-          if (file_exists($uploadDir)) {
-            $files = scandir($uploadDir);
-            //          echo "<pre>";print_r($files);"</pre>";
-            //          0 und 1 überspringen, da (. und ..)
-            //          i = 2; $i < $files.length; $i++
-            for ($i = 2; isset($files[$i]); $i++) {
-              echo "<li>" . $files[$i] . "</li>";
+          <p>
+          <h5>Vorhandene Dateien:</h5>
+          </p>
+          <ul>
+            <?php
+            if (file_exists($uploadDir)) {
+              $files = scandir($uploadDir);
+              //          echo "<pre>";print_r($files);"</pre>";
+              //          0 und 1 überspringen, da (. und ..)
+              //          i = 2; $i < $files.length; $i++
+              for ($i = 2; isset($files[$i]); $i++) {
+                echo "<li>" . $files[$i] . "</li>";
+              }
+              if (count($files) == 2) {
+                echo "<li>Keine Files vorhanden ...</li>";
+              }
             }
-            if (count($files) == 2) {
-              echo "<li>Keine Files vorhanden ...</li>";
-            }
-          }
-          ?>
-
-        </ul>
+            ?>
+          </ul>
         </div>
 
       </div>

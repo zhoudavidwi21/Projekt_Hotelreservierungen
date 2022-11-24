@@ -1,5 +1,5 @@
 <?php
-$uploadDir = "uploads/";
+$uploadDir = "testfiles/";
 //$file = $_FILES["file"];
 
 if (!file_exists($uploadDir)){
@@ -41,7 +41,6 @@ $_SERVER["REQUEST_METHOD"] === "POST"
 <body>
     <form enctype="multipart/form-data" method="POST">
         <label for="file">File</label>
-        <input type="file" id="file" name="file">
         <input type="file" id="file" name="file">
         <br>
         <button type="submit">Upload</button>
