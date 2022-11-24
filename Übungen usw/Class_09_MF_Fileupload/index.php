@@ -6,7 +6,7 @@ if (!file_exists($uploadDir)){
     mkdir($uploadDir);
 }
 
-//echo "<pre>";print_r($file);"</pre";
+echo "<pre>";print_r($_FILES);"</pre";
 
 //$testupload = move_uploaded_file($file["tmp_name"])
 
@@ -19,9 +19,10 @@ $_SERVER["REQUEST_METHOD"] === "POST"
         $uploadDir.$_FILES["file"]["name"]
     )
 ) {
-    echo "Datei wurde erfolgreich hochgeladen!";
+    echo "Datei wurde erfolgreich\n hochgeladen!";
+    echo "<br>";
 } else {
-    echo "Fehler beim Upload!"; 
+    echo "Fehler beim Upload!\n";
     }
 }
 
@@ -41,12 +42,14 @@ $_SERVER["REQUEST_METHOD"] === "POST"
     <form enctype="multipart/form-data" method="POST">
         <label for="file">File</label>
         <input type="file" id="file" name="file">
+        <input type="file" id="file" name="file">
+        <br>
         <button type="submit">Upload</button>
     </form>
     <ul>
 
     <?php
-        if (!file_exists($uploadDir)) {
+        if (file_exists($uploadDir)) {
             $files = scandir($uploadDir);            
 //          echo "<pre>";print_r($files);"</pre>";
 //          0 und 1 überspringen, da (. und ..)
