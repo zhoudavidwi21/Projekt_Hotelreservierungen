@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col">
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-md-5 col-lg-3">
 
         <main class="form-signin w-100 m-auto">
           <form>

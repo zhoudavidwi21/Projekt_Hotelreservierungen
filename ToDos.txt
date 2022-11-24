@@ -3,7 +3,7 @@ offene Punkte:
 News-Seite erstellen
 Reservieren-Seite erstellen
 Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern
-Fehlermeldung bei Linke-Eingabe auf Seite z.B durch User "Nicht erlaubte Seite - nur für Admins"
+Fehlermeldung bei direkter Eingabe einer Seite z.B durch nicht berechtigte Person "Nicht erlaubte Seite - nur für Admins"
 ALT-Daten (für z.B. Blinde angegeben)
 
 erledigte Punkte:

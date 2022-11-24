@@ -20,8 +20,7 @@
       <a class="navbar-brand" href="index.php">
         <img src="Images\Kastanie_transparent.png" alt="Kastanie Logo" width="77" height="57">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -29,12 +28,12 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Startseite</a>
           </li>
-<!--          <li class="nav-item">
+          <!--          <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
--->          
+-->
 
-<!-- Menü für alle Personen -->
+          <!-- Menü für alle Personen -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menü
@@ -57,13 +56,14 @@
               <li><a class="dropdown-item" href="./impressum.php">Impressum</a></li>
             </ul>
           </li>
-<!--          <li class="nav-item">
+          <!--          <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li>
--->          
+          -->
 
-<!-- Menü für eingeloggte Personen -->
-<li class="nav-item dropdown">
+
+          <!-- Menü für eingeloggte Personen -->
+          <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menü
             </a>
@@ -77,20 +77,27 @@
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
-             </ul>
+            </ul>
           </li>
         </ul>
-        <div class="d-flex gap-1">
-          <a class="btn btn-primary btn-brown" href="login.php" role="button">anmelden</a>
-          <a class="btn btn-brown-outline btn-outline-primary" href="register.php" role="button">registrieren</a>
 
-        </div>
+        <ul class="nav justify content-center">      <!-- funktioniert nicht -> überprüfen, wie es funktioniert -->
+          <h3>Hotel zur Kastanie</h3>
+        </ul>
 
-        <!--        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex" role="search">
+          <input class="form-control me-1" type="search" placeholder="Suchen" aria-label="Suchen">
+          <!--          <button class="btn btn-outline-success" type="submit">Suchen</button> -->
+          <button class="btn btn-brown-outline btn-outline-primary me-4" type="submit">Suchen</button>
+
+          <div class="d-flex gap-1">
+            <a class="btn btn-primary btn-brown" href="login.php" role="button">anmelden</a>
+            <a class="btn btn-brown-outline btn-outline-primary" href="register.php" role="button">registrieren</a>
+
+          </div>
         </form>
-        -->
+
+
       </div>
     </div>
   </nav>

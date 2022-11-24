@@ -57,7 +57,7 @@
     <div class="row">
       <div class="col">
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-md-5 col-lg-3">
 
         <h1>Newsbeiträge erstellen</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
@@ -66,7 +66,7 @@
         <form enctype="multipart/form-data" method="POST">
           <div class="d-grid gap-1">
             <label for="file" class="form-label">
-              <h4>Bitte hier Daten hochladen ...</h4>
+              <h4>Bitte hier Daten hochladen</h4>
             </label>
             <input class="form-control" type="file" id="file" name="file">
             <button class="w-100 btn btn-lg btn-primary btn-brown" type="submit">Upload</button>

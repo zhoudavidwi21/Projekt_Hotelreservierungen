@@ -28,7 +28,7 @@ if (
 ){
   session_unset();
   session_destroy();
-  header("Location:" .$_Server["HTTP_REFERER"]);
+  header("Location:".$_SERVER["HTTP_REFERER"]);
   $_SESSION = array();
 }
 ?>
@@ -65,7 +65,7 @@ if (
     <div class="row">
       <div class="col">
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-md-5 col-lg-3">
 
         <main class="form-signin w-100 m-auto">
           <?php if (!isset($_SESSION["username"])) { ?>
@@ -108,7 +108,6 @@ if (
 
       </div>
       <div class="col">
-
       </div>
     </div>
   </div>
