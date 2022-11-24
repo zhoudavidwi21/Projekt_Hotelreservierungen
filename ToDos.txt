@@ -1,10 +1,24 @@
-nach der Registrierung auf register_confirmed.html verlinken
+offene Punkte:
+--------------
+News-Seite erstellen
+Reservieren-Seite erstellen
+Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern
+Fehlermeldung bei Linke-Eingabe auf Seite z.B durch User "Nicht erlaubte Seite - nur für Admins"
+
+
+erledigte Punkte:
+-----------------
+nach der Registrierung auf register_confirmed.html verlinken --> done
 AGBs-Seite erstellen - was bedeutet "&nbsp;" ? --> done
 Datenschutz-Seite erstellen --> done
-News-Seite erstellen
-redirect Countdown anzeigen
+redirect Countdown anzeigen --> done
+buttons beim Klicken blau -> ändern!!! --> done
+login/register - Spaltenbreiten fluid??? --> done
+Impressum Informationspflicht vervollständigen --> done
 
-
+-----------
+24.11.2022:
+Sessions mit eingeloggten Admin/User der Zugriff auf bestimmte Seiten hat
 
 
 Vorlagen:
@@ -12,14 +26,17 @@ Vorlagen:
 https://www.hotelpachernighof.at/about/
 https://www.oehv.at/themen-recht/rechtsinformation/agbh-deutsch-1/
 https://www.wko.at/branchen/tourismus-freizeitwirtschaft/hotellerie/Allgemeine_Geschaeftsbedingungen_fuer_die_Hotellerie_(AGBH).html
+https://codeshack.io/hotel-reservation-form-php/#gettingstarted --> Hotel reservation PHP "Vorlage" Tutorial
+
 
 reset css --> ausprobieren, löscht alle browserseitigen Einstellungen z.B. bei HTML ohne Bootstrap oder ähnlichen Vorlagen
 
 
 
-
 Fotos - Quellenverzeichnis:
 ---------------------------
+https://www.pngegg.com/de/png-wgvyh
+https://www.tripadvisor.co.uk/Restaurant_Review-g608676-d1382117-Reviews-Hazienda-St_Anton_am_Arlberg_Tirol_Austrian_Alps.html#photos;aggregationId=101&albumid=101&filter=7&ff=375776386
 
 
 
@@ -27,3 +44,13 @@ Befehle, Shortcuts, usw.:
 -------------------------
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 "format document" Shift+Alt+F
+
+Browser-Cache löschen für Aktualisierung der Website:
+-----------------------------------------------------
+https://hilfe.all-connect.net/de/Browser_zeigt_nach_Aktualisierung_weiter_die_alte_Website
+https://hilfe.all-connect.net/de/Browser-Cache_zu_l%C3%B6schen/Chrome
+
+Quellen für Scripts, Infos, usw.:
+---------------------------------
+https://stackoverflow.com/questions/4575789/show-redirecting-in-countdown-timer-php
+php.de/forum/webentwicklung/php-einsteiger/91770-countdown-mit-php
