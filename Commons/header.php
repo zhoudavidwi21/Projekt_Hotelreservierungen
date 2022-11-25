@@ -1,7 +1,20 @@
 <?php
+//Hier zusätzlich im Header falls davor vergessen
+//Jedoch kann dann PHP code, der vor dem !DOCTYPE steht und SESSION Parameter benötigt,
+//nicht auf SESSION Parametern zugreifen
 if (!isset($_SESSION)) {
   session_start(); //muss zu beginn von jeder session stehen
-} ?>
+}
+if (!empty($_SESSION)) {
+  if ($_SESSION["role"] === "admin") {
+    echo "Nur Admins können das lesen";
+  } elseif ($_SESSION["role"] === "user") {
+    echo "Nur User können das lesen";
+  }
+} else {
+  echo "Sie sind nicht eingeloggt!";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +29,7 @@ if (!isset($_SESSION)) {
   <link rel="stylesheet" href="css_Daten/button.css">
   <!-- Template background -->
   <link href="./css_Daten/background.css" rel="stylesheet">
-  
+
   <title>Header</title>
 </head>
 

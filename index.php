@@ -1,3 +1,8 @@
+<?php
+//Muss auf jeder Seite vor der HTML sein
+if (!isset($_SESSION)) {
+  session_start(); //muss zu beginn von jeder session stehen
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
