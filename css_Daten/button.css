@@ -19,7 +19,7 @@
 }
 
 /* Button template */
-.btn-test {
+.btn-template {
     --bs-btn-font-weight: 600;
     --bs-btn-color: rgb(187, 24, 24); /* Farbe der Schrift */
     --bs-btn-bg: rgb(24, 89, 230); /* Hintergrundfarbe */

@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION)) {
+  session_start(); //muss zu beginn von jeder session stehen
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +10,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Header</title>
-
-  <!-- Template background -->
+  <!-- Bootstrap implementation -->
+  <?php include "./Commons/bootstrap.php" ?>
+  <!-- Template buttons -->
   <link rel="stylesheet" href="css_Daten/button.css">
+  <!-- Template background -->
+  <link href="./css_Daten/background.css" rel="stylesheet">
+  
+  <title>Header</title>
 </head>
 
 <body>
@@ -20,7 +28,8 @@
       <a class="navbar-brand" href="index.php">
         <img src="Images\Kastanie_transparent.png" alt="Kastanie Logo" width="77" height="57">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -81,7 +90,8 @@
           </li>
         </ul>
 
-        <ul class="nav justify content-center">      <!-- funktioniert nicht -> überprüfen, wie es funktioniert -->
+        <ul class="nav justify content-center">
+          <!-- funktioniert nicht -> überprüfen, wie es funktioniert -->
           <h3>Hotel zur Kastanie</h3>
         </ul>
 
