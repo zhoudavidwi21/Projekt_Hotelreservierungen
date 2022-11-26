@@ -93,11 +93,11 @@
         <form class="d-flex" role="search">
           <input class="form-control me-1" type="search" placeholder="Suchen" aria-label="Suchen">
           <!--          <button class="btn btn-outline-success" type="submit">Suchen</button> -->
-          <button class="btn btn-brown-outline btn-outline-primary me-4" type="submit">Suchen</button>
+          <button class="btn btn-sonstige me-4" type="submit">Suchen</button>
 
           <div class="d-flex gap-1">
-            <a class="btn btn-primary btn-brown" href="login.php" role="button">anmelden</a>
-            <a class="btn btn-brown-outline btn-outline-primary" href="register.php" role="button">registrieren</a>
+            <a class="btn btn-anmelden" href="login.php" role="button">anmelden</a>
+            <a class="btn btn-registrieren" href="register.php" role="button">registrieren</a>
 
           </div>
         </form>

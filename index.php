@@ -1,8 +1,5 @@
-<?php
-//Muss auf jeder Seite vor der HTML sein
-if (!isset($_SESSION)) {
-  session_start(); //muss zu beginn von jeder session stehen
-} ?>
+<?php include "./Commons/sessions.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +97,7 @@ if (!isset($_SESSION)) {
           <!-- <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">Mhhhmmmm ...</text>
           <h2 class="fw-normal">Kulinarik</h2> -->
           <p>Lassen Sie sich in unserem Restaurant kulinarisch verwöhnen ...</p>
-          <p><a class="btn btn-secondary" href="kulinarik.php">Kulinarik »</a></p>
+          <p><a class="btn btn-sonstige" href="kulinarik.php">Kulinarik »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="bd-placeholder-img rounded-circle" width="140" height="140"
@@ -110,7 +107,7 @@ if (!isset($_SESSION)) {
           <!--  <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">Ahhhhhh ...</text>
           <h2 class="fw-normal">Wellness</h2> -->
           <p>Entspannen Sie sich unseren Wellness- und Spa-Bereich ...</p>
-          <p><a class="btn btn-secondary" href="wellness.php">Wellness »</a></p>
+          <p><a class="btn btn-sonstige" href="wellness.php">Wellness »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4 right">
           <img class="bd-placeholder-img rounded-circle" width="140" height="140"
@@ -120,7 +117,7 @@ if (!isset($_SESSION)) {
           <!-- <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">Ohhhhh ...</text>
           <h2 class="fw-normal">Impressionen</h2> -->
           <p>Lassen Sie sich durch diese Impressionen verzaubern ...</p>
-          <p><a class="btn btn-secondary" href="impressionen.php">Impressionen »</a></p>
+          <p><a class="btn btn-sonstige" href="impressionen.php">Impressionen »</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 

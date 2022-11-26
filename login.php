@@ -90,8 +90,8 @@ if (
 
             <div class="d-grid gap-1">
               <!-- <div class="d-grid gap-1 col-6 mx-auto"> - kleiner und zentriert, geht auch mit m-auto -->
-              <button class="w-100 btn btn-lg btn-primary btn-brown" type="submit">anmelden</button>
-              <a class="w-100 btn btn-lg btn-outline-primary btn-brown-outline" href="./register.php"
+              <button class="w-100 btn btn-lg btn-anmelden" type="submit">anmelden</button>
+              <a class="w-100 btn btn-lg btn-registrieren" href="./register.php"
                 role="button">registrieren</a>
             </div>
           </form>
@@ -101,7 +101,7 @@ if (
           </h2>
           <form method="POST">
             <input type="hidden" name="logout" value="true">
-            <button>Logout</button>
+            <button class="btn btn-sonstige">Logout</button>
           </form>
           <?php } ?>
         </main>

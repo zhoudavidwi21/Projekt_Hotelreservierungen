@@ -1,8 +1,5 @@
-<?php
-//Muss auf jeder Seite vor der HTML sein
-if (!isset($_SESSION)) {
-  session_start(); //muss zu beginn von jeder session stehen
-} ?>
+<?php include "./Commons/sessions.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
