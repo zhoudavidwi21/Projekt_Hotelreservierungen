@@ -1,11 +1,5 @@
 <?php include "./Commons/sessions.php"; ?>
 
-<?php
- session_unset();
- session_destroy();
- $_SESSION = array();
- ?>
- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,15 +23,15 @@
       </div>
       <div class="col-10">
 
-        <h1 class="h1 mb-3 fw-normal">Herzlichen Dank für Ihre Registrierung!</h1>
-        <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="" width="144" height="114">
+        <h1 class="h1 mb-3 fw-normal">Sie haben leider keinen Zugriff auf diese Seite</h1>
+        <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanie Logo" width="144" height="114">
         <br>
 
         <script type="text/javascript">
-          (function () {
+          (function() {
             var timeLeft = 5,
               cinterval;
-            var timeDec = function () {
+            var timeDec = function() {
               timeLeft--;
               document.getElementById('countdown').innerHTML = timeLeft;
               if (timeLeft === 0) {

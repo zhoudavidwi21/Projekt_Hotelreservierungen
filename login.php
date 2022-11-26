@@ -1,7 +1,6 @@
+<?php include "./Commons/sessions.php"; ?>
+
 <?php
-if (!isset($_SESSION)){
-  session_start(); //muss zu beginn von jeder session stehen
-}
 //Zur Ausgabe von den Session Parametern:
 /* echo "<pre>";
 print_r($_SESSION);
