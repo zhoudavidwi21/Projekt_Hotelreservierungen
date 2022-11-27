@@ -1,7 +1,7 @@
 <?php
 
 //Wenn ein angemeldeter Nutzer auf die Seite zugreifen will --> fehler
-if($_SESSION['role'] != "guest"){
+if($_SESSION['role'] !== "guest"){
   header('location: ./error.php');
   exit();
 }

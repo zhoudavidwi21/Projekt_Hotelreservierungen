@@ -7,6 +7,12 @@ print_r($_SESSION);
 "</pre>"; */
 //--------------------------------------------
 
+//Nur uneingeloggte User können auf Login zugreifen
+if ($_SESSION['role'] !== "guest") {
+  header('location: ./error.php');
+  exit();
+}
+
 //Login hardcoded Rolle Admin
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (
@@ -19,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   ) {
     $_SESSION["username"] = $_POST["username"];
     $_SESSION["role"] = "admin";
+    header('Location: ./profil.php');
   } elseif (
     isset($_POST["username"])
     && isset($_POST["password"])
@@ -29,19 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   ) {
     $_SESSION["username"] = $_POST["username"];
     $_SESSION["role"] = "user";
+    header('Location: ./profil.php');
   }
-}
-
-//Logout Funktion 
-if (
-  $_SERVER["REQUEST_METHOD"] === "POST" 
-  && isset($_POST["logout"]) 
-  && $_POST["logout"] === "true"
-){
-  session_unset();
-  session_destroy();
-  header("Location:".$_SERVER["HTTP_REFERER"]);
-  $_SESSION = array();
 }
 ?>
 
@@ -53,7 +49,7 @@ if (
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Anmeldung</title>
 </head>
 
@@ -70,16 +66,27 @@ if (
         <main class="form-signin w-100 m-auto">
           <?php if (!isset($_SESSION["username"])) { ?>
           <form method="POST">
-            <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="" width="144" height="114">
+            <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
             <h1 class="h3 mb-3 fw-normal">Bitte hier anmelden ...</h1>
 
+
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="Benutzername" name="username">
+              <input type="text" class="form-control has-validation
+              <?php if (isset($_POST['username']) && $_SESSION['role'] === 'guest') {
+              echo "is-invalid";
+            } ?>" id="floatingInput" placeholder="Benutzername" name="username">
               <label for="floatingInput">Benutzername</label>
+
             </div>
             <div class="form-floating">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+              <input type="password" class="form-control has-validation
+              <?php if (isset($_POST['username']) && $_SESSION['role'] === 'guest') {
+              echo "is-invalid";
+            } ?>" id="floatingPassword" placeholder="Passwort" name="password" aria-describedby="validationLogin">
               <label for="floatingPassword">Passwort</label>
+              <div id="validationLogin" class="invalid-feedback">
+                Benutzername und Passwort stimmen nicht überein.
+              </div>
             </div>
 
             <div class="checkbox mt-3 mb-3">
@@ -91,17 +98,8 @@ if (
             <div class="d-grid gap-1">
               <!-- <div class="d-grid gap-1 col-6 mx-auto"> - kleiner und zentriert, geht auch mit m-auto -->
               <button class="w-100 btn btn-lg btn-anmelden" type="submit">anmelden</button>
-              <a class="w-100 btn btn-lg btn-registrieren" href="./register.php"
-                role="button">registrieren</a>
+              <a class="w-100 btn btn-lg btn-registrieren" href="./register.php" role="button">registrieren</a>
             </div>
-          </form>
-          <?php } else { ?>
-          <h2>Hello
-            <?php echo $_SESSION["username"]; ?>
-          </h2>
-          <form method="POST">
-            <input type="hidden" name="logout" value="true">
-            <button class="btn btn-sonstige">Logout</button>
           </form>
           <?php } ?>
         </main>

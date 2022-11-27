@@ -1,4 +1,11 @@
 <?php include "./Commons/sessions.php"; ?>
+<?php 
+//Nur Admins können Newsbeiträge erstellen
+if(isset($_SESSION['role']) && $_SESSION['role'] !== "admin"){
+  header('location: ./error.php');
+  exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

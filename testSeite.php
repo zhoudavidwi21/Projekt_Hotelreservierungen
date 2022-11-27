@@ -11,6 +11,5 @@
 </head>
 <body>
     <?php include "./Commons/header.php"; ?>
-    <?php echo '<h1> TEST </h1>'; ?>
 </body>
 </html>

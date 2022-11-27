@@ -32,22 +32,13 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Startseite</a>
           </li>
-          <!--          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
--->
 
-          <!-- Menü für alle Personen -->
+          <!-- Menü für alle Personen START -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menü
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="register.php">Registrieren</a></li>
-              <li><a class="dropdown-item" href="login.php">Anmelden</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
               <li><a class="dropdown-item" href="kulinarik.php">Restaurant/Kulinarik</a></li>
               <li><a class="dropdown-item" href="zimmer_ansehen.php">Zimmer ansehen</a></li>
               <li><a class="dropdown-item" href="newsbeitraege.php">Newsbeiträge ansehen</a></li>
@@ -60,51 +51,46 @@
               <li><a class="dropdown-item" href="./impressum.php">Impressum</a></li>
             </ul>
           </li>
-          <!--          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-          -->
-
-
-          <!-- Menü für eingeloggte Personen -->
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Menü
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <ul class="nav justify content-center">
-          <!-- funktioniert nicht -> überprüfen, wie es funktioniert -->
-          <h3>Hotel zur Kastanie</h3>
-        </ul>
-
-        <form class="d-flex" role="search">
-          <input class="form-control me-1" type="search" placeholder="Suchen" aria-label="Suchen">
-          <!--          <button class="btn btn-outline-success" type="submit">Suchen</button> -->
-          <button class="btn btn-sonstige me-4" type="submit">Suchen</button>
-
-          <div class="d-flex gap-1">
-            <a class="btn btn-anmelden" href="login.php" role="button">anmelden</a>
-            <a class="btn btn-registrieren" href="register.php" role="button">registrieren</a>
-
-          </div>
-        </form>
-
+          <!-- Menü für alle Personen END-->
 
       </div>
+      <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === "user" || $_SESSION['role'] === "admin")) { ?>
+      <!-- Menü für eingeloggte Personen START-->
+      <div class="d-flex gap-1 dropdown">
+        <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <?php echo $_SESSION['username']; ?>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <?php if ($_SESSION['role'] === "admin") { ?>
+          <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <?php } ?>
+
+          
+          <li>
+            <form method="POST">
+              <button class="dropdown-item" name="logout" value="true">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <!-- Menü für eingeloggte Personen END-->
+      <?php } else { ?>
+      <div class="d-flex gap-1">
+        <a class="btn btn-anmelden" href="login.php" role="button">anmelden</a>
+        <a class="btn btn-registrieren" href="register.php" role="button">registrieren</a>
+      </div>
+      <?php } ?>
+
     </div>
+
   </nav>
 
 
