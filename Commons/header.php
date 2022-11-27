@@ -61,6 +61,10 @@
           <?php echo $_SESSION['username']; ?>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="profil.php">Profil bearbeiten</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
           <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
           <li>
             <hr class="dropdown-divider">
@@ -73,7 +77,7 @@
           </li>
           <?php } ?>
 
-          
+
           <li>
             <form method="POST">
               <button class="dropdown-item" name="logout" value="true">Logout</button>

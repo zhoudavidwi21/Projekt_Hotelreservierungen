@@ -1,3 +1,7 @@
+.dropdown-menu{
+    --bs-dropdown-link-active-bg: rgb(138, 83, 0); /* Farbe Hintergrund von Dropdown-items beim Klick*/
+}
+
 .btn-anmelden {
     --bs-btn-font-weight: 600;
     --bs-btn-color: rgba(67, 46, 22, 0.804); /* Farbe der Schrift */
