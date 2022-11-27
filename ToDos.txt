@@ -5,6 +5,7 @@ Reservieren-Seite erstellen
 Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern
 Fehlermeldung bei direkter Eingabe einer Seite z.B durch nicht berechtigte Person "Nicht erlaubte Seite - nur für Admins"
 ALT-Daten (für z.B. Blinde angegeben)
+Links braun statt blau??? oder so belassen???
 
 erledigte Punkte:
 -----------------
@@ -15,10 +16,25 @@ redirect Countdown anzeigen --> done
 buttons beim Klicken blau -> ändern!!! --> done
 login/register - Spaltenbreiten fluid??? --> done
 Impressum Informationspflicht vervollständigen --> done
+Sessions mit eingeloggten Admin/User der Zugriff auf bestimmte Seiten hat --> done
 
------------
-24.11.2022:
-Sessions mit eingeloggten Admin/User der Zugriff auf bestimmte Seiten hat
+Video-Meilenstein:
+------------------
+ToDos:
+Menü user/admin erweitern mit funktionierenden Seiten
+Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
+Bildverkleinerung serverseitig
+Featurettes fertig stellen (auf Startseite)
+
+
+--> Storyboard:
+Seiten komplett präsentieren (kurz)
+Registrierung durchführen (mit/ohne Fehler inkl. User/Admin-Meldung "Dieser Benutzername ist leider schon vergeben")
+    --> Mail-Adresse mit @ und .
+    --> PW mit Groß-/Kleinbuchstaben und Ziffern erforderlich
+    --> admin/user schon vorhanden (s.o.) --> Seite nicht erlaubt
+Weiterleitung nach Registrierung/Logout mit 5sec-Counter auf Startseite zurück
+Anmeldung als Admin --> Menü zeigen 
 
 
 Vorlagen:
