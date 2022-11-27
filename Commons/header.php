@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap implementation -->
-  <?php include "./Commons/bootstrap.php" ?>
-  <!-- Template buttons -->
+  <?php include "Commons/bootstrap.php" ?>
+  <!-- Template but./tons -->
   <link rel="stylesheet" href="css_Daten/button.css">
   <!-- Template background -->
   <link href="./css_Daten/background.css" rel="stylesheet">
@@ -48,7 +48,7 @@
               <li><a class="dropdown-item" href="datenschutz.php">Datenschutz</a></li>
               <li><a class="dropdown-item" href="agbs.php">AGBs</a></li>
               <li><a class="dropdown-item" href="hilfe_faqs.php">Hilfe/FAQs</a></li>
-              <li><a class="dropdown-item" href="./impressum.php">Impressum</a></li>
+              <li><a class="dropdown-item" href="impressum.php">Impressum</a></li>
             </ul>
           </li>
           <!-- Menü für alle Personen END-->
