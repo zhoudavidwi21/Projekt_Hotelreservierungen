@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $number = preg_match('@[0-9]@', $password);
     //$uppercase = preg_match('@[^\w]@', $password); kann man auch, aber zu mühsam jetzt
     if (!$uppercase || !$lowercase || !$number || strlen($password) < 5) {
-      $passwordErr = "Ihr Passwort muss mindestens 5 Zeichen lang sein und sollte einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer enthalten.";
+      $passwordErr = "Ihr Passwort muss mindestens 5 Zeichen lang sein und muss einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer enthalten.";
     }
   }
 
