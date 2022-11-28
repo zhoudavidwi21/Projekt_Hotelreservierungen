@@ -75,7 +75,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
             </label>
             <input class="form-control" type="file" id="file" name="file" accept="application/pdf, image/*">
             <p class="fw-lighter">
-              Es wird empfohlen Bilder mit einem Verhältnis von x:y hochzuladen, da es sonst bei Thumbnails zu
+              Es wird empfohlen Bilder mit einem Verhältnis von 1:1 hochzuladen, da es sonst bei Thumbnails zu
               Verzerrungen kommen kann.
             </p>
             <button class="w-100 btn btn-lg btn-sonstige" type="submit">Upload</button>
