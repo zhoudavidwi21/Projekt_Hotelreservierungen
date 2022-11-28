@@ -58,16 +58,20 @@
 
       </div>
       <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === "user" || $_SESSION['role'] === "admin")) { ?>
-        <!-- Menü für eingeloggte Personen START-->
-        <div class="d-flex gap-1 dropdown">
-          <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php echo $_SESSION['username']; ?>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+      <!-- Menü für eingeloggte Personen START-->
+      <div class="d-flex gap-1 dropdown">
+        <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <?php echo $_SESSION['username']; ?>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="profil.php">Profil bearbeiten</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
             <?php if ($_SESSION['role'] === "admin") { ?>
               <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
@@ -77,14 +81,14 @@
             <?php } ?>
 
 
-            <li>
-              <form method="POST">
-                <button class="dropdown-item" name="logout" value="true">Logout</button>
-              </form>
-            </li>
-          </ul>
-        </div>
-        <!-- Menü für eingeloggte Personen END-->
+          <li>
+            <form method="POST">
+              <button class="dropdown-item" name="logout" value="true">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <!-- Menü für eingeloggte Personen END-->
       <?php } else { ?>
         <div class="d-flex gap-1">
           <a class="btn btn-anmelden" href="login.php" role="button">anmelden</a>

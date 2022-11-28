@@ -27,33 +27,39 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
   <?php
   $uploadDir = "Uploads/";
+  $thumbnailDir = "thumbnail/";
   //$file = $_FILES["file"];
+  
   if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
+    if (!file_exists($uploadDir . $thumbnailDir)) {
+      mkdir($uploadDir . $thumbnailDir);
+    }
   }
   // echo "<pre>";print_r($_FILES);"</pre";
+  
   //$testupload = move_uploaded_file($file["tmp_name"])
+  
   if (
     $_SERVER["REQUEST_METHOD"] === "POST"
     && isset($_FILES["file"])
   ) {
-    if (move_uploaded_file(
-      $_FILES["file"]["tmp_name"],
-      $uploadDir . $_FILES["file"]["name"]
-    )) {
-      //      echo "<p class='green'>";
-      echo "Datei wurde erfolgreich\n hochgeladen!<br />";
-      //      echo "TEST";
-
-      echo "<br>";
+    if (
+      move_uploaded_file(
+        $_FILES["file"]["tmp_name"],
+        $uploadDir . $_FILES["file"]["name"]
+      )
+    ) {
+      echo
+        'Datei erfolgreich hochgeladen';
     } else {
-      echo "Fehler beim Upload!<br />";
-      //      echo "<p class='red' Fehler beim Upload!\n"; -> prüfen ob 'red' funktionieren würde!!!
+      echo
+        'Fehler beim Hochladen';
     }
   }
 
   //move_uploaded_file($file["tmp_name"], "uploads/".$file["name"]);
-
+  
   ?>
 
   <div class="text-center container-fluid">
@@ -71,8 +77,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
             <label for="file" class="form-label">
               <h4>Bitte hier Daten hochladen</h4>
             </label>
-            <input class="form-control" type="file" id="file" name="file">
-            <button class="w-100 btn btn-lg btn-primary btn-brown" type="submit">Upload</button>
+            <input class="form-control" type="file" id="file" name="file" accept="application/pdf, image/*">
+            <p class="fw-lighter">
+              Es wird empfohlen Bilder mit einem Verhältnis von x:y hochzuladen, da es sonst bei Thumbnails zu
+              Verzerrungen kommen kann.
+            </p>
+            <button class="w-100 btn btn-lg btn-sonstige" type="submit">Upload</button>
           </div>
         </form>
 
