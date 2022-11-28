@@ -38,17 +38,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     && isset($_FILES["file"])
   ) {
     //folgender Teil schränkt auf .gif,.jpeg,.jpg,.png ein
-    //  if ($_FILES['file']['type'] == "image/.gif,image/.jpeg,image/.jpg,image/.png") {
-    $datei = $_FILES["file"]["name"];
-    $dateityp = strtolower(pathinfo($datei, PATHINFO_EXTENSION));
-    if (
-      $dateityp != "gif" &&
-      $dateityp != "jpeg" &&
-      $dateityp != "jpg" &&
-      $dateityp != "png"
-    ) {
-      echo "ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png aktzeptiert!<br />";
-    } else {
+  //  if ($_FILES['file']['type'] == "image/.gif,image/.jpeg,image/.jpg,image/.png") {
+//if ($_FILES['file']['type'] == "image/.png") {
       //folgender Teil schränkt auf Größe ein
       if ($_FILES['file']['size'] > 10000000) {
         //           echo "<p class='red'>";
@@ -64,7 +55,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
             $uploadDir . $_FILES["file"]["name"]
           )) {
             //                   echo "<p class='green'>";
-            echo "Die Datei ";
+            echo "Die Datei ";  
             echo $_FILES["file"]["name"];
             echo " wurde erfolgreich hochgeladen!<br />";
             echo "<br>";
@@ -73,8 +64,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
           }
         }
       }
+/*    } else {
+      //       echo "<p class='red'>";
+      echo "ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png aktzeptiert!<br />";
     }
-  }
+    */
+ }
 
   // echo "<pre>";print_r($_FILES);"</pre";
 
@@ -111,14 +106,15 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
         <h1>Newsbeiträge erstellen</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
-        <!-- <h4><label for="file">Bitte hier Daten hochladen</label></h4> -->
+        <!--       <h4><label for="file">Bitte hier Daten hochladen</label></h4> -->
         <form enctype="multipart/form-data" method="POST">
           <div class="d-grid gap-1">
             <label for="file" class="form-label">
               <h4>Bitte hier Daten hochladen</h4>
             </label>
-            <!-- <input class="form-control" type="file" id="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png"> -->
-            <input class="form-control" type="file" id="file" name="file" accept="image/*">
+<!--            <input class="form-control" type="file" id="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png">
+-->
+            <input class="form-control" type="file" id="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png">
             <p class="fw-lighter">
               Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen zu Verzerrungen kommen kann.
             </p>
