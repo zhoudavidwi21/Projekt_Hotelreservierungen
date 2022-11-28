@@ -99,6 +99,7 @@ PHP/Tutorials/File Upload
 https://wiki.selfhtml.org/wiki/PHP/Tutorials/File_Upload
 https://www.php-kurs.com/upload-dateien-mit-php.htm
 https://code.tutsplus.com/de/tutorials/how-to-check-if-a-file-exists-in-php--cms-37074
+!!! https://falconbyte.net/php-dateien-hochladen.php !!!
 
 11 Ways to Center Div or Text in Div in CSS
 https://blog.hubspot.com/website/center-div-css#:~:text=To%20center%20a%20div%20horizontally,equally%20between%20the%20two%20margins.
@@ -108,3 +109,6 @@ https://www.w3schools.com/css/css_image_transparency.asp
 
 GD Images extension für PHP freischalten/installieren (benötigt um Bilder zu verkleinern)
 https://www.geeksforgeeks.org/how-to-install-php-gd-in-windows/
+
+Beispiele für große Bilder - SATELLITE IMAGES SAMPLES
+https://effigis.com/en/solutions/satellite-images/satellite-image-samples/
