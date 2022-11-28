@@ -27,7 +27,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
   <?php
   $uploadDir = "Uploads/";
-  $thumbnailDir = "Uploads/Thumbnails/";
   //$file = $_FILES["file"];
 
   if (!file_exists($uploadDir)) {
