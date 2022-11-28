@@ -28,7 +28,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
   <?php
   $uploadDir = "Uploads/";
   //$file = $_FILES["file"];
-
+  
   if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
   }
@@ -58,10 +58,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
           //                echo "<p class='red'>";
           echo "ACHTUNG - diese Datei ist schon vorhanden!";
         } else {
-          if (move_uploaded_file(
-            $_FILES["file"]["tmp_name"],
-            $uploadDir . $_FILES["file"]["name"]
-          )) {
+          if (
+            move_uploaded_file(
+              $_FILES["file"]["tmp_name"],
+              $uploadDir . $_FILES["file"]["name"]
+            )
+          ) {
             //                   echo "<p class='green'>";
             echo "Die Datei ";
             echo $_FILES["file"]["name"];
@@ -95,7 +97,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
             <!-- <input class="form-control" type="file" id="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png"> -->
             <input class="form-control" type="file" id="file" name="file" accept="image/*">
             <p class="fw-lighter">
-              Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen zu Verzerrungen kommen kann.
+              Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im
+              quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen zu
+              Verzerrungen kommen kann.
             </p>
             <button class="w-100 btn btn-lg btn-sonstige" type="submit">Upload</button>
           </div>

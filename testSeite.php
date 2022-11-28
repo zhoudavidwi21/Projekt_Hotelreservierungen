@@ -2,11 +2,17 @@
 
 <?php
 $uploadDir = "Uploads/";
+$thumbnailDir = "thumbnails/";
+
+$thumbnailPath = $uploadDir . $thumbnailDir;
 
 if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
 }
 
+if (!file_exists($thumbnailPath)) {
+    mkdir($thumbnailPath, 0777, true);
+}
 //echo "<pre>";print_r($_FILES);"</pre";
 
 //Erlaubte Dateiformate
@@ -43,6 +49,7 @@ if (
         ;
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -99,6 +106,30 @@ if (
                 <img src="" alt="">
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <?php
+                    if (file_exists($thumbnailPath)) {
+                        $files = scandir($thumbnailPath);
+                        /*echo "<pre>";
+                        print_r($files);
+                        "</pre>";*/
+
+                        for ($i = 2; isset($files[$i]); $i++) {
+                            if ($files[$i] != "." && $files[$i] != "..") {
+                                echo "<a href=\"Uploads/$files[$i]\" target= blank>$files[$i]</a><br />";
+                                echo " --> ";
+                                echo "<a href=\"Uploads/$files[$i]\"download>Download</a><br />";
+                                echo ("<br />");
+                            }
+                            //               echo "<li>" . $files[$i] . "</li>";
+                        }
+                        if (count($files) == 2) {
+                            echo "Keine Files vorhanden ...";
+                            //                echo "<li>Keine Files vorhanden ...</li>";
+                            //                echo "<p class='red' <li>Keine Files vorhanden ...</li>";
+                        }
+                    }
+
+                    ?>
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="bd-placeholder-img card-img-top img-thumbnail" src="http://www.w3.org/2000/svg"
