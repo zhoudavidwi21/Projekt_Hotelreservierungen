@@ -129,7 +129,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
                 echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
                 echo " --> ";
                 echo "<a href=\"Uploads/$files\"download>Download</a><br />";                
-                echo "<img src='Uploads/$files' width='180px' height='180px'><br />";
+                echo "<img src='Uploads/$files' width='200px' height='200px'><br />";
                 echo ("<br />");
               }
             }

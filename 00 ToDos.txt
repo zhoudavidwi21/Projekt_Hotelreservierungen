@@ -19,15 +19,15 @@ Sessions mit eingeloggten Admin/User der Zugriff auf bestimmte Seiten hat --> do
 Fehlermeldung bei direkter Eingabe einer Seite z.B durch nicht berechtigte Person "Nicht erlaubte Seite - nur für Admins" --> done
 Featurettes fertig stellen (auf Startseite) --> done
 Zimmer ansehen fertig machen --> done
+unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen --> done
+Menü user/admin erweitern mit funktionierenden Seiten --> done
 
 Video-Meilenstein:
 ------------------
 ToDos:
-Menü user/admin erweitern mit funktionierenden Seiten --> done
-Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
-Bildverkleinerung serverseitig
-unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen --> done
 
+Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
+Bildverkleinerung serverseitig ~~> partially done
 
 --> Storyboard:
 Seiten komplett präsentieren (kurz)
