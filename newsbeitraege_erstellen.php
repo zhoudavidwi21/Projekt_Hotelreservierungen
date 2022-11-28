@@ -27,14 +27,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
   <?php
   $uploadDir = "Uploads/";
-  $thumbnailDir = "thumbnail/";
   //$file = $_FILES["file"];
   
   if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
-    if (!file_exists($uploadDir . $thumbnailDir)) {
-      mkdir($uploadDir . $thumbnailDir);
-    }
   }
   // echo "<pre>";print_r($_FILES);"</pre";
   
