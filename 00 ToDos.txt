@@ -105,3 +105,6 @@ https://blog.hubspot.com/website/center-div-css#:~:text=To%20center%20a%20div%20
 
 CSS Opacity / Transparency
 https://www.w3schools.com/css/css_image_transparency.asp
+
+GD Images extension für PHP freischalten/installieren (benötigt um Bilder zu verkleinern)
+https://www.geeksforgeeks.org/how-to-install-php-gd-in-windows/

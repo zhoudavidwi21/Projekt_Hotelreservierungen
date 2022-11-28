@@ -32,9 +32,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
   if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
-    if (!file_exists($uploadDir . $thumbnailDir)) {
-      mkdir($uploadDir . $thumbnailDir);
-    }
   }
   if (
     $_SERVER["REQUEST_METHOD"] === "POST"
