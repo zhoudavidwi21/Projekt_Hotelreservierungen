@@ -30,15 +30,25 @@ if (
 
     //Checkt ob die gespeicherte $ext im $allowed array drin is, wenn mehr Formate erlaubt --> allowed array erweitern s. oben
     if (in_array($ext, $allowed)) {
-        if (
-            move_uploaded_file(
-                $_FILES["file"]["tmp_name"],
-                $uploadDir . $_FILES["file"]["name"]
-            )
-        ) {
-            echo 'Datei erfolgreich hochgeladen';
+        if (!file_exists($uploadDir.$filename)) {
+            if (
+                move_uploaded_file(
+                    $_FILES["file"]["tmp_name"],
+                    $uploadDir . $_FILES["file"]["name"]
+                )
+            ) {
+                $filepath = $uploadDir . $filename;
+                if (createThumbnail($filename, $filepath, $ext, $thumbnailPath)) {
+                    echo 'Thumbnail erfolgreich erstellt <br>';
+                } else {
+                    echo 'Fehler beim Erstellen des Thumbnail <br>';
+                }
+                echo 'Datei erfolgreich hochgeladen';
+            } else {
+                echo 'Fehler beim Hochladen \r\n';
+            }
         } else {
-            echo 'Fehler beim Hochladen';
+            echo 'Fehler: Die Datei "' .$filename .'" gibt es bereits.';
         }
     } else {
         echo 'Fehler: Bitte nur folgende Bildformate hochladen: ';
@@ -49,7 +59,37 @@ if (
         ;
     }
 }
+function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
+{
+    // Get new sizes
+    list($width, $height) = getimagesize($filepath);
+    $newwidth = 200;
+    $newheight = 200;
 
+    // Load
+    $thumb = imagecreatetruecolor($newwidth, $newheight);
+
+    switch ($ext) {
+        case 'png':
+            $source = imagecreatefrompng($filepath);
+            break;
+
+        case 'jpeg' || 'jpg':
+            $source = imagecreatefromjpeg($filepath);
+            break;
+    }
+
+    // Resize
+    imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+    // Output
+    switch ($ext) {
+        case 'png':
+            return imagepng($thumb, $thumbnailPath . 'thumb_' . $filename);
+        case 'jpeg' || 'jpg':
+            return imagejpeg($thumb, $thumbnailPath . 'thumb_' . $filename);
+    }
+}
 ?>
 
 <!DOCTYPE html>
