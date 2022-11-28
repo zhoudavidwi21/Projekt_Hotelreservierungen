@@ -36,47 +36,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
       mkdir($uploadDir . $thumbnailDir);
     }
   }
-  if (
-    $_SERVER["REQUEST_METHOD"] === "POST"
-    && isset($_FILES["file"])
-  ) {
-    //folgender Teil schränkt auf .gif,.jpeg,.jpg,.png ein
-  //  if ($_FILES['file']['type'] == "image/.gif,image/.jpeg,image/.jpg,image/.png") {
- //     if ($_FILES['file']['type'] == "image/.png") {
-      //folgender Teil schränkt auf Größe ein
-      if ($_FILES['file']['size'] > 10000000) {
-        //           echo "<p class='red'>";
-        echo "ACHTUNG - Datei zu groß - max. 10 MByte sind erlaubt!";
-      } else {
-        //folgender Teil überprüft, ob Datei schon vorhanden ist
-        if (file_exists($uploadDir . $_FILES["file"]["name"])) {
-          //                echo "<p class='red'>";
-          echo "ACHTUNG - diese Datei ist schon vorhanden!";
-        } else {
-          if (move_uploaded_file(
-            $_FILES["file"]["tmp_name"],
-            $uploadDir . $_FILES["file"]["name"]
-          )) {
-            //                   echo "<p class='green'>";
-            echo "Die Datei ";  
-            echo $_FILES["file"]["name"];
-            echo " wurde erfolgreich hochgeladen!<br />";
-            echo "<br>";
-          } else {
-            echo "Fehler beim Hochladen!<br />";
-          }
-        }
-      }
-    } else {
-      //       echo "<p class='red'>";
-      echo "ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png aktzeptiert!<br />";
-    }
- // }
-
   // echo "<pre>";print_r($_FILES);"</pre";
 
   //$testupload = move_uploaded_file($file["tmp_name"])
-  /* 
+
   if (
     $_SERVER["REQUEST_METHOD"] === "POST"
     && isset($_FILES["file"])
@@ -88,13 +51,13 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
       )
     ) {
       echo
-        'Datei erfolgreich hochgeladen';
+      'Datei erfolgreich hochgeladen';
     } else {
       echo
-        'Fehler beim Hochladen';
+      'Fehler beim Hochladen';
     }
   }
-*/
+
   //move_uploaded_file($file["tmp_name"], "uploads/".$file["name"]);
 
   ?>
@@ -114,11 +77,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
             <label for="file" class="form-label">
               <h4>Bitte hier Daten hochladen</h4>
             </label>
-<!--            <input class="form-control" type="file" id="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png">
--->
-            <input class="form-control" type="file" id="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png">
+            <input class="form-control" type="file" id="file" name="file" accept="image/*">
             <p class="fw-lighter">
-              Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen zu Verzerrungen kommen kann.
+              Die Bilder bitte im quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Größen zu Verzerrungen kommen kann.
             </p>
             <button class="w-100 btn btn-lg btn-sonstige" type="submit">Upload</button>
           </div>
