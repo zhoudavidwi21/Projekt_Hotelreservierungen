@@ -2,9 +2,9 @@ offene Punkte:
 --------------
 News-Seite erstellen
 Reservieren-Seite erstellen
-Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern
 ALT-Daten (für z.B. Blinde angegeben)
 Links braun statt blau??? oder so belassen???
+Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
 
 erledigte Punkte:
 -----------------
@@ -21,13 +21,12 @@ Featurettes fertig stellen (auf Startseite) --> done
 Zimmer ansehen fertig machen --> done
 unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen --> done
 Menü user/admin erweitern mit funktionierenden Seiten --> done
+Bildverkleinerung serverseitig --> done
+Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern -->
 
 Video-Meilenstein:
 ------------------
 ToDos:
-
-Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
-Bildverkleinerung serverseitig ~~> partially done
 
 --> Storyboard:
 Seiten komplett präsentieren (kurz)
