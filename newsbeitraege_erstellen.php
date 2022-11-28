@@ -77,30 +77,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     }
   }
 
-  // echo "<pre>";print_r($_FILES);"</pre";
-  
-  //$testupload = move_uploaded_file($file["tmp_name"])
-  /* 
-  if (
-  $_SERVER["REQUEST_METHOD"] === "POST"
-  && isset($_FILES["file"])
-  ) {
-  if (
-  move_uploaded_file(
-  $_FILES["file"]["tmp_name"],
-  $uploadDir . $_FILES["file"]["name"]
-  )
-  ) {
-  echo
-  'Datei erfolgreich hochgeladen';
-  } else {
-  echo
-  'Fehler beim Hochladen';
-  }
-  }
-  */
-  //move_uploaded_file($file["tmp_name"], "uploads/".$file["name"]);
-  
   ?>
 
   <div class="text-center container-fluid">
@@ -156,7 +132,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
               if ($files != "." && $files != "..") {
                 echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
                 echo " --> ";
-                echo "<a href=\"Uploads/$files\"download>Download</a><br />";
+                echo "<a href=\"Uploads/$files\"download>Download</a><br />";                
+                echo "<img src='Uploads/$files' width='180px' height='180px'><br />";
                 echo ("<br />");
               }
             }

@@ -23,10 +23,10 @@ Zimmer ansehen fertig machen --> done
 Video-Meilenstein:
 ------------------
 ToDos:
-Menü user/admin erweitern mit funktionierenden Seiten
+Menü user/admin erweitern mit funktionierenden Seiten --> done
 Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
 Bildverkleinerung serverseitig
-unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen
+unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen --> done
 
 
 --> Storyboard:
@@ -112,3 +112,8 @@ https://www.geeksforgeeks.org/how-to-install-php-gd-in-windows/
 
 Beispiele für große Bilder - SATELLITE IMAGES SAMPLES
 https://effigis.com/en/solutions/satellite-images/satellite-image-samples/
+
+Bilder aus einem Verzeichnis anzeigen
+https://snippets.cacher.io/snippet/66783a517ec6dc68706b
+https://www.php-kurs.com/beispiel-bildergalerie-erstellen.htm
+https://www.tutorials.de/threads/alle-bilder-aus-einem-ordner-anzeigen.386338/#:~:text=Das%20ist%20der%20Code%20daf%C3%BCr,readdir(%24dh))%20!%3D%3D
