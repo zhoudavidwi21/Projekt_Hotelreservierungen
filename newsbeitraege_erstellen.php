@@ -46,7 +46,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
       $dateityp != "jpg" &&
       $dateityp != "png"
     ) {
-      echo "ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png aktzeptiert!<br />";
+      echo "ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png akzeptiert!<br />";
     } else {
       //folgender Teil schränkt auf Größe ein
       if ($_FILES['file']['size'] > 10000000) {
