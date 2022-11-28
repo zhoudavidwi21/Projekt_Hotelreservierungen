@@ -16,7 +16,7 @@ if (!file_exists($thumbnailPath)) {
 //echo "<pre>";print_r($_FILES);"</pre";
 
 //Erlaubte Dateiformate
-$allowed = array('png', 'jpg', 'jpeg');
+$allowed = array('png', 'jpg', 'jpeg', 'gif');
 
 if (
     $_SERVER["REQUEST_METHOD"] === "POST"
@@ -73,7 +73,9 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
         case 'png':
             $source = imagecreatefrompng($filepath);
             break;
-
+        case 'gif':
+            $source = imagecreatefromgif($filepath);
+            break;
         case 'jpeg' || 'jpg':
             $source = imagecreatefromjpeg($filepath);
             break;
@@ -86,6 +88,8 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
     switch ($ext) {
         case 'png':
             return imagepng($thumb, $thumbnailPath . 'thumb_' . $filename);
+        case 'gif':
+            imagegif($thumb, $thumbnailPath . 'thumb_' . $filename);
         case 'jpeg' || 'jpg':
             return imagejpeg($thumb, $thumbnailPath . 'thumb_' . $filename);
     }
