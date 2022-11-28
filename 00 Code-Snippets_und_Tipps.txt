@@ -1,0 +1,27 @@
+Uploads:
+--------
+            // Der Punkt steht für das Verzeichnis, in der auch dieses
+            // PHP-Programm gespeichert ist
+            $uploadDir = "Uploads/";
+            echo "<ol>";
+
+            // Test, ob es sich um ein Verzeichnis handelt
+            if (is_dir($uploadDir)) {
+              // öffnen des Verzeichnisses
+              if ($handle = opendir($uploadDir)) {             
+                // einlesen der Verzeichnisses
+                while (($files = readdir($handle)) !== false) {
+                  
+                  echo "<li>Dateiname: ";
+//                  echo $files;
+                  echo "<a href=\"Uploads\ $files\">$files</a> ";
+
+//                  echo "<ul><li>Dateityp: ";
+//                  echo filetype($files);
+//                  echo "</li></ul>\n";
+                }
+                closedir($handle);
+              }
+            }
+            echo "</ol>";
+00 Code-Snippets_und_Tipps

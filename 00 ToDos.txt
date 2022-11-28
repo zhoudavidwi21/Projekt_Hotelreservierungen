@@ -3,7 +3,6 @@ offene Punkte:
 News-Seite erstellen
 Reservieren-Seite erstellen
 Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern
-Fehlermeldung bei direkter Eingabe einer Seite z.B durch nicht berechtigte Person "Nicht erlaubte Seite - nur für Admins"
 ALT-Daten (für z.B. Blinde angegeben)
 Links braun statt blau??? oder so belassen???
 
@@ -17,6 +16,9 @@ buttons beim Klicken blau -> ändern!!! --> done
 login/register - Spaltenbreiten fluid??? --> done
 Impressum Informationspflicht vervollständigen --> done
 Sessions mit eingeloggten Admin/User der Zugriff auf bestimmte Seiten hat --> done
+Fehlermeldung bei direkter Eingabe einer Seite z.B durch nicht berechtigte Person "Nicht erlaubte Seite - nur für Admins" --> done
+Featurettes fertig stellen (auf Startseite) --> done
+Zimmer ansehen fertig machen --> done
 
 Video-Meilenstein:
 ------------------
@@ -24,7 +26,7 @@ ToDos:
 Menü user/admin erweitern mit funktionierenden Seiten
 Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
 Bildverkleinerung serverseitig
-Featurettes fertig stellen (auf Startseite)
+unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen
 
 
 --> Storyboard:
@@ -34,7 +36,8 @@ Registrierung durchführen (mit/ohne Fehler inkl. User/Admin-Meldung "Dieser Ben
     --> PW mit Groß-/Kleinbuchstaben und Ziffern erforderlich
     --> admin/user schon vorhanden (s.o.) --> Seite nicht erlaubt
 Weiterleitung nach Registrierung/Logout mit 5sec-Counter auf Startseite zurück
-Anmeldung als Admin --> Menü zeigen 
+Anmeldung als user/admin --> Menü zeigen 
+optional, wenn fertig: Bilderalbum, Newsbeiträge Textfeld
 
 
 Vorlagen:
@@ -61,6 +64,13 @@ Befehle, Shortcuts, usw.:
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 "format document" Shift+Alt+F
 
+Tipps:
+------
+Wenn du . und .. direkt aus dem Array Entfernen willst, das durch scandir erstellt wird, kann ich dir die Funktion array_diff empfehlen!
+$files = array_diff(scandir('/home/uvulpos/Desktop'), ['.', '..']);
+
+
+
 Browser-Cache löschen für Aktualisierung der Website:
 -----------------------------------------------------
 https://hilfe.all-connect.net/de/Browser_zeigt_nach_Aktualisierung_weiter_die_alte_Website
@@ -70,3 +80,28 @@ Quellen für Scripts, Infos, usw.:
 ---------------------------------
 https://stackoverflow.com/questions/4575789/show-redirecting-in-countdown-timer-php
 php.de/forum/webentwicklung/php-einsteiger/91770-countdown-mit-php
+
+Links diverse:
+--------------
+Direkte Downloads mit dem „download“ Attribute
+https://kau-boys.de/3322/webentwicklung/direct-downloads-with-the-download-attribute
+
+Zeilenumbrüche mit echo (Thema: PHP Beispiele) - Wie genau Zeilenumbrüche bei Ausgaben von echo() erzeugt werden.
+http://www.rither.de/a/informatik/php-beispiele/grundlagen/zeilenumbrueche-mit-echo/
+
+text-align – Text ausrichten
+https://www.mediaevent.de/css/text.html
+
+Datei upload nur für pdf
+https://www.php.de/forum/webentwicklung/php-einsteiger/php-tipps-2004-2/14056-datei-upload-nur-f%C3%BCr-pdf
+
+PHP/Tutorials/File Upload
+https://wiki.selfhtml.org/wiki/PHP/Tutorials/File_Upload
+https://www.php-kurs.com/upload-dateien-mit-php.htm
+https://code.tutsplus.com/de/tutorials/how-to-check-if-a-file-exists-in-php--cms-37074
+
+11 Ways to Center Div or Text in Div in CSS
+https://blog.hubspot.com/website/center-div-css#:~:text=To%20center%20a%20div%20horizontally,equally%20between%20the%20two%20margins.
+
+CSS Opacity / Transparency
+https://www.w3schools.com/css/css_image_transparency.asp

@@ -26,8 +26,7 @@
           <!-- Carousel START -->
           <div id="carouselHotel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="2" aria-label="Slide 3"></button>
               <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -48,7 +47,7 @@
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="7500">
-                <img src="./Images/Hotel/Hotel_Zimmer1.jpg" class="d-block w-100" alt="Hotel Zimmer">
+                <img src="./Images/Zimmer/Zimmer_02.jpg" class="d-block w-100" alt="Hotel Zimmer">
                 <div class="carousel-caption d-none d-md-block">
                 </div>
               </div>
@@ -90,9 +89,7 @@
       <br>
       <div class="row round-circle">
         <div class="col-lg-4">
-          <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-            src="Images/Kulinarik/Kulinarik_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
+          <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="Images/Kulinarik/Kulinarik_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Kulinarik</title>
           <!-- <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">Mhhhmmmm ...</text>
           <h2 class="fw-normal">Kulinarik</h2> -->
@@ -100,9 +97,7 @@
           <p><a class="btn btn-sonstige" href="kulinarik.php">Kulinarik »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-            src="Images/Wellness/Wellness_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
+          <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="Images/Wellness/Wellness_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Wellness</title>
           <!--  <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">Ahhhhhh ...</text>
           <h2 class="fw-normal">Wellness</h2> -->
@@ -110,9 +105,7 @@
           <p><a class="btn btn-sonstige" href="wellness.php">Wellness »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4 right">
-          <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-            src="Images/Impressionen/Impressionen_01_quadratisch_140x140.jpg" role="img"
-            aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="Images/Impressionen/Impressionen_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Impressionen</title>
           <!-- <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">Ohhhhh ...</text>
           <h2 class="fw-normal">Impressionen</h2> -->
@@ -128,8 +121,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">Restaurants und Weinkeller <br> <span
-              class="text-muted">Wohlfühlen bis zum letzten Bissen und Tropfen!</span></h2>
+          <h2 class="featurette-heading fw-normal lh-1">Restaurants und Weinkeller <br> <span class="text-muted">Wohlfühlen bis zum letzten Bissen und Tropfen!</span></h2>
           <p class="lead">Unsere Lokalitäten und der Weinkeller laden zu den verschiedensten Köstlichkeiten ein ...</p>
         </div>
         <div class="col-md-5">
@@ -169,8 +161,6 @@
             </div>
           </div>
 
-
-
           <!--  
           <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="Images/Weinkeller/Weinkeller_04.jpg" role="img" aria-label="Placeholder: 140x140" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
@@ -182,23 +172,43 @@
 
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for
-              yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-            layout would work with some actual real-world content in place.</p>
+          <h2 class="featurette-heading fw-normal lh-1">Suiten und Zimmer <br><span class="text-muted">Träumen wie auf Wolken!</span></h2>
+          <p class="lead">Ihr Aufenthalt wird zum einem absoluten Traum, aus dem Sie nicht mehr aufwachen wollen ...</p>
         </div>
         <div class="col-md-5 order-md-1">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa"
-              dy=".3em">500x500</text>
-          </svg>
 
+        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_01_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_02_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_03_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_04_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_05_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_06_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Zimmer/Zimmer_07_600x400.jpg" class="d-block w-100" alt="">
+            </div>
+            </div>
+          </div>
+          <!--         <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+          </svg> -->
         </div>
       </div>
-
+      <!--
       <hr class="featurette-divider">
 
       <div class="row featurette">
@@ -210,18 +220,16 @@
             actual content. Your content.</p>
         </div>
         <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa"
-              dy=".3em">500x500</text>
+            <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
           </svg>
 
         </div>
       </div>
 
       <hr class="featurette-divider">
+      -->
 
       <!-- /END THE FEATURETTES -->
 

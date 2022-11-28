@@ -23,8 +23,7 @@
       <a class="navbar-brand" href="index.php">
         <img src="Images\Kastanie_transparent.png" alt="Kastanie Logo" width="77" height="57">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,9 +38,13 @@
               Menü
             </a>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="unsere_geschichte.php">Unsere Geschichte</a></li>
+              <li><a class="dropdown-item" href="newsbeitraege.php">Newsbeiträge ansehen</a></li>
               <li><a class="dropdown-item" href="kulinarik.php">Restaurant/Kulinarik</a></li>
               <li><a class="dropdown-item" href="zimmer_ansehen.php">Zimmer ansehen</a></li>
-              <li><a class="dropdown-item" href="newsbeitraege.php">Newsbeiträge ansehen</a></li>
+              <li><a class="dropdown-item" href="wellness.php">Wellness</a></li>
+              <li><a class="dropdown-item" href="impressionen.php">Impressionen</a></li>
+
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -55,38 +58,38 @@
 
       </div>
       <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === "user" || $_SESSION['role'] === "admin")) { ?>
-      <!-- Menü für eingeloggte Personen START-->
-      <div class="d-flex gap-1 dropdown">
-        <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo $_SESSION['username']; ?>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+        <!-- Menü für eingeloggte Personen START-->
+        <div class="d-flex gap-1 dropdown">
+          <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo $_SESSION['username']; ?>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="zimmer_reservieren.php">Zimmer reservieren</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-          <?php if ($_SESSION['role'] === "admin") { ?>
-          <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <?php } ?>
+            <?php if ($_SESSION['role'] === "admin") { ?>
+              <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            <?php } ?>
 
-          
-          <li>
-            <form method="POST">
-              <button class="dropdown-item" name="logout" value="true">Logout</button>
-            </form>
-          </li>
-        </ul>
-      </div>
-      <!-- Menü für eingeloggte Personen END-->
+
+            <li>
+              <form method="POST">
+                <button class="dropdown-item" name="logout" value="true">Logout</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+        <!-- Menü für eingeloggte Personen END-->
       <?php } else { ?>
-      <div class="d-flex gap-1">
-        <a class="btn btn-anmelden" href="login.php" role="button">anmelden</a>
-        <a class="btn btn-registrieren" href="register.php" role="button">registrieren</a>
-      </div>
+        <div class="d-flex gap-1">
+          <a class="btn btn-anmelden" href="login.php" role="button">anmelden</a>
+          <a class="btn btn-registrieren" href="register.php" role="button">registrieren</a>
+        </div>
       <?php } ?>
 
     </div>

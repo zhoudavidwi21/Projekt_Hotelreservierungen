@@ -25,7 +25,7 @@
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
         <p>
-          Inhalt fehlt noch !!!
+          In Arbeit !!!
         </p>
 
       </div>

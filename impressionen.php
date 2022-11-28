@@ -37,6 +37,9 @@
             <div class="carousel-item" data-bs-interval="2000">
               <img src="Images/Impressionen/Impressionen_05_600square.jpg" class="d-block w-100" alt="">
             </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="Images/Impressionen/Impressionen_06_600square.jpg" class="d-block w-100" alt="">
+            </div>
           </div>
         </div>
 
