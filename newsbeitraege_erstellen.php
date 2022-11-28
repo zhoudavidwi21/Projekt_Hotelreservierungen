@@ -129,7 +129,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
             $uploadDir = openDir('Uploads/');
             while ($files = readDir($uploadDir)) {
-              if ($files != "." && $files != "..") {
+              if ($files != "." && $files != ".." && $files != "thumbnails") {
                 echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
                 echo " --> ";
                 echo "<a href=\"Uploads/$files\"download>Download</a><br />";                
