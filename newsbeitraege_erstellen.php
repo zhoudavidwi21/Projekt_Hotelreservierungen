@@ -17,7 +17,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
   <title>Newsbeiträge erstellen</title>
 
-  <link href="./css_Daten/colors.css" rel="stylesheet">
+  <link href="./css_Daten/colors_MF.css" rel="stylesheet">
 
 </head>
 
@@ -28,7 +28,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
   <?php
   $uploadDir = "Uploads/";
   //$file = $_FILES["file"];
-  
+
   if (!file_exists($uploadDir)) {
     mkdir($uploadDir);
   }
@@ -37,7 +37,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     && isset($_FILES["file"])
   ) {
     //folgender Teil schränkt auf .gif,.jpeg,.jpg,.png ein
-    //  if ($_FILES['file']['type'] == "image/.gif,image/.jpeg,image/.jpg,image/.png") {
     $datei = $_FILES["file"]["name"];
     $dateityp = strtolower(pathinfo($datei, PATHINFO_EXTENSION));
     if (
@@ -46,17 +45,15 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
       $dateityp != "jpg" &&
       $dateityp != "png"
     ) {
-      echo "ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png akzeptiert!<br />";
+      echo "<p class='red'> ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png akzeptiert! </p><br />";
     } else {
       //folgender Teil schränkt auf Größe ein
       if ($_FILES['file']['size'] > 10000000) {
-        //           echo "<p class='red'>";
-        echo "ACHTUNG - Datei zu groß - max. 10 MByte sind erlaubt!";
+        echo "<p class='red'> ACHTUNG - Datei zu groß - max. 10 MByte sind erlaubt! </p>";
       } else {
         //folgender Teil überprüft, ob Datei schon vorhanden ist
         if (file_exists($uploadDir . $_FILES["file"]["name"])) {
-          //                echo "<p class='red'>";
-          echo "ACHTUNG - diese Datei ist schon vorhanden!";
+          echo "<p class='red'> ACHTUNG - diese Datei ist schon vorhanden! </p>";
         } else {
           if (
             move_uploaded_file(
@@ -64,13 +61,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
               $uploadDir . $_FILES["file"]["name"]
             )
           ) {
-            //                   echo "<p class='green'>";
-            echo "Die Datei ";
+            echo "<p class='green'>Die Datei ";
             echo $_FILES["file"]["name"];
-            echo " wurde erfolgreich hochgeladen!<br />";
+            echo " wurde erfolgreich hochgeladen! </p><br />";
             echo "<br>";
           } else {
-            echo "Fehler beim Hochladen!<br />";
+            echo "<p class='green'> Fehler beim Hochladen! </p><br />";
           }
         }
       }
@@ -132,7 +128,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
               if ($files != "." && $files != ".." && $files != "thumbnails") {
                 echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
                 echo " --> ";
-                echo "<a href=\"Uploads/$files\"download>Download</a><br />";                
+                echo "<a href=\"Uploads/$files\"download>Download</a><br />";
                 echo "<img src='Uploads/$files' width='200px' height='200px'><br />";
                 echo ("<br />");
               }

@@ -82,6 +82,9 @@ php.de/forum/webentwicklung/php-einsteiger/91770-countdown-mit-php
 
 Links diverse:
 --------------
+Hintergrundbilder platzieren/wiederholen und fixieren – background-image:
+https://www.html-seminar.de/css-bilder-hintergrundbilder-background.htm
+
 Direkte Downloads mit dem „download“ Attribute
 https://kau-boys.de/3322/webentwicklung/direct-downloads-with-the-download-attribute
 
