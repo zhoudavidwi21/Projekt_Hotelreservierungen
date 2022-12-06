@@ -13,7 +13,7 @@ if ($_SESSION['role'] !== "guest") {
   exit();
 }
 
-//Login hardcoded Rolle Admin
+//Login hardcoded Rolle Admin und User
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (
     isset($_POST["username"])
