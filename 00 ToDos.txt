@@ -22,7 +22,8 @@ Zimmer ansehen fertig machen --> done
 unsere_geschichte.php fertigstellen (MF) und passende Fotos einbauen --> done
 Menü user/admin erweitern mit funktionierenden Seiten --> done
 Bildverkleinerung serverseitig --> done
-Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern -->
+Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern --> done
+Icon (Kastanie_transparent_ico) eingebaut --> done
 
 Video-Meilenstein:
 ------------------
