@@ -76,7 +76,7 @@
             <h5>Produkte & Leistungen aus dem Hotellerie-Branchenkatalog</h5>
           </strong>
           5-Sterne-Betrieb <br>
-          eigener Parkplatz - Fernseher im Zimmer - Garage - Hunde erlaubt - Personenaufzug im Haus <br>
+          eigener Parkplatz - Fernseher im Zimmer - Garage - Hunde erlaubt - Personenaufzug im Haus - kostenloses Wlan <br>
           Bar - Frühstücksbuffet - Minibar im Zimmer <br>
           eigenes Freischwimmbecken und Hallenbad - Fitnessraum - hoteleigener Garten/Park - Liegewiese - Nichtraucherzone - Sauna/Dampfbad/Whirlpool <br>
           Kreditkarten werden akzeptiert <br>

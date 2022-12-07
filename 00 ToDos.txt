@@ -46,7 +46,7 @@ https://www.hotelpachernighof.at/about/
 https://www.oehv.at/themen-recht/rechtsinformation/agbh-deutsch-1/
 https://www.wko.at/branchen/tourismus-freizeitwirtschaft/hotellerie/Allgemeine_Geschaeftsbedingungen_fuer_die_Hotellerie_(AGBH).html
 https://codeshack.io/hotel-reservation-form-php/#gettingstarted --> Hotel reservation PHP "Vorlage" Tutorial
-
+https://firmen.wko.at/ferdinand-schachner-gesellschaft-mbh-hotel-restaurant-schachner/nieder%c3%b6sterreich/?firmaid=c7d40677-9dfa-4a80-85e6-1ecf3c7cb61f&suchbegriff=hotel%20schachner
 
 reset css --> ausprobieren, löscht alle browserseitigen Einstellungen z.B. bei HTML ohne Bootstrap oder ähnlichen Vorlagen
 
@@ -120,3 +120,6 @@ Bilder aus einem Verzeichnis anzeigen
 https://snippets.cacher.io/snippet/66783a517ec6dc68706b
 https://www.php-kurs.com/beispiel-bildergalerie-erstellen.htm
 https://www.tutorials.de/threads/alle-bilder-aus-einem-ordner-anzeigen.386338/#:~:text=Das%20ist%20der%20Code%20daf%C3%BCr,readdir(%24dh))%20!%3D%3D
+
+<button>: The Button element
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
