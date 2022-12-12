@@ -23,8 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       && $_POST["password"] === "admin"
     )
   ) {
+    $_SESSION["userId"] = 1;
     $_SESSION["username"] = $_POST["username"];
     $_SESSION["role"] = "admin";
+    $_SESSION['loginTime'] = time();
     header('Location: ./profil.php');
   } elseif (
     isset($_POST["username"])
@@ -34,11 +36,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       && $_POST["password"] === "user"
     )
   ) {
+    $_SESSION["userId"] = 2;
     $_SESSION["username"] = $_POST["username"];
     $_SESSION["role"] = "user";
+    $_SESSION['loginTime'] = time();
     header('Location: ./profil.php');
   }
 }
+
+if (isset($_POST['remember']) &&  $_POST['remember'] == true) {
+  $cookieDuration = 31536000; //valid for 1 year
+  setcookie('userId', $_SESSION['userId'], time() + $cookieDuration, "/");
+  setcookie('username', $_POST['username'], time() + $cookieDuration, "/");
+  setcookie('loginCookie', $cookieDuration, time() + $cookieDuration, "/");
+}
+
 ?>
 
 
@@ -91,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="checkbox mt-3 mb-3">
               <label>
-                <input type="checkbox" value="remember-me"> Angaben speichern
+                <input type="checkbox" name="remember" value=true> Eingeloggt bleiben
               </label>
             </div>
 
