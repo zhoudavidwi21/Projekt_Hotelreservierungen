@@ -3,8 +3,10 @@ offene Punkte:
 News-Seite erstellen
 Reservieren-Seite erstellen
 ALT-Daten (für z.B. Blinde angegeben)
-Links braun statt blau??? oder so belassen??? z.B. auch bei Hilfe & FAQs
 Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite
+Profil bearbeiten für User und Admin
+Reservierungen verwalten für Admin
+Benutzer verwalten für Admin
 
 erledigte Punkte:
 -----------------
@@ -26,6 +28,8 @@ Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern --> d
 Icon (Kastanie_transparent_ico) eingebaut --> done
 
 Video-Meilenstein: --> done
+Links braun statt blau??? oder so belassen??? z.B. auch bei Hilfe & FAQs --> done
+
 ------------------
 ToDos:
 

@@ -28,7 +28,7 @@ if (
 ){
   session_unset();
   session_destroy();
-  header("Location: ./index.php");
+  header("Refresh:1; url=./index.php");
   $_SESSION = array();
 }
 ?>

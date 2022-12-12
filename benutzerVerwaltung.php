@@ -1,8 +1,7 @@
 <?php include "./Commons/sessions.php"; ?>
-
 <?php
-//Nur Admins können Newsbeiträge erstellen
-if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
+//Nur Admins können Benutzer verwalten
+if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
   header('location: ./error.php');
   exit();
 }
@@ -16,20 +15,24 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Zimmer reservieren</title>
+  <title>Benutzer verwalten</title>
+
+  <link href="./css_Daten/colors_MF.css" rel="stylesheet">
+
 </head>
 
 <body>
 
   <?php include "Commons/header.php"; ?>
 
+  <!-- Benutzer anzeigen -->
   <div class="text-center container-fluid">
     <div class="row">
       <div class="col">
       </div>
       <div class="col-10">
 
-        <h1>Zimmer reservieren</h1>
+        <h1>Benutzer verwalten</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
         <p>
@@ -41,6 +44,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
       </div>
     </div>
   </div>
+  <!-- Benutzer verwalten -->
 
   <?php include "Commons/footer.php"; ?>
 

@@ -74,6 +74,10 @@
           </li>
 
             <?php if ($_SESSION['role'] === "admin") { ?>
+              <li><a class="dropdown-item" href="benutzerVerwaltung.php">Benutzer verwalten</a></li>
+
+              <li><a class="dropdown-item" href="reservierungenVerwaltung.php">Reservierungen verwalten</a></li>
+
               <li><a class="dropdown-item" href="newsbeitraege_erstellen.php">Newsbeiträge erstellen</a></li>
               <li>
                 <hr class="dropdown-divider">

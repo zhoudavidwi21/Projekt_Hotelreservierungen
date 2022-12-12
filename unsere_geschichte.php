@@ -20,7 +20,7 @@
       <div class="col">
       </div>
       <div class="col-12">
-        <h5>VON DAMALS UND HEUTE</h5>
+        <h5 class="mt-3">VON DAMALS UND HEUTE</h5>
         <h1>Unsere Chronik</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
