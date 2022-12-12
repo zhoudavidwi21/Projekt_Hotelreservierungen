@@ -9,19 +9,33 @@ if ($_SESSION['role'] === "guest") {
 <?php
 $passwordHash = "test1234";
 $successfullyChanged = false;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    if (
+        isset($_POST["submit"])
+        && isset($_POST["oldPassword"])
+        && (!isset($_POST["newEmail"]) //Überprüft ob es überhaupt eine Änderung gibt
+            || !isset($_POST["newUsername"])
+            || !isset($_POST["newPassword"]))
+    ) {
+        if (
+            //password_verify($_POST["oldPassword"], $passwordHash
+            $_POST["oldPassword"] == "12345" //Testdaten löschen dann
+        ) {
+            //Überprüfung der Daten ob sie änderbar sind (Passwort Länge, Benutzernamen Verfügbarkeit
+            //und Email Verifizierung)
 
-if (isset($_POST["submit"]) && isset($_POST["oldPassword"])) {
-    if (password_verify($_POST["oldPassword"], $passwordHash)){
-        //Überprüfung der Daten ob sie änderbar sind (Passwort Länge, Benutzernamen Verfügbarkeit
-        //und Email Verifizierung)
+
+            //Daten in der Datenbank ändern (die die gesetzt sind)
 
 
-        //Daten in der Datenbank ändern (die die gesetzt sind)
-
-
-        $successfullyChanged = true;
+            $successfullyChanged = true;
+        }
     }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +55,24 @@ if (isset($_POST["submit"]) && isset($_POST["oldPassword"])) {
         <h2 class="mt-5">Hallo
             <?php echo $_SESSION["username"]; ?>!
         </h2>
+
+        <?php if (isset($_POST["submit"])) {
+            if (isset($successfullyChanged) && $successfullyChanged) { ?>
+        <div class="alert alert-success" role="alert">
+            Änderungen erfolgreich!
+        </div>
+
+        <?php } else { ?>
+        <div class="alert alert-danger" role="alert">
+           Fehler bei den Änderungen! 
+           <br>
+           Stellen Sie sicher, dass Sie das Passwort richtig eingegeben haben
+        </div>
+
+        <?php }
+            //do nothing
+        } ?>
+
         <form method="POST">
 
             <!-- Block Email Start -->
@@ -116,7 +148,7 @@ if (isset($_POST["submit"]) && isset($_POST["oldPassword"])) {
             </div>
             <!-- Block Passwort Ende -->
 
-            
+
 
             <div>
                 <button class="btn btn-sonstige" type="submit" name="submit" value="true">Ändern</button>
