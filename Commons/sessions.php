@@ -20,15 +20,24 @@ if ($_SESSION["role"] === "admin") {
 }
 */
 
-//Logout Funktion 
-if (
-  $_SERVER["REQUEST_METHOD"] === "POST" 
-  && isset($_POST["logout"]) 
-  && $_POST["logout"] === "true"
-){
-  session_unset();
-  session_destroy();
-  header("Location: ./index.php");
-  $_SESSION = array();
+if (isset($_COOKIE['loginCookie'])) {
+  $sessionDuration = $_COOKIE['loginCookie'];
+} else {
+  $sessionDuration = 3600; // 1 hour
+}
+
+if (isset($_COOKIE['loginCookie']) && isset($_COOKIE['userId'])) {
+  $_SESSION['userId'] = $_COOKIE['userId'];
+  if($_SESSION['userId'] == 1){
+    $_SESSION['username'] = 'admin';
+    $_SESSION['role'] = 'admin';
+  } elseif ($_SESSION['userId'] == 2) {
+    $_SESSION['username'] = 'user';
+    $_SESSION['role'] = 'user';
+  }
+}
+
+if(isset($_SESSION['loginTime']) && time() >= $_SESSION['loginTime'] + $sessionDuration){
+  header('Refresh: 1; url=Commons/logout.php');
 }
 ?>

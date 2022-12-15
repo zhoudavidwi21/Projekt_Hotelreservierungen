@@ -9,6 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Startseite</title>
+  <link rel="icon" type="image/x-icon" href="/Images/Kastanie_transparent_ico.ico">
+
 </head>
 
 <body>

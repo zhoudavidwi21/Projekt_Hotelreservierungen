@@ -13,7 +13,7 @@
 
 <body>
 
-  <?php include "commons/header.php"; ?>
+  <?php include "Commons/header.php"; ?>
 
   <div class="text-center container-fluid">
     <div class="row">

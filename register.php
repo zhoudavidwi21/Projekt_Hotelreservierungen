@@ -1,6 +1,6 @@
-<?php include "./Commons/sessions.php"; ?>
+<?php include "Commons/sessions.php"; ?>
 
-<?php include "./Commons/registration_validation.php"; ?>
+<?php include "Commons/registration_validation.php"; ?>
 
 <?php
 if (isset($_POST["submit"])) {
@@ -51,8 +51,8 @@ if (isset($_POST["submit"])) {
             <p>* Eingabe erforderlich</p>
 
             <div class="mb-1">
-              <label for="anrede" hidden>Anrede *</label>
-              <select class="form-select has-validation
+<!--              <label for="anrede" hidden>Anrede *</label>  --> 
+             <select class="form-select has-validation
               <?php validityClass($genderErr, "gender"); ?>" aria-label="Default select example" id="anrede"
                 name="gender" aria-describedby="validationGender">
                 <option value="" <?php if ($_SESSION['regGender']=="") { echo 'selected';
@@ -65,7 +65,7 @@ if (isset($_POST["submit"])) {
                 } ?>>Frau</option>
                 <option value="divers" <?php if ($_SESSION['regGender']=="divers") { echo 'selected';
                 } ?>>Divers</option>
-              </select>
+              </select>   
               <?php invalidFeedback($genderErr, "validationGender"); ?>
             </div>
 

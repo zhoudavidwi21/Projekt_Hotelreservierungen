@@ -38,7 +38,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
 
       </div>
       <div class="col">
-
       </div>
     </div>
   </div>

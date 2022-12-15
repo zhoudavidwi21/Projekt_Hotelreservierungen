@@ -82,6 +82,21 @@
                     </div>
                   </div>
                 </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#anleitungFour" aria-expanded="true" aria-controls="anleitungFour">
+                      <strong>Wie kann ich meinen kostenlosen Wlan-Zugang nutzen?</strong>
+                    </button>
+                  </h2>
+                  <div id="anleitungFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Sie bekommen beim Einchecken an der Rezeption Ihre persönlichen Wlan-Zugangsdaten, die Ihnen für 
+                        die gesamte Dauer des Aufenthaltes zur Verfügung stehen.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -133,6 +148,20 @@
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         Sie können gegen einen Aufpreis ein Frühstück inkludieren lassen.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faqsFour" aria-expanded="true" aria-controls="faqsFour">
+                      <strong>Wann ist der Check-in und der Check-out?</strong>
+                    </button>
+                  </h2>
+                  <div id="faqsFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Der Check-in ist ab 13:00 Uhr möglich und der Check-out findet spätestens um 11:00 Uhr statt.
                     </div>
                   </div>
                 </div>
