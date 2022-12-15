@@ -8,6 +8,12 @@ Reservierungen verwalten für Admin
 Benutzer verwalten für Admin
 Zimmer ansehen: 3-5 Zimmer anbieten (je nach Status guest oder eingeloggter User andere Möglichkeiten)
 
+offene Fragen (Forum oder Präsenz):
+-----------------------------------
+Preisgestaltung --> Forum 
+Buchungskalender? --> Forum
+DB abgleichen mit Dump??? --> Präsenz
+
 
 erledigte Punkte:
 -----------------
