@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col">
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-3">
-                    <label for="oldPassword" class="d-flex justify-content-start">Passwort</label>
+                    <label for="oldPassword" class="d-flex justify-content-start">Altes Passwort eingeben</label>
                     <input class="form-control" id="oldPassword" name="oldPassword" type="password">
                 </div>
                 <div class="col">
