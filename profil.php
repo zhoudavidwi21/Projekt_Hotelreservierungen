@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="alert alert-danger" role="alert">
            Fehler bei den Änderungen! 
            <br>
-           Stellen Sie sicher, dass Sie das Passwort richtig eingegeben haben
+           Stellen Sie sicher, dass Sie das Passwort richtig eingegeben haben!
         </div>
 
         <?php }
