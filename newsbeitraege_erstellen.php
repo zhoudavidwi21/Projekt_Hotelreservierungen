@@ -18,7 +18,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
   <title>Newsbeiträge erstellen</title>
 
   <link href="./css_Daten/colors_MF.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -84,7 +83,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
         <h1>Newsbeiträge erstellen</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
-        <!-- <h4><label for="file">Bitte hier Daten hochladen</label></h4> -->
         <form enctype="multipart/form-data" method="POST">
           <div class="d-grid gap-1">
             <label for="file" class="form-label">
@@ -123,21 +121,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
               }
             }
 
-            $uploadDir = openDir('Uploads/');
-            while ($files = readDir($uploadDir)) {
-              if ($files != "." && $files != ".." && $files != "thumbnails") {
-                echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
-                echo " --> ";
-                echo "<a href=\"Uploads/$files\"download>Download</a><br />";
-                echo "<img src='Uploads/$files' width='200px' height='200px'><br />";
-                echo ("<br />");
-              }
-            }
-            closeDir($uploadDir);
 
-            ?>
-          </ul>
-        </div>
 
       </div>
       <div class="col">
