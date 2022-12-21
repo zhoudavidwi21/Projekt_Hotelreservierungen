@@ -121,7 +121,6 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
                         <h1>Bilder hochladen</h1>
                         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
-                        <!--       <h4><label for="file">Bitte hier Daten hochladen</label></h4> -->
                         <form enctype="multipart/form-data" method="POST">
                             <div class="d-grid gap-1">
                                 <label for="file" class="form-label">

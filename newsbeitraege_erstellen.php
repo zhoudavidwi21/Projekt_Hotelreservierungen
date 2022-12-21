@@ -8,10 +8,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 ?>
 
 <?php
-//Post Newsbeiträge nur wenn mind. Titel und Text vorhanden
 $titleErr = $fileErr = $bodyErr = "";
 $title = $file = $body = "";
 
+//Post Newsbeiträge nur wenn mind. Titel und Text vorhanden
 if (
   $_SERVER["REQUEST_METHOD"] === "POST"
 ) {
@@ -41,51 +41,98 @@ if (isset($_POST['submit']) && ($titleErr == "" && $fileErr == "" && $bodyErr ==
 }
 
 $uploadDir = "Uploads/";
-//$file = $_FILES["file"];
-
+$thumbnailDir = "thumbnails/";
+$thumbnailPath = $uploadDir . $thumbnailDir;
+//Überprüfung ob Uploads Ordner existiert, wenn nicht wird er erstellt
 if (!file_exists($uploadDir)) {
   mkdir($uploadDir);
 }
+if (!file_exists($thumbnailPath)) {
+  mkdir($thumbnailPath, 0777, true);
+}
+
+//Erlaubte Dateiformate
+$allowed = array('png', 'jpg', 'jpeg', 'gif');
+
+//Überprüfung ob Datei hochgeladen wurde
 if (
   $_SERVER["REQUEST_METHOD"] === "POST"
   && isset($_FILES["file"])
 ) {
 
-  //folgender Teil schränkt auf .gif,.jpeg,.jpg,.png ein
-  $datei = $_FILES["file"]["name"];
-  $dateityp = strtolower(pathinfo($datei, PATHINFO_EXTENSION));
-  if (
-    $dateityp != "gif" &&
-    $dateityp != "jpeg" &&
-    $dateityp != "jpg" &&
-    $dateityp != "png"
-  ) {
-    $fileErr = "<p class='red'> ACHTUNG - es werden nur Bilddateien mit *.gif, *.jpeg, *.jpg oder *.png akzeptiert! </p><br />";
+  $filename = $_FILES["file"]["name"];
+  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+  
+  //folgender Teil überprüft, ob Datei vom richtigen Typ ist
+  if (!in_array($ext, $allowed)) {
+    $fileErr = "<p class='red'> ACHTUNG - es werden nur Bilddateien mit, *."
+    .implode(", *.", $allowed).
+    " als Dateiendung akzeptiert! </p><br />";
   } else {
     //folgender Teil schränkt auf Größe ein
     if ($_FILES['file']['size'] > 10000000) {
       $fileErr = "<p class='red'> ACHTUNG - Datei zu groß - max. 10 MByte sind erlaubt! </p>";
     } else {
       //folgender Teil überprüft, ob Datei schon vorhanden ist
-      if (file_exists($uploadDir . $_FILES["file"]["name"])) {
-        $fileErr = "<p class='red'> ACHTUNG - diese Datei ist schon vorhanden! </p>";
+      if (file_exists($uploadDir . $_FILES['file']['name'])) {
+        $fileErr = "<p class='red'> ACHTUNG - die Datei ". $filename ." ist schon vorhanden! </p>";
       } else {
+        $filepath = $uploadDir . $filename;
         if (
           move_uploaded_file(
-            $_FILES["file"]["tmp_name"],
-            $uploadDir . $_FILES["file"]["name"]
+            $_FILES['file']['tmp_name'],
+            $uploadDir . $_FILES['file']['name']
           )
+          && createThumbnail($filename, $filepath, $ext, $thumbnailPath)
         ) {
           echo "<p class='green'>Die Datei ";
-          echo $_FILES["file"]["name"];
+          echo $_FILES['file']['name'];
           echo " wurde erfolgreich hochgeladen! </p><br />";
           echo "<br>";
         } else {
-          $fileErr = "<p class='green'> Fehler beim Hochladen! </p><br />";
+          $fileErr = "<p class='red'> Fehler beim Hochladen! </p><br />";
         }
       }
     }
   }
+}
+
+//Funktion zum Erstellen von Thumbnails
+//Benötigt GD Library freigeschaltet
+function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
+{
+    // Get new sizes
+    list($width, $height) = getimagesize($filepath);
+    $newwidth = 200;
+    $newheight = 200;
+
+    // Load
+    $thumb = imagecreatetruecolor($newwidth, $newheight);
+
+    switch ($ext) {
+        case 'png':
+            $source = imagecreatefrompng($filepath);
+            break;
+        case 'gif':
+            $source = imagecreatefromgif($filepath);
+            break;
+        case 'jpeg' || 'jpg':
+            $source = imagecreatefromjpeg($filepath);
+            break;
+    }
+
+    // Resize
+    imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+    // Output
+    switch ($ext) {
+        case 'png':
+            return imagepng($thumb, $thumbnailPath . 'thumb_' . $filename);
+        case 'gif':
+            imagegif($thumb, $thumbnailPath . 'thumb_' . $filename);
+        case 'jpeg' || 'jpg':
+            return imagejpeg($thumb, $thumbnailPath . 'thumb_' . $filename);
+    }
 }
 ?>
 
