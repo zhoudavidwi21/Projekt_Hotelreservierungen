@@ -1,11 +1,11 @@
 <?php include "./Commons/sessions.php"; ?>
 
 <?php
- session_unset();
- session_destroy();
- $_SESSION = array();
- ?>
- 
+session_unset();
+session_destroy();
+$_SESSION = array();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

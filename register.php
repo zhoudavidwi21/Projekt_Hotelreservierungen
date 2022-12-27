@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
     $genderErr == "" && $companyErr == "" && $firstnameErr == "" && $lastnameErr == "" && $emailErr == "" && $usernameErr == ""
     && $passwordErr == "" && $passwordCheckErr == "" && $agreeDatenschutzErr == "" && $agreeAgbsErr == "" && $submitErr == ""
   ) {
-    header('Location: ./register_confirmed.php');
+    header('Refresh:0; url=./register_confirmed.php');
     exit();
   } else {
     $_SESSION['regGender'] = $gender;
@@ -20,21 +20,6 @@ if (isset($_POST["submit"])) {
 
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Registrierung</title>
-</head>
-
-<body>
-
-  <?php include "Commons/header.php"; ?>
 
   <div class="text-center container-fluid">
     <div class="row">
@@ -51,21 +36,27 @@ if (isset($_POST["submit"])) {
             <p>* Eingabe erforderlich</p>
 
             <div class="mb-1">
-<!--              <label for="anrede" hidden>Anrede *</label>  --> 
-             <select class="form-select has-validation
-              <?php validityClass($genderErr, "gender"); ?>" aria-label="Default select example" id="anrede"
+              <!--              <label for="anrede" hidden>Anrede *</label>  -->
+              <select class="form-select has-validation
+                <?php validityClass($genderErr, "gender"); ?>" aria-label="Default select example" id="anrede"
                 name="gender" aria-describedby="validationGender">
-                <option value="" <?php if ($_SESSION['regGender']=="") { echo 'selected';
-                } ?>>Anrede auswählen *</option>
-                <option value="firma" <?php if ($_SESSION['regGender']=="firma") { echo 'selected';
+                <option value="" <?php if ($_SESSION['regGender'] == "") {
+                  echo 'selected';
+                } ?>>Anrede auswählen *
+                </option>
+                <option value="firma" <?php if ($_SESSION['regGender'] == "firma") {
+                  echo 'selected';
                 } ?>>Firma</option>
-                <option value="herr" <?php if ($_SESSION['regGender']=="herr") { echo 'selected';
+                <option value="herr" <?php if ($_SESSION['regGender'] == "herr") {
+                  echo 'selected';
                 } ?>>Herr</option>
-                <option value="frau" <?php if ($_SESSION['regGender']=="frau") { echo 'selected';
+                <option value="frau" <?php if ($_SESSION['regGender'] == "frau") {
+                  echo 'selected';
                 } ?>>Frau</option>
-                <option value="divers" <?php if ($_SESSION['regGender']=="divers") { echo 'selected';
+                <option value="divers" <?php if ($_SESSION['regGender'] == "divers") {
+                  echo 'selected';
                 } ?>>Divers</option>
-              </select>   
+              </select>
               <?php invalidFeedback($genderErr, "validationGender"); ?>
             </div>
 
@@ -144,7 +135,6 @@ if (isset($_POST["submit"])) {
                 aria-describedby="validationAgbs" required>
               <label class="form-check-label" for="AGBs"><a href="agbs.html">AGBs</a> aktzeptieren *</label>
               <?php invalidFeedback($agreeAgbsErr, "validationAgbs"); ?>
-
             </div>
 
             <div class="d-grid gap-1">
@@ -164,11 +154,3 @@ if (isset($_POST["submit"])) {
       </div>
     </div>
   </div>
-
-  <?php include "Commons/footer.php"; ?>
-
-
-</body>
-
-
-</html>

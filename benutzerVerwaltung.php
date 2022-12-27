@@ -9,24 +9,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Benutzer verwalten</title>
-
-  <link href="./css_Daten/colors_MF.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <?php include "Commons/header.php"; ?>
-
   <!-- Benutzer anzeigen -->
   <div class="text-center container-fluid">
     <div class="row">
@@ -47,9 +29,3 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     </div>
   </div>
   <!-- Benutzer verwalten -->
-
-  <?php include "Commons/footer.php"; ?>
-
-</body>
-
-</html>
