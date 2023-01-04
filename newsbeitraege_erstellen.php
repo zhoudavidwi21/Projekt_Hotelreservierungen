@@ -180,9 +180,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
               erstellen</button>
           </div>
         </form>
-
-
-
+        
       </div>
       <div class="col">
 
