@@ -1,16 +1,14 @@
-<?php include "./Commons/sessions.php"; ?>
+<?php include "Commons/sessions.php"; ?>
 
-<?php include "./Commons/reservation_validation.php"; ?>
-
-<?php
-echo '<pre>'; print_r($_POST); echo '</pre>';
-?>
+<?php include "Commons/reservation_validation.php"; ?>
 
 <?php
+
 if (isset($_POST['booking'])) {
   if (
-    $roomErr == "" && $dateErr == "" && $timeErr == "" && $submitErr == ""
+    $roomErr == "" && $arrivalDateErr == "" && $departureDateErr == ""
   ) {
+
     $_SESSION['resRoom'] = $room;
     $_SESSION['resArrival'] = $arrivalDate;
     $_SESSION['resDeparture'] = $departureDate;
@@ -18,11 +16,20 @@ if (isset($_POST['booking'])) {
     $_SESSION['resParking'] = $services['parking'];
     $_SESSION['resPet'] = $services['pet'];
 
-    header('Refresh:0; url=./reservation_confirmed.php');
+    header('Refresh:0; url=index.php?site=reservation_confirmed');
+    ob_end_flush();
     exit();
+  } else {
+    $_SESSION['resRoom'] = $room;
+    $_SESSION['resArrival'] = $arrivalDate;
+    $_SESSION['resDeparture'] = $departureDate;
+    $_SESSION['resBreakfast'] = $services['breakfast'];
+    $_SESSION['resParking'] = $services['parking'];
+    $_SESSION['resPet'] = $services['pet'];
   }
 }
 ?>
+
 
 
 <div class="text-center container-fluid">
@@ -47,7 +54,9 @@ if (isset($_POST['booking'])) {
           <label for="room" hidden>Zimmer auswählen</label>
           <select class="form-select has-validation
           <?php validityClass($roomErr, "room"); ?>" name="room" id="room" aria-describedby="roomAvailable validationRoom">
-            <option selected>Zimmer auswählen</option>
+            <option <?php if(empty($_SESSION['resRoom'])){
+              echo "selected";
+            } ?>>Zimmer auswählen</option>
             <option <?php if(isset($_SESSION['resRoom']) && $_SESSION['resRoom'] == "201"){
               echo "selected";
             } ?> value="201">Zimmer 201</option>
@@ -72,6 +81,7 @@ if (isset($_POST['booking'])) {
           </select>
           <?php invalidFeedback($roomErr, "validationRoom"); ?>
           <?php
+          //Entfernen oder auslagern wenn Datenbank angeschlossen
           if (isset($_POST['room'])) {
             if ($_POST['room'] == "201") {
 
@@ -106,7 +116,7 @@ if (isset($_POST['booking'])) {
             }?>
             >
             <label class="form-check-label" for="breakfast">
-              Frühstück inkludieren
+              Frühstück inkludieren (1000€/Nacht)
             </label>
           </div>
 
@@ -117,7 +127,7 @@ if (isset($_POST['booking'])) {
             }?>
             >
             <label class="form-check-label" for="parking">
-              Parkplatz reservieren
+              Parkplatz reservieren (500€/Nacht)
             </label>
           </div>
 
@@ -128,7 +138,7 @@ if (isset($_POST['booking'])) {
             }?>
             >
             <label class="form-check-label" for="pet">
-              Haustier mitnehmen
+              Haustier mitnehmen (Kostenlos)
             </label>
           </div>
         </div>
@@ -136,26 +146,30 @@ if (isset($_POST['booking'])) {
       </div>
     </div>
 
-
-
-
     <div class="row justify-content-md-center">
       <div class="col-lg-1 col-md-3">
         <label for="arrivalDate">Anreisedatum</label>
         <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3 has-validation
-        <?php validityClass($arrivalDateErr, "arrivalDate"); ?>" aria-describedby="validationArrival"required>
+        <?php validityClass($arrivalDateErr, "arrivalDate"); ?>" aria-describedby="validationArrival" 
+        value="<?php echo $_SESSION['resArrival']; ?>" 
+        required>
         <?php invalidFeedback($arrivalDateErr, "validationArrival"); ?>
-      </div>
-      <div class="col-lg-1 col-md-3">
-        <label for="departureDate">Abreisedatum</label>
-        <input type="date" name="departureDate" id="departureDate" class="form-control mb-3 has-validation
-        <?php validityClass($departureDateErr, "departureDate"); ?>" aria-describedby="validationDeparture"required>
-        <?php invalidFeedback($departureDateErr, "validationDeparture"); ?>
       </div>
     </div>
 
+      <div class="row justify-content-md-center">
+        <div class="col-lg-1 col-md-3">
+          <label for="departureDate">Abreisedatum</label>
+          <input type="date" name="departureDate" id="departureDate" class="form-control mb-3 has-validation
+          <?php validityClass($departureDateErr, "departureDate"); ?>" aria-describedby="validationDeparture"
+          value="<?php echo $_SESSION['resDeparture']; ?>"
+          required>
+          <?php invalidFeedback($departureDateErr, "validationDeparture"); ?>
+        </div>
+      </div>
+
     <div class="row justify-content-md-center">
-      <div class="col-auto">
+      <div class="col-auto mt-2">
         <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="booking" value="true">Reservieren</button>
       </div>
     </div>

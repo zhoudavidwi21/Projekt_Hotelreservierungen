@@ -19,16 +19,25 @@
 
   <main>
 
-  <?php
-    if(!isset($_GET['site'])) {
+    <?php
+
+    $path = '*.php';
+
+    $validSites = glob($path);
+
+    if (!isset($_GET['site'])) {
       include "startseite.php";
     } else {
-      $site = $_GET['site'];
-      include "$site.php";
+      if (!in_array($_GET['site'] . '.php', $validSites)) {
+        include "error.php";
+      } else {
+        $site = $_GET['site'];
+        include "$site.php";
+      }
     }
 
 
-  ?>
+    ?>
 
   </main>
 

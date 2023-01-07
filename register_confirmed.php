@@ -6,23 +6,6 @@ session_destroy();
 $_SESSION = array();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="5; URL=index.php">
-
-  <title>Registrierung durchgeführt</title>
-</head>
-
-
-<body>
-
-  <?php include "Commons/header.php"; ?>
-
   <div class="text-center container-fluid">
     <div class="row">
       <div class="col">
@@ -30,7 +13,7 @@ $_SESSION = array();
       <div class="col-10">
 
         <h1 class="h1 mb-3 fw-normal">Herzlichen Dank für Ihre Registrierung!</h1>
-        <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="" width="144" height="114">
+        <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="" width="144" height="114">
         <br>
 
         <script type="text/javascript">
@@ -61,9 +44,3 @@ $_SESSION = array();
       </div>
     </div>
   </div>
-
-  <?php include "Commons/footer.php"; ?>
-
-</body>
-
-</html>

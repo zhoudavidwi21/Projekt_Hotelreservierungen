@@ -1,28 +1,28 @@
 <?php
 
 //Wenn ein angemeldeter Nutzer auf die Seite zugreifen will --> fehler
-if($_SESSION['role'] !== "guest"){
-  header('Refresh:1; url=./error.php');
+if ($_SESSION['role'] !== "guest") {
+  header('Refresh:1; url=index.php?site=error');
   exit();
 }
 
-$genderErr = $companyErr = $firstnameErr = $lastnameErr = $emailErr = $usernameErr = $passwordErr = $passwordCheckErr = $agreeDatenschutzErr = $agreeAgbsErr = $submitErr = "";
+$genderErr = $companyErr = $firstnameErr = $lastnameErr = $emailErr = $usernameErr = $passwordErr = $passwordCheckErr = $agreeDatenschutzErr = $agreeAgbsErr = "";
 
-$gender = $company = $firstname = $lastname = $email = $username = $password = $passwordCheck = $agreeDatenschutz = $agreeAgbs = $submit = "";
+$gender = $company = $firstname = $lastname = $email = $username = $password = $passwordCheck = $agreeDatenschutz = $agreeAgbs = "";
 
-if(!isset($_SESSION['regGender'])){
+if (!isset($_SESSION['regGender'])) {
   $_SESSION['regGender'] = "";
 }
-if(!isset($_SESSION['regCompany'])){
+if (!isset($_SESSION['regCompany'])) {
   $_SESSION['regCompany'] = "";
 }
-if(!isset($_SESSION['regFirstname'])){
+if (!isset($_SESSION['regFirstname'])) {
   $_SESSION['regFirstname'] = "";
 }
-if(!isset($_SESSION['regLastname'])){
+if (!isset($_SESSION['regLastname'])) {
   $_SESSION['regLastname'] = "";
 }
-if(!isset($_SESSION['regUsername'])){
+if (!isset($_SESSION['regUsername'])) {
   $_SESSION['regUsername'] = "";
 }
 

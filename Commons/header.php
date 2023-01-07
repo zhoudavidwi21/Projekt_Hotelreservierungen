@@ -1,3 +1,7 @@
+<?php
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +39,8 @@
 
           <!-- Menü für alle Personen START -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Menü
             </a>
             <ul class="dropdown-menu">
@@ -59,42 +64,42 @@
 
       </div>
       <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === "user" || $_SESSION['role'] === "admin")) { ?>
-      <!-- Menü für eingeloggte Personen START-->
-      <div class="d-flex gap-1 dropdown">
-        <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo $_SESSION['username']; ?>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="index.php?site=profil">Profil bearbeiten</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren">Zimmer reservieren</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+        <!-- Menü für eingeloggte Personen START-->
+        <div class="d-flex gap-1 dropdown">
+          <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo $_SESSION['username']; ?>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="index.php?site=profil">Profil bearbeiten</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren">Zimmer reservieren</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-          <?php if ($_SESSION['role'] === "admin") { ?>
-          <li><a class="dropdown-item" href="index.php?site=benutzerVerwaltung">Benutzer verwalten</a></li>
+            <?php if ($_SESSION['role'] === "admin") { ?>
+              <li><a class="dropdown-item" href="index.php?site=benutzerVerwaltung">Benutzer verwalten</a></li>
 
-          <li><a class="dropdown-item" href="index.php?site=reservierungenVerwaltung">Reservierungen verwalten</a></li>
+              <li><a class="dropdown-item" href="index.php?site=reservierungenVerwaltung">Reservierungen verwalten</a></li>
 
-          <li><a class="dropdown-item" href="index.php?site=newsbeitraege_erstellen">Newsbeiträge erstellen</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <?php } ?>
+              <li><a class="dropdown-item" href="index.php?site=newsbeitraege_erstellen">Newsbeiträge erstellen</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            <?php } ?>
 
-          <li><a class="dropdown-item" href="Commons/logout.php">Logout</a></li>
+            <li><a class="dropdown-item" href="Commons/logout.php">Logout</a></li>
 
-        </ul>
-      </div>
-      <!-- Menü für eingeloggte Personen END-->
+          </ul>
+        </div>
+        <!-- Menü für eingeloggte Personen END-->
       <?php } else { ?>
-      <div class="d-flex gap-1">
-        <a class="btn btn-anmelden" href="index.php?site=login" role="button">anmelden</a>
-        <a class="btn btn-registrieren" href="index.php?site=register" role="button">registrieren</a>
-      </div>
+        <div class="d-flex gap-1">
+          <a class="btn btn-anmelden" href="index.php?site=login" role="button">anmelden</a>
+          <a class="btn btn-registrieren" href="index.php?site=register" role="button">registrieren</a>
+        </div>
       <?php } ?>
 
     </div>
