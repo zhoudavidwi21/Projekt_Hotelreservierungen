@@ -88,6 +88,25 @@
                             } ?>
                         </td>
                     </tr>
+                    <tr>
+                        <th scope="row">Gesamtpreis</th>
+                        <td colspan="2">
+                            
+                            <?php 
+                            $roomTotal = 50 * $diff->format("%a");
+                            $serviceTotal = 0;
+                            if (isset($_SESSION['resBreakfast']) && $_SESSION['resBreakfast'] == "true") {
+                                $serviceTotal += 1000 * $diff->format("%a");
+                            }
+                            if (isset($_SESSION['resParking']) && $_SESSION['resParking'] == "true") {
+                                $serviceTotal += 500 * $diff->format("%a");
+                            }
+                            $sum = $roomTotal + $serviceTotal;
+                            echo '<p class=fw-bold>' . $sum . "€" . '</p>';
+                            ?>
+                            
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
