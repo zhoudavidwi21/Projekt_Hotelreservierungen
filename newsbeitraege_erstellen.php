@@ -35,7 +35,7 @@ if (
   }
 }
 
-if (isset($_POST['submit']) && ($titleErr == "" && $fileErr == "" && $bodyErr == "")) {
+if (isset($_POST['upload']) && ($titleErr == "" && $fileErr == "" && $bodyErr == "")) {
   //header('Location: ./newsbeitraege.php');
   //exit();
 }
@@ -176,7 +176,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
                 echo $bodyErr;} ?>
             </div>
 
-            <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="submit" value="true">Beitrag
+            <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="upload" value="true">Beitrag
               erstellen</button>
           </div>
         </form>

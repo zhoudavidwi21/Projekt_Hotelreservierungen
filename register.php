@@ -22,21 +22,22 @@ if (isset($_POST["submit"])) {
 ?>
 
   <div class="text-center container-fluid">
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-sm-6 col-md-5 col-lg-3">
+    <div class="row justify-content-md-center">
+      
+      <div class="col-sm-6 col-md-5 col-lg-4">
 
         <main class="form-signin w-100 m-auto">
+          
+          <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
+          
+          <h1 class="h3 mb-3 fw-normal">Bitte hier registrieren ...</h1>
+          <p>* Eingabe erforderlich</p>
+          
+          <hr class="featurette-divider">
+
           <form method="POST">
-
-            <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
-
-            <h1 class="h3 mb-3 fw-normal">Bitte hier registrieren ...</h1>
-            <p>* Eingabe erforderlich</p>
-
             <div class="mb-1">
-              <!--              <label for="anrede" hidden>Anrede *</label>  -->
+              <label for="anrede" hidden>Anrede *</label>
               <select class="form-select has-validation
                 <?php validityClass($genderErr, "gender"); ?>" aria-label="Default select example" id="anrede"
                 name="gender" aria-describedby="validationGender">
@@ -147,10 +148,6 @@ if (isset($_POST["submit"])) {
 
 
         </main>
-
-      </div>
-      <div class="col">
-
       </div>
     </div>
   </div>
