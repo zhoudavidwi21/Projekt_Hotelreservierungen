@@ -70,7 +70,7 @@ ob_start();
             <?php echo $_SESSION['username']; ?>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="index.php?site=profil">Profil bearbeiten</a></li>
+            <li><a class="dropdown-item" href="index.php?site=profil_bearbeiten">Profil bearbeiten</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -80,9 +80,9 @@ ob_start();
             </li>
 
             <?php if ($_SESSION['role'] === "admin") { ?>
-              <li><a class="dropdown-item" href="index.php?site=benutzerVerwaltung">Benutzer verwalten</a></li>
+              <li><a class="dropdown-item" href="index.php?site=benutzer_Verwaltung">Benutzer verwalten</a></li>
 
-              <li><a class="dropdown-item" href="index.php?site=reservierungenVerwaltung">Reservierungen verwalten</a></li>
+              <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren_Verwaltung">Reservierungen verwalten</a></li>
 
               <li><a class="dropdown-item" href="index.php?site=newsbeitraege_erstellen">Newsbeiträge erstellen</a></li>
               <li>

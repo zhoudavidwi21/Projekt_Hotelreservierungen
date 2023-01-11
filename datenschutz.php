@@ -7,7 +7,7 @@
       <div class="col-10">
 
         <h1 class="h1 mb-3 fw-normal">Erklärung zur Informationspflicht</h1>
-        <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="" width="144" height="114">
+        <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="Kastanie Logo" width="144" height="114">
 
         <!-- <h3 class="h3 mb-3 fw-normal">Hotel zur Kastanie GmbH</h3>
       <h3>Erklärung zur Informationspflicht</h3> -->

@@ -8,7 +8,7 @@
     <div class="col-10">
 
       <h1 class="h1 mb-3 fw-normal">Allgemeine Geschäftsbedingungen</h1>
-      <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="" width="144" height="114">
+      <img class="mb-4" src="./Images/\Kastanie_transparent.png" alt="Kastanie Logo" width="144" height="114">
       <br>
 
       <h2 class="h2 mb-3 fw-normal">Inhaltsübersicht</h2>

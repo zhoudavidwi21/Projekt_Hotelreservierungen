@@ -1,18 +1,15 @@
 offene Punkte:
 --------------
-News-Seite erstellen
-Reservieren-Seite erstellen
-ALT-Daten (für z.B. Blinde angegeben)
-Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite (auch mit Bild)
+ALT-Daten (für z.B. Blinde angegeben):
+    --> done: Header, Startseite, AGBs, Datenschutz, Impressum, Hilfe&FAQs, Unsere Geschichte, Impressionen, 
+                Kulinarik, Wellness, Login, Register, Zimmer reservieren Logo, Profil bearbeiten, 
+                Benutzer verwalten,  Reservierungen verwalten, Newsbeiträge erstellen Logo, Newsbeiträge Logo,
+    --> fehlt noch: Newsbeiträge Bilder, Newsbeiträge erstellen - Thumbs???, Zimmer reservieren - Fotos von Zimmern
+
+Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite (auch mit Bild), Download Originalgröße!!!
 Reservierungen verwalten für Admin
 Benutzer verwalten für Admin
-Zimmer ansehen: 3-5 Zimmer anbieten (je nach Status guest oder eingeloggter User andere Möglichkeiten)
-
-offene Fragen (Forum oder Präsenz):
------------------------------------
-Preisgestaltung --> Forum 
-Buchungskalender? --> Forum
-DB abgleichen mit Dump??? --> Präsenz
+Zimmer ansehen oder Zimmer reservieren: 7 Zimmer anbieten (je nach Status guest oder eingeloggter User andere Möglichkeiten)
 
 
 erledigte Punkte:
@@ -33,13 +30,23 @@ Menü user/admin erweitern mit funktionierenden Seiten --> done
 Bildverkleinerung serverseitig --> done
 Bilder index.php und andere carousel-Bilder anpassen, Laufzeit verlängern --> done
 Icon (Kastanie_transparent_ico) eingebaut --> done
-
-Video-Meilenstein: --> done
+Video-Meilenstein --> done
 Links braun statt blau??? oder so belassen??? z.B. auch bei Hilfe & FAQs --> done
 Profil bearbeiten für User und Admin --> done
+Footer Links angepasst --> done
+News-Seite erstellen --> done
+Reservieren-Seite erstellen --> done
+
+
+offene Fragen (Forum oder Präsenz):
+-----------------------------------
+Preisgestaltung --> Forum --> done
+Buchungskalender? --> Forum --> done
+DB abgleichen mit Dump??? --> Präsenz --> done
+
 
 ------------------
-ToDos:
+ToDos Video-Meilenstein:
 
 --> Storyboard:
 Seiten komplett präsentieren (kurz)

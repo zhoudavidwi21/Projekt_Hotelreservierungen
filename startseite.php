@@ -16,7 +16,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
-            <img src="./Images/Hotel/Hotel_aussen_01.jpg" class="img-fluid d-block w-100" alt="Hotel von außen 01">
+            <img src="./Images/Hotel/Hotel_aussen_01.jpg" class="img-fluid d-block w-100" alt="Foto Hotel von außen 01">
             <div class="carousel-caption d-none d-md-block">
               <div class="bg-light text-dark" style="--bs-bg-opacity: 0.5;">
                 <h5 class="fs-1">Willkommen beim Hotel zur Kastanie!</h5>
@@ -30,17 +30,17 @@
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="7500">
-            <img src="./Images/Zimmer/Zimmer_02.jpg" class="d-block w-100" alt="Hotel Zimmer">
+            <img src="./Images/Zimmer/Zimmer_02.jpg" class="d-block w-100" alt="Foto Hotel Zimmer 02">
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="7500">
-            <img src="./Images/Hotel/Hotel_aussen_02.jpg" class="d-block w-100" alt="Hotel von außen 02">
+            <img src="./Images/Hotel/Hotel_aussen_02.jpg" class="d-block w-100" alt="Fot Hotel von außen 02">
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="7500">
-            <img src="./Images/Hotel/Hotel_Wien.jpg" class="d-block w-100" alt="Hotel Zimmer">
+            <img src="./Images/Hotel/Hotel_Wien.jpg" class="d-block w-100" alt="Foto Hotel Ansicht auf Donau">
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
@@ -73,7 +73,7 @@
   <div class="row round-circle">
     <div class="col-lg-4">
       <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-        src="Images/Kulinarik/Kulinarik_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140"
+        src="Images/Kulinarik/Kulinarik_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Kulinarik 01"
         preserveAspectRatio="xMidYMid slice" focusable="false">
       <title>Kulinarik</title>
 
@@ -82,7 +82,7 @@
     </div>
     <div class="col-lg-4">
       <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-        src="Images/Wellness/Wellness_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140"
+        src="Images/Wellness/Wellness_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Wellness 01"
         preserveAspectRatio="xMidYMid slice" focusable="false">
       <title>Wellness</title>
 
@@ -91,7 +91,7 @@
     </div>
     <div class="col-lg-4 right">
       <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-        src="Images/Impressionen/Impressionen_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140"
+        src="Images/Impressionen/Impressionen_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Impressionen 01"
         preserveAspectRatio="xMidYMid slice" focusable="false">
       <title>Impressionen</title>
 
@@ -112,34 +112,34 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_01_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_01_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 01">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_02_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_02_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 02">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Weinkeller/Weinkeller_02_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Weinkeller/Weinkeller_02_600x400.jpg" class="d-block w-100" alt="Foto Weinkeller 02">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_03_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_03_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 03">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_04_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_04_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 04">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Weinkeller/Weinkeller_03_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Weinkeller/Weinkeller_03_600x400.jpg" class="d-block w-100" alt="Foto Weinkeller 03">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_05_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_05_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 05">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_06_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_06_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 06">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Weinkeller/Weinkeller_04_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Weinkeller/Weinkeller_04_600x400.jpg" class="d-block w-100" alt="Foto Weinkeller 04">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Restaurant/Restaurant_07_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Restaurant/Restaurant_07_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 07">
           </div>
         </div>
       </div>
@@ -159,25 +159,25 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
-            <img src="Images/Zimmer/Zimmer_01_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_01_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 01">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Zimmer/Zimmer_02_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_02_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 02">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Zimmer/Zimmer_03_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_03_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 03">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Zimmer/Zimmer_04_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_04_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 04">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Zimmer/Zimmer_05_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_05_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 05">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Zimmer/Zimmer_06_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_06_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 06">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="Images/Zimmer/Zimmer_07_600x400.jpg" class="d-block w-100" alt="">
+            <img src="Images/Zimmer/Zimmer_07_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 07">
           </div>
         </div>
       </div>

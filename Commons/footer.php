@@ -15,9 +15,9 @@
       <p class="col-md-4 mb-0 text-muted">&copy; 2022 Hotel zur Kastanie GmbH</p>
 
       <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-muted">Startseite</a></li>
-        <li class="nav-item"><a href="./hilfe_faqs.php" class="nav-link px-2 text-muted">Hilfe/FAQs</a></li>
-        <li class="nav-item"><a href="./impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
+        <li class="nav-item"><a href="index.php?site=index" class="nav-link px-2 text-muted">Startseite</a></li>
+        <li class="nav-item"><a href="index.php?site=hilfe_faqs" class="nav-link px-2 text-muted">Hilfe/FAQs</a></li>
+        <li class="nav-item"><a href="index.php?site=impressum" class="nav-link px-2 text-muted">Impressum</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">nach oben</a></li>
       </ul>
     </footer>

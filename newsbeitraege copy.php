@@ -1,13 +1,4 @@
 <?php include "./Commons/sessions.php"; ?>
-<?php
-//Nur Admins können Reservierungen verwalten
-if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
-  header('location: ./error.php');
-  exit();
-}
-?>
-
-  <!-- Reservierungen anzeigen -->
 
   <div class="text-center container-fluid">
     <div class="row">
@@ -15,16 +6,16 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
       </div>
       <div class="col-10">
 
-        <h1>Reservierungen verwalten</h1>
+        <h1>Newsbeiträge</h1>
         <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
 
         <p>
-          In Arbeit !!!
+          Inhalt fehlt noch !!!
         </p>
 
       </div>
       <div class="col">
+
       </div>
     </div>
   </div>
-  <!-- Reservierungen verwalten -->

@@ -1,6 +1,6 @@
 <?php include "Commons/sessions.php"; ?>
 
-<?php include "Commons/reservation_validation.php"; ?>
+<?php include "Commons/zimmer_reservieren_validation.php"; ?>
 
 <?php
 
@@ -16,7 +16,7 @@ if (isset($_POST['booking'])) {
     $_SESSION['resParking'] = $services['parking'];
     $_SESSION['resPet'] = $services['pet'];
 
-    header('Refresh:0; url=index.php?site=reservation_confirmed');
+    header('Refresh:0; url=index.php?site=zimmer_reservieren_confirmed');
     ob_end_flush();
     exit();
   } else {
@@ -37,8 +37,8 @@ if (isset($_POST['booking'])) {
   <div class="row justify-content-md-center">
     <div class="col-lg-2 col-md-3">
 
+      <h1 class="h1 mb-3 fw-normal">Zimmer reservieren</h1>
       <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
-      <h1>Zimmer reservieren</h1>
 
     </div>
   </div>
@@ -116,7 +116,7 @@ if (isset($_POST['booking'])) {
             }?>
             >
             <label class="form-check-label" for="breakfast">
-              Frühstück inkludieren (1000€/Nacht)
+              Frühstück inkludieren (10€/Nacht)
             </label>
           </div>
 
@@ -127,7 +127,7 @@ if (isset($_POST['booking'])) {
             }?>
             >
             <label class="form-check-label" for="parking">
-              Parkplatz reservieren (500€/Nacht)
+              Parkplatz reservieren (15€/Nacht)
             </label>
           </div>
 

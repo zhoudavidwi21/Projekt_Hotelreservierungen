@@ -96,10 +96,10 @@
                             $roomTotal = 50 * $diff->format("%a");
                             $serviceTotal = 0;
                             if (isset($_SESSION['resBreakfast']) && $_SESSION['resBreakfast'] == "true") {
-                                $serviceTotal += 1000 * $diff->format("%a");
+                                $serviceTotal += 10 * $diff->format("%a");
                             }
                             if (isset($_SESSION['resParking']) && $_SESSION['resParking'] == "true") {
-                                $serviceTotal += 500 * $diff->format("%a");
+                                $serviceTotal += 15 * $diff->format("%a");
                             }
                             $sum = $roomTotal + $serviceTotal;
                             echo '<p class=fw-bold>' . $sum . "€" . '</p>';

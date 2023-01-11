@@ -1,6 +1,6 @@
 <?php include "Commons/sessions.php"; ?>
 
-<?php include "Commons/registration_validation.php"; ?>
+<?php include "Commons/register_validation.php"; ?>
 
 <?php
 if (isset($_POST["submit"])) {
