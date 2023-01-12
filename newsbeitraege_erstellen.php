@@ -192,10 +192,11 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
         <ul>
           <?php
 
-          $uploadDirthumb = "Uploads/thumbnails/";
+          $uploadDir = "Uploads/";
+ //         $uploadDirthumb = "Uploads/thumbnails/";
 
-          if (file_exists($uploadDirthumb)) {
-            $files = scandir($uploadDirthumb);
+          if (file_exists($uploadDir)) {
+            $files = scandir($uploadDir);
             //          echo "<pre>";print_r($files);"</pre>";
             //          0 und 1 überspringen, da (. und ..)
             //          i = 2; $i < $files.length; $i++
@@ -209,16 +210,18 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
             }
           }
 
-          $uploadDirthumb = openDir('Uploads/thumbnails/');
+          $uploadDir = openDir('Uploads/');
+  //        $uploadDirthumb = openDir('Uploads/thumbnails/');
 
-          while ($files = readDir($uploadDirthumb)) {
+
+          while ($files = readDir($uploadDir)) {
             if ($files != "." && $files != "..") {
-              echo "<a href=\"Uploads/thumbnails/$files\" target= blank>$files</a><br />";
+              echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
+  //            echo " --> ";
+  //            echo "<a href=\"Uploads/$files\"download>Download Thumb</a><br />";
               echo " --> ";
-              echo "<a href=\"Uploads/thumbnails/$files\"download>Download Thumb</a><br />";
-              echo " --> ";
-              echo "<a href=\"Uploads/thumbnails/$files\"download>Download Originalgröße</a><br />";
-              echo "<img src='Uploads/thumbnails/$files' width='200px' height='200px'><br />";
+              echo "<a href=\"Uploads/$files\"download>Download Originalgröße</a><br />";
+              echo "<img src=\"Uploads/thumbnails/$files\" width='200px' height='200px'><br />";
               echo ("<br />");
             }
           }

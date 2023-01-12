@@ -62,12 +62,12 @@ if (
 
   $filename = $_FILES["file"]["name"];
   $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-  
+
   //folgender Teil überprüft, ob Datei vom richtigen Typ ist
   if (!in_array($ext, $allowed)) {
     $fileErr = "<p class='red'> ACHTUNG - es werden nur Bilddateien mit, *."
-    .implode(", *.", $allowed).
-    " als Dateiendung akzeptiert! </p><br />";
+      . implode(", *.", $allowed) .
+      " als Dateiendung akzeptiert! </p><br />";
   } else {
     //folgender Teil schränkt auf Größe ein
     if ($_FILES['file']['size'] > 10000000) {
@@ -75,7 +75,7 @@ if (
     } else {
       //folgender Teil überprüft, ob Datei schon vorhanden ist
       if (file_exists($uploadDir . $_FILES['file']['name'])) {
-        $fileErr = "<p class='red'> ACHTUNG - die Datei ". $filename ." ist schon vorhanden! </p>";
+        $fileErr = "<p class='red'> ACHTUNG - die Datei " . $filename . " ist schon vorhanden! </p>";
       } else {
         $filepath = $uploadDir . $filename;
         if (
@@ -101,128 +101,140 @@ if (
 //Benötigt GD Library freigeschaltet
 function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
 {
-    // Get new sizes
-    list($width, $height) = getimagesize($filepath);
-    $newwidth = 200;
-    $newheight = 200;
+  // Get new sizes
+  list($width, $height) = getimagesize($filepath);
+  $newwidth = 200;
+  $newheight = 200;
 
-    // Load
-    $thumb = imagecreatetruecolor($newwidth, $newheight);
+  // Load
+  $thumb = imagecreatetruecolor($newwidth, $newheight);
 
-    switch ($ext) {
-        case 'png':
-            $source = imagecreatefrompng($filepath);
-            break;
-        case 'gif':
-            $source = imagecreatefromgif($filepath);
-            break;
-        case 'jpeg' || 'jpg':
-            $source = imagecreatefromjpeg($filepath);
-            break;
-    }
+  switch ($ext) {
+    case 'png':
+      $source = imagecreatefrompng($filepath);
+      break;
+    case 'gif':
+      $source = imagecreatefromgif($filepath);
+      break;
+    case 'jpeg' || 'jpg':
+      $source = imagecreatefromjpeg($filepath);
+      break;
+  }
 
-    // Resize
-    imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+  // Resize
+  imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-    // Output
-    switch ($ext) {
-        case 'png':
-            return imagepng($thumb, $thumbnailPath . 'thumb_' . $filename);
-        case 'gif':
-            imagegif($thumb, $thumbnailPath . 'thumb_' . $filename);
-        case 'jpeg' || 'jpg':
-            return imagejpeg($thumb, $thumbnailPath . 'thumb_' . $filename);
-    }
+  // Output
+  switch ($ext) {
+    case 'png':
+      return imagepng($thumb, $thumbnailPath . 'thumb_' . $filename);
+    case 'gif':
+      imagegif($thumb, $thumbnailPath . 'thumb_' . $filename);
+    case 'jpeg' || 'jpg':
+      return imagejpeg($thumb, $thumbnailPath . 'thumb_' . $filename);
+  }
 }
 ?>
 
-  <div class="text-center container-fluid">
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-sm-6 col-md-5 col-lg-3">
+<div class="text-center container-fluid">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-sm-6 col-md-5 col-lg-3">
 
-        <h1>Newsbeiträge erstellen</h1>
-        <img src="Images/Kastanie_transparent.png" alt="" width="144" height="114">
+    <h1 class="h1 mb-3 fw-normal">Newsbeiträge erstellen</h1>
+      <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
-        <form enctype="multipart/form-data" method="POST">
-          <div class="d-grid gap-1">
-            <div class="mb-3">
-              <label for="title" class="form-label" hidden>Titel</label>
-              <input type="text" class="form-control" name="title" id="title" placeholder="Titel" required>
-              <?php if (!empty($titleErr)) {
-                echo $titleErr;} ?>
-            </div>
-
-            <div>
-              <label for="file" class="form-label">
-              </label>
-              <input class="form-control" type="file" id="file" name="file" accept="image/*">
-              <?php if (!empty($fileErr)) {
-                echo $fileErr;} ?>
-              <p class="fw-lighter">
-                Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im
-                quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen
-                zu
-                Verzerrungen kommen kann.
-              </p>
-            </div>
-
-            <div class="mb-3">
-              <label for="body" class="form-label" hidden>Beitrag</label>
-              <textarea class="form-control" id="body" name="body" rows="5"
-                placeholder="Fügen Sie hier Ihren Beitrag hinzu." required></textarea>
-                <?php if (!empty($bodyErr)) {
-                echo $bodyErr;} ?>
-            </div>
-
-            <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="upload" value="true">Beitrag
-              erstellen</button>
+      <form enctype="multipart/form-data" method="POST">
+        <div class="d-grid gap-1">
+          <div class="mb-3">
+            <label for="title" class="form-label" hidden>Titel</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Titel" required>
+            <?php if (!empty($titleErr)) {
+              echo $titleErr;
+            } ?>
           </div>
-        </form>
 
-        <div style="text-align: left">
-          <p>
-          <h5>Vorhandene Dateien:</h5>
-          </p>
-          <ul>
-            <?php
+          <div>
+            <label for="file" class="form-label">
+            </label>
+            <input class="form-control" type="file" id="file" name="file" accept="image/*">
+            <?php if (!empty($fileErr)) {
+              echo $fileErr;
+            } ?>
+            <p class="fw-lighter">
+              Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im
+              quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen
+              zu
+              Verzerrungen kommen kann.
+            </p>
+          </div>
 
-            if (file_exists($uploadDir)) {
-              $files = scandir($uploadDir);
-              //          echo "<pre>";print_r($files);"</pre>";
-              //          0 und 1 überspringen, da (. und ..)
-              //          i = 2; $i < $files.length; $i++
-              for ($i = 2; isset($files[$i]); $i++) {
-                //               echo "<li>" . $files[$i] . "</li>";
-              }
-              if (count($files) == 2) {
-                echo "Keine Files vorhanden ...";
-                //                echo "<li>Keine Files vorhanden ...</li>";
-                //                echo "<p class='red' <li>Keine Files vorhanden ...</li>";
-              }
-            }
+          <div class="mb-3">
+            <label for="body" class="form-label" hidden>Beitrag</label>
+            <textarea class="form-control" id="body" name="body" rows="5" placeholder="Fügen Sie hier Ihren Beitrag hinzu." required></textarea>
+            <?php if (!empty($bodyErr)) {
+              echo $bodyErr;
+            } ?>
+          </div>
 
-            $uploadDir = openDir('Uploads/');
-            while ($files = readDir($uploadDir)) {
-              if ($files != "." && $files != ".." && $files != "thumbnails") {
-                echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
-                echo " --> ";
-                echo "<a href=\"Uploads/$files\"download>Download</a><br />";
-                echo "<img src='Uploads/$files' width='200px' height='200px'><br />";
-                echo ("<br />");
-              }
-            }
-            closeDir($uploadDir);
-
-            ?>
-          </ul>
+          <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="upload" value="true">Beitrag
+            erstellen</button>
         </div>
+      </form>
 
-        
-      </div>
-      <div class="col">
+      <hr class="featurette-divider">
 
+      <div style="text-align: left">
+        <p>
+        <h5>Vorhandene Dateien:</h5>
+        </p>
+        <ul>
+          <?php
+
+          $uploadDir = "Uploads/";
+          $uploadDirthumb = "Uploads/thumbnails/";
+
+          if (file_exists($uploadDirthumb)) {
+            $files = scandir($uploadDirthumb);
+            //          echo "<pre>";print_r($files);"</pre>";
+            //          0 und 1 überspringen, da (. und ..)
+            //          i = 2; $i < $files.length; $i++
+            for ($i = 2; isset($files[$i]); $i++) {
+              //               echo "<li>" . $files[$i] . "</li>";
+            }
+            if (count($files) == 2) {
+              echo "Keine Files vorhanden ...";
+              //                echo "<li>Keine Files vorhanden ...</li>";
+              //                echo "<p class='red' <li>Keine Files vorhanden ...</li>";
+            }
+          }
+
+          $uploadDirthumb = openDir('Uploads/thumbnails/');
+
+          while ($files = readDir($uploadDirthumb)) {
+            if ($files != "." && $files != "..") {
+              echo "<a href=\"Uploads/thumbnails/$files\" target= blank>$files</a><br />";
+              echo " --> ";
+              echo "<a href=\"Uploads/thumbnails/$files\"download>Download Thumb</a><br />";
+              echo " --> ";
+              echo "<a href=\"Uploads/thumbnails/$files\"download>Download Originalgröße</a><br />";
+              echo "<img src='Uploads/thumbnails/$files' width='200px' height='200px'><br />";
+              echo ("<br />");
+            }
+          }
+          closeDir($uploadDirthumb);
+
+
+
+
+          ?>
+        </ul>
       </div>
+
+    </div>
+    <div class="col">
+
     </div>
   </div>
+</div>
