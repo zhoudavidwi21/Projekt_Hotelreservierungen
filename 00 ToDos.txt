@@ -6,11 +6,11 @@ ALT-Daten (für z.B. Blinde angegeben):
                 Benutzer verwalten,  Reservierungen verwalten, Newsbeiträge erstellen Logo, Newsbeiträge Logo,
     --> fehlt noch: Newsbeiträge Bilder, Newsbeiträge erstellen - Thumbs???, Zimmer reservieren - Fotos von Zimmern
 
-Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite (auch mit Bild), Download Originalgröße!!!
 Reservierungen verwalten für Admin
 Benutzer verwalten für Admin
 Zimmer ansehen oder Zimmer reservieren: 7 Zimmer anbieten (je nach Status guest oder eingeloggter User andere Möglichkeiten)
-
+alle Seiten testen, ob Zugriff erlaubt ist oder nicht!!!
+benutzer_Verwaltung validieren
 
 erledigte Punkte:
 -----------------
@@ -36,6 +36,7 @@ Profil bearbeiten für User und Admin --> done
 Footer Links angepasst --> done
 News-Seite erstellen --> done
 Reservieren-Seite erstellen --> done
+Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite (auch mit Bild), Download Originalgröße!!! --> done
 
 
 offene Fragen (Forum oder Präsenz):
