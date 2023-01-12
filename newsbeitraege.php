@@ -22,6 +22,9 @@
               <h2 class="featurette-heading fw-semibold lh-1">
                 <span>News-Titel</span>
               </h2>
+              <p class="fs-6">Veröffentlicht am: 
+                30.02.2029
+              </p>
               <p class="lead">Hier kommt der Newsbeitrag-Text hinein ...</p><br>
             </div>
             <div class="col-md-5 order-md-2">
@@ -46,6 +49,9 @@
               <h2 class="featurette-heading fw-semibold lh-1"><br>
                 <span>News-Titel</span>
               </h2>
+              <p class="fs-6">Veröffentlicht am: 
+                01.01.2010
+              </p>
               <p class="lead">Hier kommt der Newsbeitrag-Text hinein ...</p><br>
             </div>
             <div class="col-md-5 order-md-1">
