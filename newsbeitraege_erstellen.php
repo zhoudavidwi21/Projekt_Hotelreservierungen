@@ -193,43 +193,35 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
           <?php
 
           $uploadDir = "Uploads/";
- //         $uploadDirthumb = "Uploads/thumbnails/";
-
+          
+          
           if (file_exists($uploadDir)) {
             $files = scandir($uploadDir);
             //          echo "<pre>";print_r($files);"</pre>";
             //          0 und 1 überspringen, da (. und ..)
             //          i = 2; $i < $files.length; $i++
-            for ($i = 2; isset($files[$i]); $i++) {
+            
+            /*for ($i = 2; isset($files[$i]); $i++) {
               //               echo "<li>" . $files[$i] . "</li>";
-            }
-            if (count($files) == 2) {
+            }*/
+            
+            if (count($files) == 3) {
               echo "Keine Files vorhanden ...";
-              //                echo "<li>Keine Files vorhanden ...</li>";
-              //                echo "<p class='red' <li>Keine Files vorhanden ...</li>";
             }
           }
 
           $uploadDir = openDir('Uploads/');
-  //        $uploadDirthumb = openDir('Uploads/thumbnails/');
-
 
           while ($files = readDir($uploadDir)) {
-            if ($files != "." && $files != "..") {
+            if ($files != "." && $files != ".." && $files != "thumbnails" && $files != "testfiles") {
               echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
-  //            echo " --> ";
-  //            echo "<a href=\"Uploads/$files\"download>Download Thumb</a><br />";
               echo " --> ";
               echo "<a href=\"Uploads/$files\"download>Download Originalgröße</a><br />";
-              echo "<img src=\"Uploads/thumbnails/$files\" width='200px' height='200px'><br />";
+              echo '<img src="Uploads/thumbnails/thumb_' . $files. '" width="200px" height="200px"><br />';
               echo ("<br />");
             }
           }
-         closeDir($uploadDirthumb);
-
-
-
-
+         closeDir($uploadDir);
           ?>
         </ul>
       </div>
