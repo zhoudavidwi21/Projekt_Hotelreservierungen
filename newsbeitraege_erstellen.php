@@ -187,15 +187,14 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
 
       <div style="text-align: left">
         <p>
-        <h5>Vorhandene Dateien:</h5>
+        <h5>Vorhandene Bilder:</h5>
         </p>
         <ul>
           <?php
 
           $uploadDir = "Uploads/";
           
-          
-          if (file_exists($uploadDir)) {
+                    if (file_exists($uploadDir)) {
             $files = scandir($uploadDir);
             //          echo "<pre>";print_r($files);"</pre>";
             //          0 und 1 überspringen, da (. und ..)
