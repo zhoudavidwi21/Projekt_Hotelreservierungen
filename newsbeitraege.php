@@ -19,8 +19,8 @@
 
           <div class="row featurette">
             <div class="col-md-7 order-md-1"> <br>
-              <h2 class="featurette-heading fw-normal lh-1">
-                <span class="fw-semibold">News-Titel</span>
+              <h2 class="featurette-heading fw-semibold lh-1">
+                <span>News-Titel</span>
               </h2>
               <p class="lead">Hier kommt der Newsbeitrag-Text hinein ...</p><br>
             </div>
@@ -43,8 +43,8 @@
 
           <div class="row featurette">
             <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading fw-normal lh-1"><br>
-                <span class="fw-semibold">News-Titel</span>
+              <h2 class="featurette-heading fw-semibold lh-1"><br>
+                <span>News-Titel</span>
               </h2>
               <p class="lead">Hier kommt der Newsbeitrag-Text hinein ...</p><br>
             </div>
