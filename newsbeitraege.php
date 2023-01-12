@@ -14,13 +14,13 @@
         <div class="text-center container-fluid">
 
           <!-- START THE FEATURETTES -->
-
+          <!-- Start Bild rechts text links -->
           <hr class="featurette-divider">
 
           <div class="row featurette">
             <div class="col-md-7 order-md-1"> <br>
               <h2 class="featurette-heading fw-normal lh-1">
-                <span class="text-muted">News-Titel</span>
+                <span class="fw-semibold">News-Titel</span>
               </h2>
               <p class="lead">Hier kommt der Newsbeitrag-Text hinein ...</p><br>
             </div>
@@ -36,13 +36,15 @@
               </div>
             </div>
           </div>
+          <!-- Ende Bild rechts text links -->
 
+          <!-- Start Bild links text rechts -->
           <hr class="featurette-divider">
 
           <div class="row featurette">
             <div class="col-md-7 order-md-2">
               <h2 class="featurette-heading fw-normal lh-1"><br>
-                <span class="text-muted">News-Titel</span>
+                <span class="fw-semibold">News-Titel</span>
               </h2>
               <p class="lead">Hier kommt der Newsbeitrag-Text hinein ...</p><br>
             </div>
@@ -58,6 +60,7 @@
               </div>
             </div>
           </div>
+          <!-- Ende Bild links text rechts -->
 
           <!-- /END THE FEATURETTES -->
         </div><!-- /.container -->
