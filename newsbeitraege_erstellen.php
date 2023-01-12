@@ -19,7 +19,7 @@ if (
   //Überprüfung ob Titel vorhanden
   if (empty($_POST['title'])) {
     $titleErr = '<p class="red">ACHTUNG - Bitte geben Sie einen Titel ein!</p>';
-  } elseif (!preg_match('[<>]', $_POST['title'])) {
+  } elseif (preg_match('[<>]', $_POST['title'])) {
     $titleErr = '<p class="red">ACHTUNG - Titel erhält unzulässige Zeichen!</p>';
   } else {
     $title = htmlspecialchars($_POST['title']);
@@ -28,7 +28,7 @@ if (
   //Überprüfung ob Text vorhanden
   if (empty($_POST['body'])) {
     $bodyErr = "Bitte geben Sie einen Text ein!";
-  } elseif (!preg_match('[<>]', $_POST['body'])) {
+  } elseif (preg_match('[<>]', $_POST['body'])) {
     $bodyErr = "Der Text erhält unzulässige Zeichen!";
   } else {
     $body = htmlspecialchars($_POST['body']);
