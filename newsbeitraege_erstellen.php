@@ -214,7 +214,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
   //        $uploadDirthumb = openDir('Uploads/thumbnails/');
 
 
-          while ($files = readDir($uploadDirthumb)) {
+          while ($files = readDir($uploadDir)) {
             if ($files != "." && $files != "..") {
               echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
   //            echo " --> ";
