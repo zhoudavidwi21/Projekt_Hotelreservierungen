@@ -109,7 +109,7 @@
     </div>
     <div class="col-md-5">
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="carouselRestaurants" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="2000">
             <img src="Images/Restaurant/Restaurant_01_600x400.jpg" class="d-block w-100" alt="Foto Restaurant 01">
@@ -156,7 +156,7 @@
     </div>
     <div class="col-md-5 order-md-1">
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="carouselSuiten" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
             <img src="Images/Zimmer/Zimmer_01_600x400.jpg" class="d-block w-100" alt="Foto Zimmer 01">
