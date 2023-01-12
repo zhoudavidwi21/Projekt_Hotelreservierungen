@@ -142,7 +142,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
     </div>
     <div class="col-sm-6 col-md-5 col-lg-3">
 
-    <h1 class="h1 mb-3 fw-normal">Newsbeiträge erstellen</h1>
+      <h1 class="h1 mb-3 fw-normal">Newsbeiträge erstellen</h1>
       <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
       <form enctype="multipart/form-data" method="POST">
@@ -163,10 +163,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
               echo $fileErr;
             } ?>
             <p class="fw-lighter">
-              Die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte und im
-              quadratischen Format (z.B. 600x600 Pixel) hochladen, da es sonst bei Thumbnails und anderen Bild-Größen
-              zu
-              Verzerrungen kommen kann.
+              Bitte die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte hochladen!
             </p>
           </div>
 
@@ -193,17 +190,17 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
           <?php
 
           $uploadDir = "Uploads/";
-          
-                    if (file_exists($uploadDir)) {
+
+          if (file_exists($uploadDir)) {
             $files = scandir($uploadDir);
             //          echo "<pre>";print_r($files);"</pre>";
             //          0 und 1 überspringen, da (. und ..)
             //          i = 2; $i < $files.length; $i++
-            
+
             /*for ($i = 2; isset($files[$i]); $i++) {
               //               echo "<li>" . $files[$i] . "</li>";
             }*/
-            
+
             if (count($files) == 3) {
               echo "Keine Files vorhanden ...";
             }
@@ -216,11 +213,11 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
               echo "<a href=\"Uploads/$files\" target= blank>$files</a><br />";
               echo " --> ";
               echo "<a href=\"Uploads/$files\"download>Download Originalgröße</a><br />";
-              echo '<img src="Uploads/thumbnails/thumb_' . $files. '" width="200px" height="200px"><br />';
+              echo '<img src="Uploads/thumbnails/thumb_' . $files . '" width="200px" height="200px"><br />';
               echo ("<br />");
             }
           }
-         closeDir($uploadDir);
+          closeDir($uploadDir);
           ?>
         </ul>
       </div>
