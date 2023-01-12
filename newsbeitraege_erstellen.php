@@ -8,8 +8,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 ?>
 
 <?php
-$titleErr = $fileErr = $bodyErr = "";
-$title = $file = $body = "";
+$titleErr = $fileErr = $bodyErr = $altErr = "";
+$title = $file = $body = $alt = "";
 
 //Post Newsbeiträge nur wenn mind. Titel und Text vorhanden
 if (
@@ -97,6 +97,23 @@ if (
   }
 }
 
+//Überprüfung ob Alt-Text vorhanden wenn ein Bild hochgeladen wurde
+if (
+  $_SERVER["REQUEST_METHOD"] === "POST"
+  && isset($_FILES["file"])
+) {
+
+  //Überprüfung ob Alt vorhanden
+  if (empty($_POST['alt'])) {
+    $altErr = '<p class="red">ACHTUNG - Bitte geben Sie einen Alt-Text ein!</p>';
+  } elseif (preg_match('/[\[<>]/', $_POST['alt'])) {
+    $altErr = '<p class="red">ACHTUNG - Alt-Text erhält unzulässige Zeichen!</p>';
+  } else {
+    $alt = htmlspecialchars($_POST['alt']);
+  }
+
+}
+
 //Funktion zum Erstellen von Thumbnails
 //Benötigt GD Library freigeschaltet
 function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
@@ -165,6 +182,13 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
             <p class="fw-lighter">
               Bitte die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte hochladen!
             </p>
+          </div>
+          <div class="mb-3">
+            <label for="alt" class="form-label" hidden>Titel</label>
+            <input type="text" class="form-control" name="alt" id="alt" placeholder="Alt Beschreibung" required>
+            <?php if (!empty($altErr)) {
+              echo $altErr;
+            } ?>
           </div>
 
           <div class="mb-3">
