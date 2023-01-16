@@ -13,6 +13,10 @@ if (isset($_POST["submit"])) {
     //Funktion kommt nur hier rein wenn keine Fehler aufgetreten sind
     //Datenbankverbindung erstellt
     $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+    if($db_obj -> connect_error){
+      echo 'Connection error: ' . $db_obj->connect_error;
+      exit();
+  }
     $sql = "INSERT INTO `users`
     (`username`, `email`, `password`, `gender`, `companyName`, `firstName`, `lastName`) 
     VALUES (?, ?, ?, ?, ?, ?, ?)";

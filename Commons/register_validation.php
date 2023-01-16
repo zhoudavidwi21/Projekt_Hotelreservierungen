@@ -176,13 +176,25 @@ function invalidFeedback($error, string $id)
 
 function isUsernameUnique($username)
 {
-  //Datenbank Check
+  //Datenbankverbindung
   require_once('db/dbaccess.php');
   $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
-  $sql = "SELECT * FROM `users` WHERE `username` = '$username'";
-  $result = $db_obj->query($sql);
 
-  if($result->num_rows > 0) {
+  //Überprüfung ob Verbindung erfolgreich
+  if ($db_obj->connect_error) {
+    echo 'Connection error: ' . $db_obj->connect_error;
+    exit();
+  }
+
+  //Überprüfung ob Username unique mittels prepared statement
+  $sql = "SELECT * FROM `users` WHERE `username` = ?";
+  $stmt = $db_obj->prepare($sql);
+  $stmt->bind_param("s", $username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  //Wenn es einen Eintrag gibt, dann ist der Username nicht unique
+  if ($result->num_rows > 0) {
     return false;
   } else {
     return true;
