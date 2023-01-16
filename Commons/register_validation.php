@@ -196,8 +196,12 @@ function isUsernameUnique($username, $db_obj)
 
   //Wenn es einen Eintrag gibt, dann ist der Username nicht unique
   if ($result->num_rows > 0) {
+    $stmt->close();
+    $db_obj->close();
     return false;
   } else {
+    $stmt->close();
+    $db_obj->close();
     return true;
   }
 
