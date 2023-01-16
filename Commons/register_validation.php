@@ -1,4 +1,8 @@
+<?php require_once('db/dbaccess.php'); ?>
+  
 <?php
+
+$db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
 
 //Wenn ein angemeldeter Nutzer auf die Seite zugreifen will --> fehler
 if ($_SESSION['role'] !== "guest") {
@@ -93,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $username = input_data($_POST["username"]);
     //Überprüfung ob Username unique
-    $usernameIsUnique = isUsernameUnique($username);
+    $usernameIsUnique = isUsernameUnique($username, $db_obj);
     if (!$usernameIsUnique) {
       $usernameErr = "Dieser Benutzername ist leider schon vergeben";
     }
@@ -174,11 +178,8 @@ function invalidFeedback($error, string $id)
   }
 }
 
-function isUsernameUnique($username)
+function isUsernameUnique($username, $db_obj)
 {
-  //Datenbankverbindung
-  require_once('db/dbaccess.php');
-  $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
 
   //Überprüfung ob Verbindung erfolgreich
   if ($db_obj->connect_error) {
