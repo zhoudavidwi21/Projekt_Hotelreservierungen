@@ -143,3 +143,7 @@ https://www.tutorials.de/threads/alle-bilder-aus-einem-ordner-anzeigen.386338/#:
 
 <button>: The Button element
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+
+
+#1034-Index for table 'db' is Corrupt; try to repair it in phpmyadmin
+https://www.youtube.com/watch?v=gmDVopwfJMM&t=6s

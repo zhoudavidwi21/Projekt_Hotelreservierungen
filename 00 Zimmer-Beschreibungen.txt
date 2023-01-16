@@ -18,31 +18,31 @@ Beschreibung:
 Zimmer 202 (07):
 ----------------
 Name: DZ Wilder Wald
-Beschreibung:
+Beschreibung: x
 
 Zimmer 203 (04):
 ----------------
 Name: DZ Himmlische Eiche
-Beschreibung:
+Beschreibung: x
 
 Zimmer 301 (01):
 --------------
 Name: Suite Zum Donaublick
-Beschreibung:
+Beschreibung: x
 
 Zimmer 302 (02):
 --------------
 Name: Suite Zum hölzernen Traum 
-Beschreibung:
+Beschreibung: x
 
 Zimmer 303 (05):
 --------------
 Name: DZ Rote Pracht
-Beschreibung:
+Beschreibung: x
 
 Zimmer 401 (06):
 -----------
 Name: Suite Zur Kastanie
-Beschreibung:
+Beschreibung: x
 
 
