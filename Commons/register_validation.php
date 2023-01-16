@@ -1,5 +1,3 @@
-<?php require_once('db/dbaccess.php'); ?>
-
 <?php
 
 //Wenn ein angemeldeter Nutzer auf die Seite zugreifen will --> fehler
@@ -179,14 +177,17 @@ function invalidFeedback($error, string $id)
 function isUsernameUnique($username)
 {
   //Datenbank Check
-  //Code
+  require_once('db/dbaccess.php');
+  $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+  $sql = "SELECT * FROM `users` WHERE `username` = '$username'";
+  $result = $db_obj->query($sql);
 
-  //Vorerst hardcoded gegen user und admin
-  if ($username == "user" || $username == "admin") {
+  if($result->num_rows > 0) {
     return false;
   } else {
     return true;
   }
+
 }
 
 /*

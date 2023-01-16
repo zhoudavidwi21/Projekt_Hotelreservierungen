@@ -152,8 +152,7 @@ if (isset($_POST["submit"])) {
               <?php validityClass($agreeDatenschutzErr, "datenschutz"); ?>" name="datenschutz" id="Datenschutz"
               value="checked" aria-describedby="validationDatenschutz" required>
             <label class="form-check-label" for="Datenschutz"><a href="index.php?site=datenschutz"
-                target="_blank">Datenschutz</a> aktzeptieren
-              *</label>
+                target="_blank">Datenschutz</a> akzeptieren *</label>
             <?php invalidFeedback($agreeDatenschutzErr, "validationDatenschutz"); ?>
 
             <br>
