@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
   ) {
     //Funktion kommt nur hier rein wenn keine Fehler aufgetreten sind
     //Datenbankverbindung erstellt
-    $db_obj = new mysqli($host, $user, $password, $database);
+    $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
     $sql = "INSERT INTO `users`
     (`username`, `email`, `password`, `gender`, `companyName`, `firstName`, `lastName`) 
     VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -37,7 +37,6 @@ if (isset($_POST["submit"])) {
     }
 
   } else {
-    echo '<p class="red"> Fehler bei der Registrierung! </p>';
     $_SESSION['regGender'] = $gender;
     $_SESSION['regCompany'] = $company;
     $_SESSION['regFirstname'] = $firstname;
