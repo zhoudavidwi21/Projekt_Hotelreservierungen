@@ -2,15 +2,42 @@
 
 <?php include "Commons/register_validation.php"; ?>
 
+<?php require_once('db/dbaccess.php'); ?>
+
 <?php
 if (isset($_POST["submit"])) {
   if (
     $genderErr == "" && $companyErr == "" && $firstnameErr == "" && $lastnameErr == "" && $emailErr == "" && $usernameErr == ""
     && $passwordErr == "" && $passwordCheckErr == "" && $agreeDatenschutzErr == "" && $agreeAgbsErr == ""
   ) {
-    header('Refresh:0; url=index.php?site=register_confirmed');
-    exit();
+    //Funktion kommt nur hier rein wenn keine Fehler aufgetreten sind
+    //Datenbankverbindung erstellt
+    $db_obj = new mysqli($host, $user, $password, $database);
+    $sql = "INSERT INTO `users`
+    (`username`, `email`, `password`, `gender`, `companyName`, `firstName`, `lastName`) 
+    VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    //Passwort hashen
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    //SQL-Statement erstellen
+    $stmt = $db_obj->prepare($sql);
+
+    $stmt->bind_param("sssssss", $username, $email, $password, $gender, $company, $firstname, $lastname);
+
+    if ($stmt->execute()) {
+      //close the statement
+      $stmt->close();
+      //close the connection
+      $db_obj->close();
+      header('Refresh:0; url=index.php?site=register_confirmed');
+      exit();
+    } else {
+      echo '<p class="red"> Registrierung fehlgeschlagen! </p>';
+    }
+
   } else {
+    echo '<p class="red"> Fehler bei der Registrierung! </p>';
     $_SESSION['regGender'] = $gender;
     $_SESSION['regCompany'] = $company;
     $_SESSION['regFirstname'] = $firstname;

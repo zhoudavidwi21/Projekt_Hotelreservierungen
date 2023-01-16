@@ -1,3 +1,5 @@
+<?php require_once('db/dbaccess.php'); ?>
+
 <?php
 
 //Wenn ein angemeldeter Nutzer auf die Seite zugreifen will --> fehler
@@ -42,6 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
       $company = input_data($_POST["company"]);
     }
+  }
+
+  //Wenn man versucht einen Firmennamen einzugeben ohne Anrede Firma ausgewählt zu haben
+  if ($gender != "firma" && $_POST["company"] != "") {
+    $companyErr = "Sie haben einen Firmennamen eingegeben, haben aber jedoch als Anrede nicht Firma ausgewählt!";
+  } else {
+    $company = input_data($_POST["company"]);
   }
 
   //Überprüfung ob Vorname vorhanden
