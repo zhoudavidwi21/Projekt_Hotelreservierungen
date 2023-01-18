@@ -1,3 +1,12 @@
+SQL Erweiterung wenn Spalte roomType noch nicht vorhanden in der Tabelle rooms:
+--------------------------------------------------------------------------------
+ALTER TABLE `rooms` ADD `roomType` ENUM('EZ', 'DZ', 'Suite') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'EZ' AFTER `roomNumber`; 
+
+Bezüglich Daten:
+Bitte Preise für die Zimmer zwischen 000,01 - 999,99
+Bilder für die jeweiligen Zimmer immer mit "Zimmer_[Zimmernummer]" benennen. (jpg only, und format wie bisher)
+
+
 Allgemeines:
 ------------
 Alle unsere Zimmer und Bäder sind komplett neu gestaltet. 
@@ -10,39 +19,53 @@ In der Lobby gibt es einen Getränke- und einen Snackautomaten.
 
 Die Bezeichnung EZ bedeutet Einzelzimmer und DZ bedeutet Doppelzimmer.
 
+
 Zimmer 201 (03):
 ----------------
-Name: EZ Zum Torbogen
+Typ: EZ
+Name: Zum Torbogen
 Beschreibung:
+Preis:
 
 Zimmer 202 (07):
 ----------------
-Name: DZ Wilder Wald
+Typ: DZ
+Name: Wilder Wald
 Beschreibung: x
+Preis: 
 
 Zimmer 203 (04):
 ----------------
-Name: DZ Himmlische Eiche
+Typ: DZ
+Name: Himmlische Eiche
 Beschreibung: x
+Preis:
 
 Zimmer 301 (01):
 --------------
-Name: Suite Zum Donaublick
+Typ: Suite
+Name: Zum Donaublick
 Beschreibung: x
+Preis:
 
 Zimmer 302 (02):
 --------------
-Name: Suite Zum hölzernen Traum 
+Typ: Suite
+Name: Zum hölzernen Traum 
 Beschreibung: x
+Preis:
 
 Zimmer 303 (05):
 --------------
-Name: DZ Rote Pracht
+Typ: DZ
+Name: Rote Pracht
 Beschreibung: x
+Preis:
 
 Zimmer 401 (06):
 -----------
-Name: Suite Zur Kastanie
+Typ: Suite
+Name: Zur Kastanie
 Beschreibung: x
-
+Preis:
 
