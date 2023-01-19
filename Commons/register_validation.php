@@ -1,8 +1,14 @@
 <?php require_once('db/dbaccess.php'); ?>
-  
+
 <?php
 
 $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+
+//Überprüfung ob Verbindung erfolgreich
+if ($db_obj->connect_error) {
+  echo 'Connection error: ' . $db_obj->connect_error;
+  exit();
+}
 
 //Wenn ein angemeldeter Nutzer auf die Seite zugreifen will --> fehler
 if ($_SESSION['role'] !== "guest") {
@@ -109,14 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $password = input_data($_POST["password"]);
 
-    //Passwort regex check
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $number = preg_match('@[0-9]@', $password);
-    //$uppercase = preg_match('@[^\w]@', $password); kann man auch, aber zu mühsam jetzt
-    if (!$uppercase || !$lowercase || !$number || strlen($password) < 5) {
-      $passwordErr = "Ihr Passwort muss mindestens 5 Zeichen lang sein und muss einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer enthalten.";
-    }
+    $passwordErr = passwordRegExCheck($password);
   }
 
   //Überprüfung ob Passwort vorhanden/nicht leerzeichen ist
@@ -180,15 +179,8 @@ function invalidFeedback($error, string $id)
 
 function isUsernameUnique($username, $db_obj)
 {
-
-  //Überprüfung ob Verbindung erfolgreich
-  if ($db_obj->connect_error) {
-    echo 'Connection error: ' . $db_obj->connect_error;
-    exit();
-  }
-
   //Überprüfung ob Username unique mittels prepared statement
-  $sql = "SELECT * FROM `users` WHERE `username` = ?";
+  $sql = "SELECT * FROM `users` WHERE BINARY `username` = ?";
   $stmt = $db_obj->prepare($sql);
   $stmt->bind_param("s", $username);
   $stmt->execute();
@@ -207,6 +199,17 @@ function isUsernameUnique($username, $db_obj)
 
 }
 
+function passwordRegExCheck($password)
+{
+  //Passwort regex check
+  $uppercase = preg_match('@[A-Z]@', $password);
+  $lowercase = preg_match('@[a-z]@', $password);
+  $number = preg_match('@[0-9]@', $password);
+  //$uppercase = preg_match('@[^\w]@', $password); kann man auch, aber zu mühsam jetzt
+  if (!$uppercase || !$lowercase || !$number || strlen($password) < 5) {
+    return "Ihr Passwort muss mindestens 5 Zeichen lang sein und muss einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer enthalten.";
+  } 
+}
 /*
 echo "<pre>";
 print_r($_POST);
