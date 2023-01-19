@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   ) {
     //Bereinigung der Eingabe, falls der Nutzer sich mit irgendwelchen besonderen Zeichen
     //registriert hat
-    $_POST["username"] = htmlspecialchars($_POST["username"]);
+    $_POST["username"] = trim(htmlspecialchars($_POST["username"]));
 
     //DB-Abfrage
     $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       //fetch_assoc returnt ein array als key-value-pair, 
       //fetch_array returnt potenziell ein array mit numerischen keys
       $row = $result->fetch_assoc();
-      if (password_verify($_POST["password"], $row["password"])) {
+      if (password_verify(trim($_POST["password"]), $row["password"])) {
         $_SESSION["userId"] = $row["userId"];
         $_SESSION["username"] = $row["username"];
         $_SESSION["role"] = $row["role"];

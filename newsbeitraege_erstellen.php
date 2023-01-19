@@ -1,4 +1,7 @@
 <?php include "./Commons/sessions.php"; ?>
+
+<?php require_once('db/dbaccess.php'); ?>
+
 <?php
 //Nur Admins können Newsbeiträge erstellen
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
@@ -9,7 +12,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
 
 <?php
 $titleErr = $fileErr = $bodyErr = $altErr = "";
-$title = $file = $body = $alt = "";
+$title = $filepath = $body = $alt = "";
+
 
 //Post Newsbeiträge nur wenn mind. Titel und Text vorhanden
 if (
@@ -20,7 +24,7 @@ if (
   if (empty($_POST['title'])) {
     $titleErr = '<p class="red">ACHTUNG - Bitte geben Sie einen Titel ein!</p>';
   } elseif (preg_match('/[\[<>]/', $_POST['title'])) {
-    $titleErr = '<p class="red">ACHTUNG - Titel erhält unzulässige Zeichen!</p>';
+    $titleErr = '<p class="red">ACHTUNG - Titel enthält unzulässige Zeichen!</p>';
   } else {
     $title = htmlspecialchars($_POST['title']);
   }
@@ -29,16 +33,12 @@ if (
   if (empty($_POST['body'])) {
     $bodyErr = "Bitte geben Sie einen Text ein!";
   } elseif (preg_match('/[\[<>]/', $_POST['body'])) {
-    $bodyErr = "Der Text erhält unzulässige Zeichen!";
+    $bodyErr = "Der Text enthält unzulässige Zeichen!";
   } else {
     $body = htmlspecialchars($_POST['body']);
   }
 }
 
-if (isset($_POST['upload']) && ($titleErr == "" && $fileErr == "" && $bodyErr == "")) {
-  //header('Location: ./newsbeitraege.php');
-  //exit();
-}
 
 $uploadDir = "Uploads/";
 $thumbnailDir = "thumbnails/";
@@ -57,7 +57,7 @@ $allowed = array('png', 'jpg', 'jpeg', 'gif');
 //Überprüfung ob Datei hochgeladen wurde
 if (
   $_SERVER["REQUEST_METHOD"] === "POST"
-  && isset($_FILES["file"])
+  && !empty($_FILES["file"]["name"])
 ) {
 
   $filename = $_FILES["file"]["name"];
@@ -100,7 +100,7 @@ if (
 //Überprüfung ob Alt-Text vorhanden wenn ein Bild hochgeladen wurde
 if (
   $_SERVER["REQUEST_METHOD"] === "POST"
-  && isset($_FILES["file"])
+  && !empty(trim(($_FILES["file"]["name"])))
 ) {
 
   //Überprüfung ob Alt vorhanden
@@ -112,6 +112,37 @@ if (
     $alt = htmlspecialchars($_POST['alt']);
   }
 
+}
+
+//Lädt die Daten auf die Datenbank hoch
+if (isset($_POST['upload']) && ($titleErr == "" && $fileErr == "" && $bodyErr == "" && $altErr == "")) {
+
+  $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+  if ($db_obj->connect_error) {
+    echo 'Connection error: ' . $db_obj->connect_error;
+    exit();
+  }
+
+  $sql = "INSERT INTO `news`(`title`, `body`, `file_path`, `alt`, `fk_userId`) VALUES (?, ?, ?, ?, ?)";
+
+  $stmt = $db_obj->prepare($sql);
+
+  $userId = $_SESSION['userId'];
+
+  $stmt->bind_param("ssssi", $title, $body, $filepath, $alt, $userId);
+
+  
+  if ($stmt->execute()) {
+  $stmt->close();
+  $db_obj->close();
+  header('Location: ./index.php?site=newsbeitraege');
+  exit();
+  } else {
+  $stmt->close();
+  $db_obj->close();
+  echo "<p class='red'>Fehler bei der Übertragung in die Datenbank!</p>";
+  }
+  
 }
 
 //Funktion zum Erstellen von Thumbnails
@@ -180,12 +211,13 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
               echo $fileErr;
             } ?>
             <p class="fw-lighter">
-              Bitte die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte hochladen!
+              Bitte die Bilder (Format *.gif,*.jpeg, *.jpg oder *.png) mit einer maximalen Dateigröße von 10 MByte
+              hochladen!
             </p>
           </div>
           <div class="mb-3">
             <label for="alt" class="form-label" hidden>Titel</label>
-            <input type="text" class="form-control" name="alt" id="alt" placeholder="Alt Beschreibung" required>
+            <input type="text" class="form-control" name="alt" id="alt" placeholder="Alt Beschreibung">
             <?php if (!empty($altErr)) {
               echo $altErr;
             } ?>
@@ -193,7 +225,8 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
 
           <div class="mb-3">
             <label for="body" class="form-label" hidden>Beitrag</label>
-            <textarea class="form-control" id="body" name="body" rows="5" placeholder="Fügen Sie hier Ihren Beitrag hinzu." required></textarea>
+            <textarea class="form-control" id="body" name="body" rows="5"
+              placeholder="Fügen Sie hier Ihren Beitrag hinzu." required></textarea>
             <?php if (!empty($bodyErr)) {
               echo $bodyErr;
             } ?>
@@ -220,9 +253,9 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
             //          echo "<pre>";print_r($files);"</pre>";
             //          0 und 1 überspringen, da (. und ..)
             //          i = 2; $i < $files.length; $i++
-
+          
             /*for ($i = 2; isset($files[$i]); $i++) {
-              //               echo "<li>" . $files[$i] . "</li>";
+            //               echo "<li>" . $files[$i] . "</li>";
             }*/
 
             if (count($files) == 3) {
