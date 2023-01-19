@@ -35,7 +35,7 @@ if (
   } elseif (preg_match('/[\[<>]/', $_POST['body'])) {
     $bodyErr = "Der Text enthält unzulässige Zeichen!";
   } else {
-    $body = htmlspecialchars($_POST['body']);
+    $body = nl2br(htmlspecialchars($_POST['body']));
   }
 }
 
