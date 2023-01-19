@@ -63,6 +63,9 @@
           <h2 class='featurette-heading fw-normal lh-1'><br>
             <span class='text-muted'>Zimmer " . $row["roomNumber"] . " - " . $row["roomType"] . " \"" . $row["roomName"] . "\"</span>
           </h2>
+          <p class='fs-3'>Preis pro Nacht:
+                " . number_format($row['roomPrice'], 2, ",") . "€
+              </p>
           <p class='lead'>" . $row["roomDescription"] . "</p>
           <h2 class='featurette-heading fw-normal lh-1'><br>
         </div>
@@ -87,6 +90,9 @@
           <h2 class='featurette-heading fw-normal lh-1'><br>
             <span class='text-muted'>Zimmer " . $row["roomNumber"] . " - " . $row["roomType"] . " \"" . $row["roomName"] . "\"</span>
           </h2>
+          <p class='fs-3'>Preis pro Nacht:
+                "  . number_format($row['roomPrice'], 2, ",") . "€
+              </p>
           <p class='lead'>" . $row["roomDescription"] . "</p>
           <h2 class='featurette-heading fw-normal lh-1'><br>
           </div>
