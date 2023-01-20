@@ -147,3 +147,6 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
 #1034-Index for table 'db' is Corrupt; try to repair it in phpmyadmin
 https://www.youtube.com/watch?v=gmDVopwfJMM&t=6s
+
+Passwort-Generator:
+https://delinea.com/resources/password-generator-it-tool

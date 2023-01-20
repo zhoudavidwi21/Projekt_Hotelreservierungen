@@ -42,7 +42,7 @@
               //Zeitformatierung
               $date = $row['createdDate']; //$row['createdDate'] ist ein String
               $date = new DateTime($date); //String wird in ein DateTime Objekt umgewandelt
-          
+
               echo " <hr class='featurette-divider'>";
 
               if ($i % 2 == 0) {
@@ -65,7 +65,7 @@
                 <div id='carouselExampleSlidesOnly' class='carousel slide carousel-fade' data-bs-ride='carousel'>
                   <div class='carousel-inner'>
                     <div class='carousel-item active' data-bs-interval='2000'>
-                      <img src='" . $row['file_path'] . "' class='d-block w-100' alt='". htmlspecialchars_decode($row['alt']) ."'>
+                      <img src='" . $row['file_path'] . "' class='d-block w-100' alt='" . htmlspecialchars_decode($row['alt']) . "'>
                     </div>
   
                   </div>
@@ -93,7 +93,7 @@
               <div id='carouselExampleSlidesOnly' class='carousel slide carousel-fade' data-bs-ride='carousel'>
                 <div class='carousel-inner'>
                   <div class='carousel-item active' data-bs-interval='2000'>
-                    <img src='" . $row['file_path'] . "' class='d-block w-100' alt='". htmlspecialchars_decode($row['alt']) ."'>
+                    <img src='" . $row['file_path'] . "' class='d-block w-100' alt='" . htmlspecialchars_decode($row['alt']) . "'>
                   </div>
 
                 </div>
@@ -106,7 +106,7 @@
           }
           ?>
 
-        
+
         </div>
       </main>
 

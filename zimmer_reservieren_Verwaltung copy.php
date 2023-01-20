@@ -47,13 +47,12 @@
 
     for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
 
-      // Anzahl der Nächte berechnen
       $date_arr = date_create($row["arrivalDate"]);
       $date_dep = date_create($row["departureDate"]);
       $intervall = date_diff($date_arr, $date_dep, true);
       //echo $intervall->format("%a");
 
-      echo "<hr class='featurette-divider'>";
+      echo " <hr class='featurette-divider'>";
 
       echo "
         <div class='row featurette'>
@@ -73,35 +72,7 @@
 
         </div>
         ";
-
-/*
-
-// Daten abfragen
-$sql = "SELECT reservationStatus FROM reservations";
-
-// Daten an Formular übergeben
-echo "<form method= GET action= reservationStatus>";
-
-// Dropdown-Box erstellen und mit Werten füllen
-echo "<p>Reservierungsstatus ändern: <select name = Reservierungsstatus ändern: >";
-foreach ($pdo->query($sql) as $row) {
-        echo "<option value =" . $row['reservationStatus']."</option>";
-}
-echo "</select></p>";
-
-// Auswahl übermitteln
-echo "<input type= submit/ ><br />";
-
-// Ausgabe der Auswahl
-echo "Auswahl: ".$_POST["reservationStatus"];
-
-*/
-
-
-
-
     }
-    
   }
   ?>
 
