@@ -66,6 +66,8 @@
             " . $intervall->format("%a") . "         
           <p class='fs-4 lh-1'>Preis gesamt:
             " . number_format($row['totalPrice'], 2, ",") . " €
+            <p class='fs-6 lh-1'>Datum der Reservierung: 
+            " . $row["reservationDate"] . "  
           <p class='fs-5 lh-1'>Status der Reservierung :
             " . $row["reservationStatus"] . "
               
