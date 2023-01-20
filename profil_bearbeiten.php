@@ -3,8 +3,9 @@
 <?php require_once('db/dbaccess.php'); ?>
 
 <?php
+//Nur angemeldete Nutzer können Zimmer reservieren
 if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
-    header('location: ./error.php');
+    header('Refresh:1; url=index.php?site=error');
     exit();
 }
 ?>
@@ -187,11 +188,14 @@ function passwordRegExCheck($password)
                 Fehler bei den Änderungen!
                 <br>
                 <?php
-                echo "Email: " . $emailErr . "<br>";
-                echo "Benutzername: " . $usernameErr . "<br>";
-                echo "Altes Passwort: " . $oldPasswordErr . "<br>";
-                echo "Neues Passwort: " . $passwordErr . "<br>";
-                echo "Neues Passwort wiederholen: " . $passwordCheckErr;
+                echo "<div class='alert alert-danger' role='alert'>
+                Folgende Fehler sind aufgetreten: <br>
+                $emailErr <br>
+                $usernameErr <br>
+                $passwordErr <br>
+                $passwordCheckErr <br>
+                $oldPasswordErr <br>
+                </div>";
                 ?>
             </div>
 

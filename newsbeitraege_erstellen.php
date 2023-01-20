@@ -5,7 +5,7 @@
 <?php
 //Nur Admins können Newsbeiträge erstellen
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
-  header('location: ./error.php');
+  header('Refresh:1; url=index.php?site=error');
   exit();
 }
 ?>

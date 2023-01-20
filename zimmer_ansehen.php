@@ -47,12 +47,13 @@
 
   if ($result->num_rows === 0) {
     echo "<div class='alert alert-danger' role='alert'>
-     Es wurden keine Zimmer in der Datenbank gefunden.";
+     Es wurden keine Zimmer in der Datenbank gefunden.
+     </div>";
     $stmt->close();
     $db_obj->close();
   } else {
 
-    for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
+    for ($i = 1; $row = $result->fetch_assoc(); $i++) {
 
       echo " <hr class='featurette-divider'>";
 

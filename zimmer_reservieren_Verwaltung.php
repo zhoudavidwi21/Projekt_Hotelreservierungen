@@ -1,4 +1,13 @@
 <?php include "./Commons/sessions.php"; ?>
+
+<?php
+//Nur Admins können Newsbeiträge erstellen
+if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
+  header('Refresh:1; url=index.php?site=error');
+  exit();
+}
+?>
+
 <?php
 //Nur Admins können Reservierungen verwalten
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
