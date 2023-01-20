@@ -1,3 +1,7 @@
+<?php include "Commons/sessions.php"; ?>
+
+<?php require_once('db/dbaccess.php'); ?>
+
 <?php
 //Nur angemeldete Nutzer können Zimmer reservieren
 if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
@@ -7,6 +11,14 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
 ?>
 
 <?php
+
+$db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+
+//Überprüfung ob Verbindung erfolgreich
+if ($db_obj->connect_error) {
+    echo 'Connection error: ' . $db_obj->connect_error;
+    exit();
+}
 
 $roomErr = $arrivalDateErr = $departureDateErr = "";
 $room = $arrivalDate = $departureDate = "";
@@ -26,20 +38,26 @@ if (!isset($_SESSION['resArrival'])) {
 if (!isset($_SESSION['resDeparture'])) {
     $_SESSION['resDeparture'] = "";
 }
-if (!isset($_SESSION['resBreakfast'])) {
-    $_SESSION['resBreakfast'] = "";
+if (!isset($_SESSION['resServices'])) {
+    $_SESSION['resServices'] = array();
 }
-if (!isset($_SESSION['resParking'])) {
-    $_SESSION['resParking'] = "";
+if (!isset($_SESSION['resServices']['resBreakfast'])) {
+    $_SESSION['resServices']['resBreakfast'] = "";
 }
-if (!isset($_SESSION['resPet'])) {
-    $_SESSION['resPet'] = "";
+if (!isset($_SESSION['resServices']['resParking'])) {
+    $_SESSION['resServices']['resParking'] = "";
+}
+if (!isset($_SESSION['resServices']['resPet'])) {
+    $_SESSION['resServices']['resPet'] = "";
+}
+if (!isset($_SESSION['resTotal'])) {
+    $_SESSION['resTotal'] = "";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Zimmer muss ausgewählt sein
-    if ((isset($_POST['room']) && $_POST['room']) == "") {
+    if ((isset($_POST['room']) && $_POST['room']) == "" || $_POST['room'] == "Zimmer auswählen") {
         $roomErr = "Sie müssen ein Zimmer auswählen!";
     } else {
         $room = $_POST["room"];
@@ -65,6 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $departureDateErr = "Sie müssen ein Abreisedatum auswählen!";
     } else {
         $departureDate = $_POST["departureDate"];
+    }
+
+    if (!roomAvailable($room, $arrivalDate, $departureDate, $db_obj)) {
+        $roomErr = "Dieses Zimmer ist in den folgenden Zeiträumen bereits verbucht: <br>
+        " . getBookedDates($room, $db_obj);
     }
 
     if (isset($_POST['breakfast'])) {
@@ -102,6 +125,63 @@ function invalidFeedback($error, string $id)
         echo $error;
         "</div>";
     }
+}
+
+function roomAvailable($room, $arrivalDate, $departureDate, $db_obj)
+{
+    $roomAvailable = true;
+    $query = "SELECT roomId FROM rooms WHERE roomNumber = '$room'";
+
+    $sql = "SELECT * FROM reservations 
+    WHERE fk_roomId IN ($query) 
+    AND reservationStatus = 'confirmed' 
+    ORDER BY arrivalDate ASC";
+
+    $stmt = $db_obj->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            //Wenn Ankunftsdatum zwischen den beiden Daten liegt
+            if ($arrivalDate >= $row['arrivalDate'] && $arrivalDate <= $row['departureDate']) {
+                $roomAvailable = false;
+            }
+            //Wenn Abreisedatum zwischen den beiden Daten liegt
+            elseif ($departureDate >= $row['arrivalDate'] && $departureDate <= $row['departureDate']) {
+                $roomAvailable = false;
+            }
+            //Wenn Ankunftsdatum und Abreisedatum außerhalb der beiden Daten liegen
+            elseif ($arrivalDate <= $row['arrivalDate'] && $departureDate >= $row['departureDate']) {
+                $roomAvailable = false;
+            }
+        }
+    }
+    return $roomAvailable;
+}
+
+function getBookedDates($room, $db_obj)
+{
+    $bookedDates = "";
+    $query = "SELECT roomId FROM rooms WHERE roomNumber = '$room'";
+
+    $sql = "SELECT * FROM reservations 
+    WHERE fk_roomId IN ($query) 
+    AND reservationStatus = 'confirmed' 
+    ORDER BY arrivalDate ASC";
+
+    $stmt = $db_obj->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+        if ($row['arrivalDate'] >= date("Y-m-d")) {
+            $arrivalDate = date_create($row['arrivalDate']);
+            $departureDate = date_create($row['departureDate']);
+            $bookedDates .= date_format($arrivalDate, "d.m.Y") . " - " . date_format($departureDate, "d.m.Y") . "<br>";
+        }
+    }
+    return $bookedDates;
 }
 
 ?>

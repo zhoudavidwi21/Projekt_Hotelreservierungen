@@ -37,7 +37,7 @@
             $db_obj->close();
           } else {
 
-            for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
+            for ($i = 1; $row = $result->fetch_assoc(); $i++) {
 
               //Zeitformatierung
               $date = $row['createdDate']; //$row['createdDate'] ist ein String
