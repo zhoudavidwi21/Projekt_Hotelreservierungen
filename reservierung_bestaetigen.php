@@ -11,11 +11,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
 ?>
 
 <?php
-
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
-
 $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
 
 //Überprüfung ob Verbindung erfolgreich
@@ -58,7 +53,7 @@ if($stmt->execute()) {
         $i++;
     }
     $db_obj->close();
-    header('Refresh:1; url=index.php?site=reservierung_erfolgreich');
+    header('Refresh:0; url=index.php?site=reservierung_erfolgreich');
 } else {
     echo "Fehler beim Speichern der Daten 
     Error: " . $sql . "<br>" . $db_obj->error;
