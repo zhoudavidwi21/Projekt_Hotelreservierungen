@@ -26,7 +26,7 @@ VALUES (?, ?, ?, ?, ?)";
 //SQL-Statement erstellen
 $stmt = $db_obj->prepare($sql);
 
-$query = "SELECT roomId FROM rooms WHERE roomNumber = ". $_SESSION['resRoom'];
+$query = "SELECT roomId FROM rooms WHERE roomNumber = " . $_SESSION['resRoom'];
 
 $userId = $_SESSION['userId'];
 $roomId = $db_obj->query($query)->fetch_object()->roomId;
@@ -36,11 +36,11 @@ $totalPrice = $_SESSION['resTotal'];
 
 $stmt->bind_param("iisss", $userId, $roomId, $arrivalDate, $departureDate, $totalPrice);
 
-if($stmt->execute()) {
+if ($stmt->execute()) {
     $stmt->close();
     $i = 1;
-    foreach($_SESSION['resServices'] as $service => $value) {
-        if($_SESSION['resServices'][$service] == "1"){
+    foreach ($_SESSION['resServices'] as $service => $value) {
+        if ($_SESSION['resServices'][$service] == "1") {
             $sql = "INSERT INTO `reservations_services` 
             (`fk_reservationId`, `fk_serviceId`) VALUES (?, ?)";
             $stmt = $db_obj->prepare($sql);

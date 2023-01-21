@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($result->num_rows === 0) {
       echo "<div class='alert alert-danger' role='alert'>
        Dein Benutzername oder Passwort ist falsch.";
-       $stmt->close();
+      $stmt->close();
       $db_obj->close();
     } else {
       //fetch_assoc returnt ein array als key-value-pair, 
@@ -101,8 +101,7 @@ if (isset($_POST['remember']) && $_POST['remember'] == true) {
               <input type="password" class="form-control has-validation
                     <?php if (isset($_POST['username']) && $_SESSION['role'] === 'guest') {
                       echo "is-invalid";
-                    } ?>" id="floatingPassword" placeholder="Passwort" name="password"
-                aria-describedby="validationLogin">
+                    } ?>" id="floatingPassword" placeholder="Passwort" name="password" aria-describedby="validationLogin">
               <label for="floatingPassword">Passwort</label>
               <div id="validationLogin" class="invalid-feedback">
                 Benutzername und Passwort stimmen nicht überein.

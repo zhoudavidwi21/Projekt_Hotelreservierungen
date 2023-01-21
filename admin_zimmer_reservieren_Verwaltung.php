@@ -20,7 +20,6 @@ if ($db_obj->connect_error) {
 }
 ?>
 
-
 <!-- Reservierungen anzeigen -->
 <div class="text-center container-fluid">
 

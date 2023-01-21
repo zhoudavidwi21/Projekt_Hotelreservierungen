@@ -5,14 +5,6 @@
 <?php require_once('db/dbaccess.php'); ?>
 
 <?php
-//Nur angemeldete Nutzer können Zimmer reservieren
-if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
-    header('Refresh:1; url=index.php?site=error');
-    exit();
-}
-?>
-
-<?php
 
 if (isset($_POST['booking'])) {
   if (
@@ -50,111 +42,110 @@ $stmt->bind_param("i", $_SESSION['userId']);
 
   <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
+  <div class="text-center container-fluid">
 
-  <div class="row justify-content-md-center">
-    <div class="col-lg-2 col-md-3">
-    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-lg-2 col-md-3">
+      </div>
 
-    <h2 class="mt-5">Hallo
-      <?php echo $_SESSION["username"]; ?>!
-    </h2>
+      <h2 class="mt-5">Hallo
+        <?php echo $_SESSION["username"]; ?>!
+      </h2>
 
-    <form method="POST">
+      <form method="POST">
 
-      <div class="d-inline-flex">
-        <div class="row">
-          <div class="col-auto">
-            <label for="room" hidden>Zimmer auswählen</label>
-            <select class="form-select" name="room" id="room" aria-describedby="roomAvailable validationRoom">
-              <option selected value="">Zimmer auswählen</option>
+        <div class="d-inline-flex">
+          <div class="row">
+            <div class="col-auto">
+              <label for="room" hidden>Zimmer auswählen</label>
+              <select class="form-select" name="room" id="room" aria-describedby="roomAvailable validationRoom">
+                <option selected value="">Zimmer auswählen</option>
 
-              <?php
-              $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+                <?php
+                $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
 
-              //Überprüfung ob Verbindung erfolgreich
-              if ($db_obj->connect_error) {
-                echo 'Connection error: ' . $db_obj->connect_error;
-                exit();
-              }
+                //Überprüfung ob Verbindung erfolgreich
+                if ($db_obj->connect_error) {
+                  echo 'Connection error: ' . $db_obj->connect_error;
+                  exit();
+                }
 
-              $sql = "SELECT * FROM `rooms` ORDER BY `roomNumber` ASC";
-              $stmt = $db_obj->prepare($sql);
-              $stmt->execute();
-              $result = $stmt->get_result();
+                $sql = "SELECT * FROM `rooms` ORDER BY `roomNumber` ASC";
+                $stmt = $db_obj->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-              if ($result->num_rows === 0) {
-                echo "<div class='alert alert-danger' role='alert'>
+                if ($result->num_rows === 0) {
+                  echo "<div class='alert alert-danger' role='alert'>
                     Es wurden keine Zimmer in der Datenbank gefunden.
                     </div>";
-                $stmt->close();
-                $db_obj->close();
-              } else {
-                while ($row = $result->fetch_assoc()) {
-                  echo "<option " . (isset($_SESSION['resRoom']) && $_SESSION['resRoom'] == $row['roomNumber'] ? "selected" : "") .
-                    "value='" . $row['roomNumber'] . "'> Zimmer " . $row['roomNumber'] . " (" . number_format($row['roomPrice'], 2, ",") . " €/pro Nacht)</option>";
+                  $stmt->close();
+                  $db_obj->close();
+                } else {
+                  while ($row = $result->fetch_assoc()) {
+                    echo "<option " . (isset($_SESSION['resRoom']) && $_SESSION['resRoom'] == $row['roomNumber'] ? "selected" : "") .
+                      "value='" . $row['roomNumber'] . "'> Zimmer " . $row['roomNumber'] . " (" . number_format($row['roomPrice'], 2, ",") . " €/pro Nacht)</option>";
+                  }
+                  $stmt->close();
+                  $db_obj->close();
                 }
-                $stmt->close();
-                $db_obj->close();
-              }
-              ?>
-            </select>
+                ?>
+              </select>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="checkbox">
+          <div class="grid gap-0 row-gap-3">
+
+            <div class="row row-cols-1">
+              <div class="p-2 g-col">
+                <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label class="form-check-label" for="breakfast">
+                  Frühstück inkludieren (10€/Nacht)
+                </label>
+              </div>
+
+              <div class="p-2 g-col">
+                <input class="form-check-input" type="checkbox" name="parking" id="parking" value="true">
+                <label class="form-check-label" for="parking">
+                  Parkplatz reservieren (15€/Nacht)
+                </label>
+              </div>
+
+              <div class="p-2 g-col">
+                <input class="form-check-input" type="checkbox" name="pet" id="pet" value="true">
+                <label class="form-check-label" for="pet">
+                  Haustier mitnehmen (Kostenlos)
+                </label>
+              </div>
+            </div>
 
           </div>
         </div>
-      </div>
 
-      <div class="checkbox">
-        <div class="grid gap-0 row-gap-3">
+        <div class="row justify-content-center">
+          <div class="col-sm-6 col-md-5 col-lg-3">
+            <label for="arrivalDate">Anreisedatum</label>
+            <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3" aria-describedby="validationArrival" required>
 
-          <div class="row row-cols-1">
-            <div class="p-2 g-col">
-              <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label
-                class="form-check-label" for="breakfast">
-                Frühstück inkludieren (10€/Nacht)
-              </label>
-            </div>
-
-            <div class="p-2 g-col">
-              <input class="form-check-input" type="checkbox" name="parking" id="parking" value="true">
-              <label class="form-check-label" for="parking">
-                Parkplatz reservieren (15€/Nacht)
-              </label>
-            </div>
-
-            <div class="p-2 g-col">
-              <input class="form-check-input" type="checkbox" name="pet" id="pet" value="true">
-              <label class="form-check-label" for="pet">
-                Haustier mitnehmen (Kostenlos)
-              </label>
-            </div>
           </div>
-
         </div>
-      </div>
 
-      <div class="row justify-content-md-center">
-        <div class="col-sm-6 col-md-5 col-lg-3">
-          <label for="arrivalDate">Anreisedatum</label>
-          <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3"
-            aria-describedby="validationArrival" required>
+        <div class="row justify-content-center">
+          <div class="col-sm-6 col-md-5 col-lg-3">
+            <label for="departureDate">Abreisedatum</label>
+            <input type="date" name="departureDate" id="departureDate" class="form-control mb-3" aria-describedby="validationDeparture" required>
 
+          </div>
         </div>
-      </div>
 
-      <div class="row justify-content-md-center">
-        <div class="col-sm-6 col-md-5 col-lg-3">
-          <label for="departureDate">Abreisedatum</label>
-          <input type="date" name="departureDate" id="departureDate" class="form-control mb-3"
-            aria-describedby="validationDeparture" required>
-
+        <div class="row justify-content-center">
+          <div class="col-auto mt-2">
+            <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="booking" value="true">Reservieren</button>
+          </div>
         </div>
-      </div>
+      </form>
 
-      <div class="row justify-content-md-center">
-        <div class="col-auto mt-2">
-          <button class="w-100 btn btn-lg btn-sonstige" type="submit" name="booking" value="true">Reservieren</button>
-        </div>
-      </div>
-    </form>
-
+    </div>
   </div>

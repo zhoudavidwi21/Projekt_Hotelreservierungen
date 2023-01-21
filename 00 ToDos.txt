@@ -1,6 +1,10 @@
 offene Punkte:
 --------------
-
+admin_benutzer_Verwaltung - error bearbeiten
+register_confirmed - error dazu oder funktioniert sie dann nicht mehr?
+register - manuelle Eingabe führt zu Formatierungsfehler - behebbar?
+startseite - manuelle Eingabe führt zu Formatierungsfehler - behebbar?
+zimmer_reservierung_erfolgreich - error dazu oder funktioniert sie dann nicht mehr?
 
 Benutzer verwalten für Admin
 alle Seiten testen, ob Zugriff erlaubt ist oder nicht!!!

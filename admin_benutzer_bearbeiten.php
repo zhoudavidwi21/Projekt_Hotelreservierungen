@@ -7,7 +7,7 @@
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     header('Refresh:1; url=index.php?site=error');
     exit();
-  }
+}
 ?>
 
 <?php
@@ -119,8 +119,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $oldPasswordErr = "Das eingegebene Passwort ist falsch!";
     }
-
-
 }
 
 //Vereinheitlichts die Eingabe bevor sie eingespeichert wird. --> vlt nützlich für DB-Anbindung?
@@ -149,7 +147,6 @@ function isUsernameUnique($username, $db_obj)
         $stmt->close();
         return true;
     }
-
 }
 
 function passwordRegExCheck($password)
@@ -199,7 +196,7 @@ function passwordRegExCheck($password)
                 ?>
             </div>
 
-        <?php }
+    <?php }
     } ?>
 
     <form method="POST">
@@ -210,8 +207,7 @@ function passwordRegExCheck($password)
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
                 <label for="oldEmail" class="d-flex justify-content-start">E-Mail Adresse</label>
-                <input class="form-control" id="oldEmail" name="oldEmail" type="email" value="<?php echo $email; ?>"
-                    aria-label="Disabled input example" disabled readonly>
+                <input class="form-control" id="oldEmail" name="oldEmail" type="email" value="<?php echo $email; ?>" aria-label="Disabled input example" disabled readonly>
             </div>
             <div class="col">
             </div>
@@ -234,8 +230,7 @@ function passwordRegExCheck($password)
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
                 <label for="oldUsername" class="d-flex justify-content-start">Aktueller Benutzername</label>
-                <input class="form-control" id="oldUsername" name="oldUsername" type="text"
-                    value="<?php echo $username; ?>" aria-label="Disabled input example" disabled readonly>
+                <input class="form-control" id="oldUsername" name="oldUsername" type="text" value="<?php echo $username; ?>" aria-label="Disabled input example" disabled readonly>
             </div>
             <div class="col">
             </div>
@@ -269,11 +264,9 @@ function passwordRegExCheck($password)
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
                 <label for="newPassword" class="d-flex justify-content-start">Neues Passwort eingeben</label>
-                <input class="form-control" id="newPassword" placeholder="neues Passwort" name="newPassword"
-                    type="password">
+                <input class="form-control" id="newPassword" placeholder="neues Passwort" name="newPassword" type="password">
                 <label for="newPasswordCheck" class="d-flex justify-content-start"></label>
-                <input class="form-control" id="newPasswordCheck" placeholder="neues Passwort wiederholen"
-                    name="newPasswordCheck" type="password">
+                <input class="form-control" id="newPasswordCheck" placeholder="neues Passwort wiederholen" name="newPasswordCheck" type="password">
             </div>
             <div class="col">
             </div>

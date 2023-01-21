@@ -22,10 +22,10 @@ unset($_SESSION['resTotal']);
             <br>
 
             <script type="text/javascript">
-                (function () {
+                (function() {
                     var timeLeft = 10,
                         cinterval;
-                    var timeDec = function () {
+                    var timeDec = function() {
                         timeLeft--;
                         document.getElementById('countdown').innerHTML = timeLeft;
                         if (timeLeft === 0) {
