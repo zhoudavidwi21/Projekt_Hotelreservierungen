@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 
-//Vereinheitlichts die Eingabe bevor sie eingespeichert wird. --> vlt nützlich für DB-Anbindung?
+//Vereinheitlichts die Eingabe bevor sie eingespeichert wird.
 function input_data($data)
 {
     $data = trim($data);
