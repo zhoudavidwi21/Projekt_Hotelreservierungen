@@ -125,7 +125,7 @@ $stmt->bind_param("i", $_SESSION['userId']);
       </div>
 
     <div class="row justify-content-md-center">
-      <div class="col-lg-4 col-md-3">
+      <div class="col-sm-6 col-md-5 col-lg-3">
         <label for="arrivalDate">Anreisedatum</label>
         <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3"
           aria-describedby="validationArrival" required>
@@ -134,7 +134,7 @@ $stmt->bind_param("i", $_SESSION['userId']);
       </div>
 
     <div class="row justify-content-md-center">
-      <div class="col-lg-4 col-md-3">
+      <div class="col-sm-6 col-md-5 col-lg-3">
         <label for="departureDate">Abreisedatum</label>
         <input type="date" name="departureDate" id="departureDate" class="form-control mb-3"
           aria-describedby="validationDeparture" required>
