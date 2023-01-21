@@ -29,99 +29,103 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
 <!-- Benutzer anzeigen -->
 <div class="text-center container-fluid">
   <div class="row justify-content-md-center">
-    <div class="col-sm-6 col-md-5 col-lg-4">
+    <div class="col-sm-3 col-md-7 col-lg-10">
       <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
       <h1 class="h3 mb-3 fw-normal">Benutzer verwalten</h1>
 
-      <form method="POST" id="userManagement">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">User ID</th>
-              <th scope="col">Anrede</th>
-              <th scope="col">Firmenname</th>
-              <th scope="col">Vorname</th>
-              <th scope="col">Nachname</th>
-              <th scope="col">Benutzername</th>
-              <th scope="col">Email</th>
-              <th scope="col">Rolle</th>
-              <th scope="col">Status</th>
-              <th scope="col">Funktionen</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
+      <div class="table-responsive">
+        <div class="table-wrapper">
+          <form method="POST" id="userManagement">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">User ID</th>
+                  <th scope="col">Anrede</th>
+                  <th scope="col">Firmenname</th>
+                  <th scope="col">Vorname</th>
+                  <th scope="col">Nachname</th>
+                  <th scope="col">Benutzername</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Rolle</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Funktionen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
 
-            $sql = "SELECT * FROM users";
-            $result = $db_obj->query($sql);
+                $sql = "SELECT * FROM users";
+                $result = $db_obj->query($sql);
 
-            while ($row = $result->fetch_assoc()) {
-              $userId = $row['userId'];
-              $anrede = $row['gender'];
-              $firmenname = $row['companyName'];
-              $vorname = $row['firstName'];
-              $nachname = $row['lastName'];
-              $benutzername = $row['username'];
-              $email = $row['email'];
-              $role = getRole($row['role']);
-              $status = getStatus($row['deleted']);
+                while ($row = $result->fetch_assoc()) {
+                  $userId = $row['userId'];
+                  $anrede = $row['gender'];
+                  $firmenname = $row['companyName'];
+                  $vorname = $row['firstName'];
+                  $nachname = $row['lastName'];
+                  $benutzername = $row['username'];
+                  $email = $row['email'];
+                  $role = getRole($row['role']);
+                  $status = getStatus($row['deleted']);
 
-              echo "<tr>";
-              echo "<th scope='row'>$userId</th>";
-              echo "<td>$anrede</td>";
-              echo "<td>$firmenname</td>";
-              echo "<td>$vorname</td>";
-              echo "<td>$nachname</td>";
-              echo "<td>$benutzername</td>";
-              echo "<td>$email</td>";
-              echo "<td>$role</td>";
-              echo "<td>$status</td>";
-              echo "<td>";
-              echo "<a href='index.php?site=benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
-              echo "</td>";
-              echo "<td>";
-              echo " 
+                  echo "<tr>";
+                  echo "<th scope='row'>$userId</th>";
+                  echo "<td>$anrede</td>";
+                  echo "<td>$firmenname</td>";
+                  echo "<td>$vorname</td>";
+                  echo "<td>$nachname</td>";
+                  echo "<td>$benutzername</td>";
+                  echo "<td>$email</td>";
+                  echo "<td>$role</td>";
+                  echo "<td>$status</td>";
+                  echo "<td>";
+                  echo "<a href='index.php?site=benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
+                  echo "</td>";
+                  echo "<td>";
+                  echo " 
               <button type='button' class='btn btn-sonstige' data-bs-toggle='modal' data-bs-target='#deactivateUserModal'
                 data-bs-deactivateUser='$userId' data-bs-deactivateUsername='$benutzername'>Deaktivieren</button>
               ";
-              echo "</td>";
-              echo "<td>";
-              echo "<a href='index.php?site=reservierung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
-              echo "</td>";
-              echo "</tr>";
+                  echo "</td>";
+                  echo "<td>";
+                  echo "<a href='index.php?site=reservierung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
+                  echo "</td>";
+                  echo "</tr>";
 
 
-            }
+                }
 
-            function getRole($role)
-            {
-              switch ($role) {
-                case "user":
-                  return "Benutzer";
-                case "admin":
-                  return "Admin";
-                default:
-                  return "unknown";
-              }
-            }
+                function getRole($role)
+                {
+                  switch ($role) {
+                    case "user":
+                      return "Benutzer";
+                    case "admin":
+                      return "Admin";
+                    default:
+                      return "unknown";
+                  }
+                }
 
-            function getStatus($deleted)
-            {
-              switch ($deleted) {
-                case 0:
-                  return "Aktiv";
-                case 1:
-                  return "Inaktiv";
-                default:
-                  return "unknown";
-              }
-            }
-            ?>
-          </tbody>
-        </table>
-      </form>
+                function getStatus($deleted)
+                {
+                  switch ($deleted) {
+                    case 0:
+                      return "Aktiv";
+                    case 1:
+                      return "Inaktiv";
+                    default:
+                      return "unknown";
+                  }
+                }
+                ?>
+              </tbody>
+            </table>
+          </form>
 
+        </div>
+      </div>
     </div>
   </div>
 </div>
