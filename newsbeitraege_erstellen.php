@@ -111,7 +111,6 @@ if (
   } else {
     $alt = htmlspecialchars($_POST['alt']);
   }
-
 }
 
 //Lädt die Daten auf die Datenbank hoch
@@ -131,18 +130,17 @@ if (isset($_POST['upload']) && ($titleErr == "" && $fileErr == "" && $bodyErr ==
 
   $stmt->bind_param("ssssi", $title, $body, $filepath, $alt, $userId);
 
-  
+
   if ($stmt->execute()) {
-  $stmt->close();
-  $db_obj->close();
-  header('Location: ./index.php?site=newsbeitraege');
-  exit();
+    $stmt->close();
+    $db_obj->close();
+    header('Location: ./index.php?site=newsbeitraege');
+    exit();
   } else {
-  $stmt->close();
-  $db_obj->close();
-  echo "<p class='red'>Fehler bei der Übertragung in die Datenbank!</p>";
+    $stmt->close();
+    $db_obj->close();
+    echo "<p class='red'>Fehler bei der Übertragung in die Datenbank!</p>";
   }
-  
 }
 
 //Funktion zum Erstellen von Thumbnails
@@ -185,12 +183,20 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
 ?>
 
 <div class="text-center container-fluid">
+
+  <div class="row">
+    <div class="col">
+    </div>
+    <h1 class="h1 mb-3 fw-normal">Newsbeiträge erstellen</h1>
+    <div class="col">
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
     </div>
     <div class="col-sm-6 col-md-5 col-lg-3">
 
-      <h1 class="h1 mb-3 fw-normal">Newsbeiträge erstellen</h1>
       <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
       <form enctype="multipart/form-data" method="POST">
@@ -225,8 +231,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
 
           <div class="mb-3">
             <label for="body" class="form-label" hidden>Beitrag</label>
-            <textarea class="form-control" id="body" name="body" rows="5"
-              placeholder="Fügen Sie hier Ihren Beitrag hinzu." required></textarea>
+            <textarea class="form-control" id="body" name="body" rows="5" placeholder="Fügen Sie hier Ihren Beitrag hinzu." required></textarea>
             <?php if (!empty($bodyErr)) {
               echo $bodyErr;
             } ?>
@@ -253,7 +258,7 @@ function createThumbnail($filename, $filepath, $ext, $thumbnailPath)
             //          echo "<pre>";print_r($files);"</pre>";
             //          0 und 1 überspringen, da (. und ..)
             //          i = 2; $i < $files.length; $i++
-          
+
             /*for ($i = 2; isset($files[$i]); $i++) {
             //               echo "<li>" . $files[$i] . "</li>";
             }*/

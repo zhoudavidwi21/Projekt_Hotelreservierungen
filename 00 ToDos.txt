@@ -4,8 +4,8 @@ ALT-Daten (für z.B. Blinde angegeben):
     --> done: Header, Startseite, AGBs, Datenschutz, Impressum, Hilfe&FAQs, Unsere Geschichte, Impressionen, 
                 Kulinarik, Wellness, Login, Register, Zimmer reservieren Logo, Profil bearbeiten, 
                 Benutzer verwalten,  Reservierungen verwalten, Newsbeiträge erstellen Logo, Newsbeiträge Logo,
-                Newsbeiträge Bilder, Zimmer reservieren - Fotos von Zimmern, 
-    --> fehlt noch: Newsbeiträge erstellen - Thumbs???
+                Newsbeiträge Bilder, Zimmer reservieren - Fotos von Zimmern, Newsbeiträge erstellen - Thumbs???
+    --> fehlt noch: 
 
 Reservierungen verwalten für Admin
 Benutzer verwalten für Admin
