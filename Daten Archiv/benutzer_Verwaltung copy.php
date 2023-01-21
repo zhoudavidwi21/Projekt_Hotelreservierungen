@@ -81,7 +81,7 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
                   echo "<td>$role</td>";
                   echo "<td>$status</td>";
                   echo "<td>";
-                  echo "<a href='index.php?site=benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
+                  echo "<a href='index.php?site=admin_benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
                   echo "</td>";
                   echo "<td>";
                   echo " 

@@ -5,7 +5,7 @@
 <?php
 //Nur Admins können Benutzer verwalten
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
-  header('Refresh:1; url=index.php?site=error');
+  header('Refresh:0; url=index.php?site=error');
   exit();
 }
 ?>
@@ -30,6 +30,28 @@ if ($db_obj->connect_error) {
 
       <h1 class="h3 mb-3 fw-normal">Reservierungen verwalten</h1>
 
+      <!-- Reservierungsstatus auswählen -->
+      <form class="row row-cols-lg-auto g-3 align-items-center" method="GET">
+        <input type="hidden" name="site" value="admin_zimmer_reservieren_Verwaltung">
+        <div class="col-12">
+          <label class="visually-hidden" for="inlineFormSelectPref">Filter</label>
+          <select class="form-select" name="reservationStatus" id="inlineFormSelectPref">
+            <option selected>Filter auswählen</option>
+            <option value="neu">Neu</option>
+            <option value="bestätigt">Bestätigt</option>
+            <option value="storniert">Storniert</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" name="reset" value="true" class="btn btn-secondary">Zurücksetzen</button>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-sonstige">Submit</button>
+        </div>
+      </form>
+
+
+
       <div class="table-responsive">
         <div class="table-wrapper">
           <table class="table">
@@ -51,17 +73,39 @@ if ($db_obj->connect_error) {
             <tbody>
 
               <?php
-
               $sql = "SELECT * FROM reservations";
+
+
+              //Falls bestimme Filterparameter gesetzt sind --> anderes Query
+              if (isset($_GET['userId']) && !empty($_GET['userId'])) {
+                $userId = $_GET['userId'];
+
+                //Alle Reservierungen eines Benutzers auslesen
+                $sql = "SELECT * FROM reservations WHERE fk_userId = $userId";
+              } elseif (
+                isset($_GET['reservationStatus'])
+                && ($_GET['reservationStatus'] == 'neu' || $_GET['reservationStatus'] == 'bestätigt' || $_GET['reservationStatus'] == 'storniert')
+              ) {
+                $reservationStatus = $_GET['reservationStatus'];
+
+                //Alle Reservierungen eines bestimmten Reservierungsstatus auslesen
+                $sql = "SELECT * FROM reservations WHERE reservationStatus = '$reservationStatus'";
+              } elseif (isset($_GET['reset']) && $_GET['reset'] == 'true') {
+                //Alle Reservierungen auslesen
+                header('Refresh:0; url=index.php?site=admin_zimmer_reservieren_Verwaltung');
+              }
               $result = $db_obj->query($sql);
 
               while ($row = $result->fetch_assoc()) {
+
+                //Reservierungsdaten auslesen
                 $reservationId = $row['reservationId'];
                 $roomId = $row['fk_roomId'];
                 $userId = $row['fk_userId'];
                 $reservationStatus = $row['reservationStatus'];
                 $gesamtPreis = $row['totalPrice'];
 
+                //Datum auslesen
                 $date_arr = date_create($row["arrivalDate"]);
                 $date_dep = date_create($row["departureDate"]);
                 $date_res = date_create($row["reservationDate"]);
