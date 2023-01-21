@@ -159,27 +159,11 @@ $stmt->bind_param("i", $_SESSION['userId']);
     exit();
   }
 
- // $sql = "SELECT * FROM `reservations` ORDER BY `fk_userID` ASC";
-  $sql = "SELECT * FROM `reservations` WHERE `fk_userId` == $_SESSION `userID` AND `deleted` = 0";
+  $sql = "SELECT * FROM `reservations` WHERE `fk_userId` = ?";
   $stmt = $db_obj->prepare($sql);
-  // $stmt->execute();
   $stmt->bind_param("i", $_SESSION['userId']);
   $stmt->execute();
   $result = $stmt->get_result();
-  $row = $result->fetch_assoc();
-
-/*  
-  if ($stmt->execute()) {
-      $result = $stmt->get_result();
-      $row = $result->fetch_assoc();
-      $username = $row["username"];
-      $email = $row["email"];
-      $password = $row["password"];
-      $stmt->close();
-  } else {
-      echo "Error: " . $sql . "<br>" . $db_obj->error;
-  }
-*/
 
   if ($result->num_rows === 0) {
     echo "<div class='alert alert-danger' role='alert'>
@@ -188,7 +172,9 @@ $stmt->bind_param("i", $_SESSION['userId']);
     $db_obj->close();
   } else {
 
-    for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
+   // for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
+      while ($row = $result->fetch_assoc()) {
+
 
       // Anzahl der Nächte berechnen
       $date_arr = date_create($row["arrivalDate"]);
