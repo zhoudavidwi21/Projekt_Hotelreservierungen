@@ -98,12 +98,13 @@ $stmt->bind_param("i", $_SESSION['userId']);
       <div class="checkbox">
         <div class="grid gap-0 row-gap-3">
 
-          <div class="row row-cols-1">
-            <div class="p-2 g-col">
-              <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label class="form-check-label" for="breakfast">
-                Frühstück inkludieren (10€/Nacht)
-              </label>
-            </div>
+        <div class="row row-cols-1">
+          <div class="p-2 g-col">
+            <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label
+              class="form-check-label" for="breakfast">
+              Frühstück inkludieren (10€/Nacht)
+            </label>
+          </div>
 
             <div class="p-2 g-col">
               <input class="form-check-input" type="checkbox" name="parking" id="parking" value="true">
@@ -123,18 +124,20 @@ $stmt->bind_param("i", $_SESSION['userId']);
         </div>
       </div>
 
-      <div class="row justify-content-md-center">
-        <div class="col-lg-1 col-md-3">
-          <label for="arrivalDate">Anreisedatum</label>
-          <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3" aria-describedby="validationArrival" required>
+    <div class="row justify-content-md-center">
+      <div class="col-lg-1 col-md-3">
+        <label for="arrivalDate">Anreisedatum</label>
+        <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3"
+          aria-describedby="validationArrival" required>
 
         </div>
       </div>
 
-      <div class="row justify-content-md-center">
-        <div class="col-lg-1 col-md-3">
-          <label for="departureDate">Abreisedatum</label>
-          <input type="date" name="departureDate" id="departureDate" class="form-control mb-3" aria-describedby="validationDeparture" required>
+    <div class="row justify-content-md-center">
+      <div class="col-lg-1 col-md-3">
+        <label for="departureDate">Abreisedatum</label>
+        <input type="date" name="departureDate" id="departureDate" class="form-control mb-3"
+          aria-describedby="validationDeparture" required>
 
         </div>
       </div>
@@ -146,4 +149,67 @@ $stmt->bind_param("i", $_SESSION['userId']);
       </div>
     </form>
 
-  </div>
+
+  <?php
+
+  $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+
+  //Überprüfung ob Verbindung erfolgreich
+  if ($db_obj->connect_error) {
+    echo 'Connection error: ' . $db_obj->connect_error;
+    exit();
+  }
+
+  $sql = "SELECT * FROM `reservations` WHERE `fk_userId` = ?";
+  $stmt = $db_obj->prepare($sql);
+  $stmt->bind_param("i", $_SESSION['userId']);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows === 0) {
+    echo "<div class='alert alert-danger' role='alert'>
+     Es wurden keine Reservierungen in der Datenbank gefunden.";
+    $stmt->close();
+    $db_obj->close();
+  } else {
+
+   // for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
+      while ($row = $result->fetch_assoc()) {
+
+
+      // Anzahl der Nächte berechnen
+      $date_arr = date_create($row["arrivalDate"]);
+      $date_dep = date_create($row["departureDate"]);
+      $intervall = date_diff($date_arr, $date_dep, true);
+      //echo $intervall->format("%a");
+  
+      echo "<hr class='featurette-divider'>";
+
+      echo "
+        <div class='row featurette'>
+          <h3 class='featurette-heading fw-normal lh-1'><br>
+            <span class='text-muted'>Reservierung " . $row["reservationId"] . " von Zimmer " . $row["fk_roomId"] . "</span> 
+            </h3>
+          <p class='fs-5 lh-1'>Zeitraum von :
+            " . $row["arrivalDate"] . " bis " . $row["departureDate"] . "
+          <p class='fs-6 lh-1'>Anzahl der Nächte: 
+            " . $intervall->format("%a") . "         
+          <p class='fs-4 lh-1'>Preis gesamt:
+            " . number_format($row['totalPrice'], 2, ",") . " €
+            <p class='fs-6 lh-1'>Datum der Reservierung: 
+            " . $row["reservationDate"] . "  
+          <p class='fs-5 lh-1'>Status der Reservierung :
+            " . $row["reservationStatus"] . "
+              
+          </p>
+
+        </div>
+        ";
+    }
+    $stmt->close();
+    $db_obj->close();
+  }
+  ?>
+
+
+</div>
