@@ -88,7 +88,7 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
                   echo "<td>$role</td>";
                   echo "<td>$status</td>";
                   echo "<td>";
-                  echo "<a href='index.php?site=benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
+                  echo "<a href='index.php?site=admin_benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
                   echo "</td>";
                   echo "<td>";
                   if ($status == "Aktiv") {
@@ -223,5 +223,4 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
     modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} aktivieren möchten?`
 
   })
-
 </script>
