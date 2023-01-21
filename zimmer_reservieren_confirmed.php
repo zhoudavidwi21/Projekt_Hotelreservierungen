@@ -174,7 +174,7 @@ if ($db_obj->connect_error) {
 
                 <a href="index.php?site=zimmer_reservieren" class="btn btn-secondary">Zurück</a>
 
-                <a href="reservierung_bestaetigen.php" class="btn btn-sonstige">
+                <a href="<zimmer_reservierung_bestaetigen.php" class="btn btn-sonstige">
                     Bestätigen
                 </a>
             </div>
