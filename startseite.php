@@ -8,8 +8,7 @@
       <!-- Carousel START -->
       <div id="carouselHotel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="2" aria-label="Slide 3"></button>
           <button type="button" data-bs-target="#carouselHotel" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -72,27 +71,21 @@
   <br>
   <div class="row round-circle">
     <div class="col-lg-4">
-      <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-        src="Images/Kulinarik/Kulinarik_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Kulinarik 01"
-        preserveAspectRatio="xMidYMid slice" focusable="false">
+      <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="Images/Kulinarik/Kulinarik_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Kulinarik 01" preserveAspectRatio="xMidYMid slice" focusable="false">
       <title>Kulinarik</title>
 
       <p>Lassen Sie sich in unserem Restaurant kulinarisch verwöhnen ...</p>
       <p><a class="btn btn-sonstige" href="index.php?site=kulinarik">Kulinarik »</a></p>
     </div>
     <div class="col-lg-4">
-      <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-        src="Images/Wellness/Wellness_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Wellness 01"
-        preserveAspectRatio="xMidYMid slice" focusable="false">
+      <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="Images/Wellness/Wellness_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Wellness 01" preserveAspectRatio="xMidYMid slice" focusable="false">
       <title>Wellness</title>
 
       <p>Entspannen Sie sich unseren Wellness- und Spa-Bereich ...</p>
       <p><a class="btn btn-sonstige" href="index.php?site=wellness">Wellness »</a></p>
     </div>
     <div class="col-lg-4 right">
-      <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-        src="Images/Impressionen/Impressionen_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Impressionen 01"
-        preserveAspectRatio="xMidYMid slice" focusable="false">
+      <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="Images/Impressionen/Impressionen_01_quadratisch_140x140.jpg" role="img" aria-label="Placeholder: 140x140" alt="Foto Impressionen 01" preserveAspectRatio="xMidYMid slice" focusable="false">
       <title>Impressionen</title>
 
       <p>Lassen Sie sich durch diese Impressionen verzaubern ...</p>

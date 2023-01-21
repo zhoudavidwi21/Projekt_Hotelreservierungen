@@ -139,7 +139,7 @@
                 <span class="text-muted">2018</span>
               </h2>
               <p class="lead">Vollständige Klimatisierung des Hotels und aller Anbauten, Umbau des Office-Bereichs,
-              Umgestaltung der Zimmer und Suiten.</p>
+                Umgestaltung der Zimmer und Suiten.</p>
               <h2 class="featurette-heading fw-normal lh-1"><br>
                 <span class="text-muted">2021</span>
               </h2>

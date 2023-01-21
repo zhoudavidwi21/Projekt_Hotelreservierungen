@@ -25,47 +25,55 @@ Zimmer 201 (03):
 Typ: EZ
 Name: Zum Torbogen
 Beschreibung:
-Preis:
+Hof- oder straßenseitig, ohne Donaublick, Sitzmöglichkeit, Dusche/WC, Sat-TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenlosem WLAN, Safe und Minibar
+Preis: 80,00
 
 Zimmer 202 (07):
 ----------------
 Typ: DZ
 Name: Wilder Wald
-Beschreibung: x
-Preis: 
+Beschreibung: 
+Hof- oder straßenseitig, ohne Donaublick, Couch, Dusche/WC, TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenloses WLAN, Safe und Minibar
+Preis: 120,20
 
 Zimmer 203 (04):
 ----------------
 Typ: DZ
 Name: Himmlische Eiche
-Beschreibung: x
-Preis:
+Beschreibung: 
+Hof- oder straßenseitig, ohne Donaublick, Sitzmöglichkeit, Dusche/WC, TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenloses WLAN, Safe und Minibar
+Preis: 150,00
 
 Zimmer 301 (01):
 --------------
 Typ: Suite
 Name: Zum Donaublick
-Beschreibung: x
-Preis:
+Beschreibung: 
+Südseitige, großzügige Suite, Boxspringbett mit hochwertigen Premiummatratzen, Couch, Dusche/WC getrennt, Panoramaglasfront mit fantastischem Panoramablick zur Donau, Sat-TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenlosem WLAN, Safe und Minibar
+Preis: 230,30
 
 Zimmer 302 (02):
 --------------
 Typ: Suite
 Name: Zum hölzernen Traum 
-Beschreibung: x
-Preis:
+Beschreibung: 
+Südseitige, großzügige Suite, Boxspringbett mit hochwertigen Premiummatratzen, Couch, Dusche und Doppel-Badewanne, WC getrennt, Panoramaglasfront mit fantastischem Blick zur Donau, Sat-TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenlosem WLAN, Safe und Minibar
+Preis: 190,90
 
 Zimmer 303 (05):
 --------------
 Typ: DZ
 Name: Rote Pracht
-Beschreibung: x
-Preis:
+Beschreibung:
+Gartenkomfort Doppelzimmer "am Platz"
+Südseitiges Doppelzimmer mit Sitzecke und Panorama-Glasfront, Dusche/WC, Sat-TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenlosem WLAN, Safe und Minibar
+Preis: 170,70
 
 Zimmer 401 (06):
 -----------
 Typ: Suite
 Name: Zur Kastanie
-Beschreibung: x
-Preis:
+Beschreibung: 
+Südseitige, großzügige Suite mit Wohnbereich, Doppelbett mit teilweise Tempur- oder Vi-Springmatratze, separatem Schlafraum mit eigenem TV, Dusche/WC getrennt, Balkon mit fantastischem Panoramablick zur Donau, Sat-TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenlosem WLAN, Safe und Minibar
+Preis: 340,40
 

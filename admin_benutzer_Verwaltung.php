@@ -108,8 +108,6 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
                   echo "<a href='index.php?site=admin_zimmer_reservieren_Verwaltung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
                   echo "</td>";
                   echo "</tr>";
-
-
                 }
 
                 function getRole($role)
@@ -145,7 +143,6 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
     </div>
   </div>
 </div>
-
 
 <div class="modal fade" id="deactivateUserModal" tabindex="-1" aria-labelledby="deactivateUserModal" aria-hidden="true">
   <div class="modal-dialog">

@@ -47,7 +47,6 @@ if (isset($_POST['reservationStatus'])) {
     $db_obj->close();
     header('Refresh:0; url=index.php?site=admin_zimmer_reservieren_Verwaltung');
     exit();
-
 }
 ?>
 
@@ -81,8 +80,8 @@ if (isset($_POST['reservationStatus'])) {
 
                 if ($result->num_rows === 0) {
                     echo "<div class='alert alert-danger' role='alert'>
-     Es wurden keine Reservierungen in der Datenbank gefunden.
-     </div>";
+                    Es wurden keine Reservierungen in der Datenbank gefunden.
+                    </div>";
                     $stmt->close();
                     $db_obj->close();
                 } else {
@@ -142,13 +141,13 @@ if (isset($_POST['reservationStatus'])) {
                         echo "<hr class='featurette-divider'>";
 
                         echo "<div class='row'>
-        <h3 class='featurette-heading fw-normal lh-1'><br>
-          <span class='text-muted'>Reservierung " . $row["reservationId"] . " von Zimmer " . $roomNumber . "</span> 
-          </h3>
-        <p class='fs-5 lh-1'>Zeitraum von :
-          " . date_format($date_arr, "d.m.Y") . " bis " . date_format($date_dep, "d.m.Y") . "
-          <p class='fs-5 lh-1'>User Id: 
-          " . $userId . ", " . $userGender;
+                        <h3 class='featurette-heading fw-normal lh-1'><br>
+                        <span class='text-muted'>Reservierung " . $row["reservationId"] . " von Zimmer " . $roomNumber . "</span> 
+                        </h3>
+                        <p class='fs-5 lh-1'>Zeitraum von :
+                        " . date_format($date_arr, "d.m.Y") . " bis " . date_format($date_dep, "d.m.Y") . "
+                        <p class='fs-5 lh-1'>User Id: 
+                        " . $userId . ", " . $userGender;
 
                         if ($userGender != "Firma") {
                             echo " " . $userFirstname . " " . $userLastname;
@@ -157,24 +156,24 @@ if (isset($_POST['reservationStatus'])) {
                         }
 
                         echo "
-        <p class='fs-6 lh-1'>Anzahl der Nächte: 
-          " . $intervall->format("%a") . "
-            <p class='fs-6 lh-1'>Services: 
-            " . implode(", ", $services) . "
-            <p class='fs-4 lh-1'>Preis gesamt:
-          " . number_format($row['totalPrice'], 2, ",") . " €
-          <p class='fs-6 lh-1'>Datum der Reservierung: 
-          " . date_format($date_res, "d.m.Y H:i") . "  
-          <p class='fs-5 lh-1'>Status der Reservierung :
-          </p>
-          <select
-          class='form-select' name='reservationStatus' aria-label='Reservation Status select'>
-            <option value='neu'" . ($row['reservationStatus'] == 'neu' ? "selected" : "") . ">neu</option>
-            <option value='bestätigt' " . ($row['reservationStatus'] == 'bestätigt' ? "selected" : "") . ">bestätigt</option>
-            <option value='storniert' " . ($row['reservationStatus'] == 'storniert' ? "selected" : "") . ">storniert</option>
-          </select>
-          </div>
-      ";
+                        <p class='fs-6 lh-1'>Anzahl der Nächte: 
+                        " . $intervall->format("%a") . "
+                        <p class='fs-6 lh-1'>Services: 
+                        " . implode(", ", $services) . "
+                        <p class='fs-4 lh-1'>Preis gesamt:
+                        " . number_format($row['totalPrice'], 2, ",") . " €
+                        <p class='fs-6 lh-1'>Datum der Reservierung: 
+                        " . date_format($date_res, "d.m.Y H:i") . "  
+                        <p class='fs-5 lh-1'>Status der Reservierung :
+                        </p>
+                        <select
+                        class='form-select' name='reservationStatus' aria-label='Reservation Status select'>
+                        <option value='neu'" . ($row['reservationStatus'] == 'neu' ? "selected" : "") . ">neu</option>
+                        <option value='bestätigt' " . ($row['reservationStatus'] == 'bestätigt' ? "selected" : "") . ">bestätigt</option>
+                        <option value='storniert' " . ($row['reservationStatus'] == 'storniert' ? "selected" : "") . ">storniert</option>
+                        </select>
+                        </div>
+                        ";
 
 
                         /*

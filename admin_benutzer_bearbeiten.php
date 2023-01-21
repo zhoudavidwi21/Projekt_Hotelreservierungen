@@ -8,6 +8,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     header('Refresh:1; url=index.php?site=error');
     exit();
 }
+}
 ?>
 
 <?php
@@ -214,7 +215,7 @@ function isUsernameUnique($username, $db_obj)
                 ?>
             </div>
 
-        <?php }
+    <?php }
     } ?>
 
     <form method="POST">
@@ -339,8 +340,7 @@ function isUsernameUnique($username, $db_obj)
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
                 <label for="oldUsername" class="d-flex justify-content-start">Aktueller Benutzername</label>
-                <input class="form-control" id="oldUsername" name="oldUsername" type="text"
-                    value="<?php echo $username; ?>" aria-label="Disabled input example" disabled readonly>
+                <input class="form-control" id="oldUsername" name="oldUsername" type="text" value="<?php echo $username; ?>" aria-label="Disabled input example" disabled readonly>
             </div>
             <div class="col">
             </div>

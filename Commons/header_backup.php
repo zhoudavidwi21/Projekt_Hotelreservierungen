@@ -19,8 +19,7 @@
       <a class="navbar-brand" href="index.php">
         <img src="Images\Kastanie_transparent.png" alt="Kastanie Logo" width="77" height="57">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,10 +27,10 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Startseite</a>
           </li>
-<!--          <li class="nav-item">
+          <!--          <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
--->          
+-->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menü
@@ -54,10 +53,10 @@
               <li><a class="dropdown-item" href="./impressum.php">Impressum</a></li>
             </ul>
           </li>
-<!--          <li class="nav-item">
+          <!--          <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li>
--->          
+-->
         </ul>
         <div class="d-flex gap-1">
           <a class="btn btn-primary btn-brown" href="login.php" role="button">anmelden</a>

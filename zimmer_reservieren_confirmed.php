@@ -71,7 +71,6 @@ if ($db_obj->connect_error) {
                                     <?php if (isset($_SESSION['resDeparture'])) {
                                         $diff = date_diff($date1, $date2, true);
                                         echo $diff->format("%a");
-
                                     } ?>
                                 </td>
                                 <td>

@@ -142,7 +142,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $agreeAgbs = input_data($_POST["agbs"]);
   }
-
 }
 
 //Vereinheitlichts die Eingabe bevor sie eingespeichert wird. --> vlt nützlich für DB-Anbindung?
@@ -196,7 +195,6 @@ function isUsernameUnique($username, $db_obj)
     $db_obj->close();
     return true;
   }
-
 }
 
 function passwordRegExCheck($password)
@@ -208,7 +206,7 @@ function passwordRegExCheck($password)
   //$uppercase = preg_match('@[^\w]@', $password); kann man auch, aber zu mühsam jetzt
   if (!$uppercase || !$lowercase || !$number || strlen($password) < 5) {
     return "Ihr Passwort muss mindestens 5 Zeichen lang sein und muss einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer enthalten.";
-  } 
+  }
 }
 /*
 echo "<pre>";

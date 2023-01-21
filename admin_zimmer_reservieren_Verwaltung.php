@@ -18,17 +18,16 @@ if ($db_obj->connect_error) {
   echo 'Connection error: ' . $db_obj->connect_error;
   exit();
 }
-
 ?>
-
 
 <!-- Reservierungen anzeigen -->
 <div class="text-center container-fluid">
+
+  <h1 class="h1 mb-3 fw-normal">Reservierungen verwalten</h1>
+
   <div class="row justify-content-md-center">
     <div class="col-sm-3 col-md-7 col-lg-10">
       <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
-
-      <h1 class="h3 mb-3 fw-normal">Reservierungen verwalten</h1>
 
       <!-- Reservierungsstatus auswählen -->
       <form class="row row-cols-lg-auto g-3 align-items-center" method="GET">
@@ -43,14 +42,12 @@ if ($db_obj->connect_error) {
           </select>
         </div>
         <div class="col-12">
-          <button type="submit" name="reset" value="true" class="btn btn-secondary">Zurücksetzen</button>
-        </div>
-        <div class="col-12">
           <button type="submit" class="btn btn-sonstige">Submit</button>
         </div>
+        <div class="col-12">
+          <button type="submit" name="reset" value="true" class="btn btn-secondary">Filter zurücksetzen</button>
+        </div>
       </form>
-
-
 
       <div class="table-responsive">
         <div class="table-wrapper">
