@@ -7,13 +7,12 @@
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
     header('Refresh:1; url=index.php?site=error');
     exit();
-  }
+}
 ?>
 
 <?php
-$emailErr = $usernameErr = $passwordErr = $passwordCheckErr = $oldPasswordErr = "";
-$email = $username = $password = $passwordCheck = $oldPassword = "";
-$successfullyChanged = false;
+$usernameErr = "";
+$gender = $company = $firstname = $lastname = $email = $username = $password = "";
 
 //Datenbankverbindung
 $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
@@ -24,14 +23,19 @@ if ($db_obj->connect_error) {
     exit();
 }
 
-$sql = "SELECT * FROM `users` WHERE `userId` = ? AND `deleted` = 0";
+$sql = "SELECT * FROM `users` WHERE `userId` = ?";
 $stmt = $db_obj->prepare($sql);
-$stmt->bind_param("i", $_SESSION['userId']);
+$stmt->bind_param("i", $_GET['userId']);
 
 if ($stmt->execute()) {
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
+    $gender = $row["gender"];
     $username = $row["username"];
+    $company = $row["companyName"];
+    $firstname = $row["firstName"];
+    $lastname = $row["lastName"];
+    $role = $row["role"];
     $email = $row["email"];
     $password = $row["password"];
     $stmt->close();
@@ -39,88 +43,117 @@ if ($stmt->execute()) {
     echo "Error: " . $sql . "<br>" . $db_obj->error;
 }
 
-if ($successfullyChanged) {
-    header('location: Commons/logout.php');
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if any data has been changed
+    $updated = false;
 
-    if (password_verify($_POST['oldPassword'], $password)) {
-        // Check if any data has been changed
-        $updated = false;
-        $query = "UPDATE `users` SET `email` = ?, `username` = ?, `password` = ? WHERE `userId` = ?";
 
-        if (
-            isset($_POST['newEmail'])
-            && $_POST['newEmail'] !== $email
-            && !empty($_POST['newEmail'])
-        ) {
-            //Überprüfung ob Email zumindest "normale" Form hat.
-            if (!filter_var($_POST['newEmail'], FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Bitte geben Sie eine gültige E-Mail Adresse ein!";
-            } else {
-                $updated = true;
-                $email = $_POST['newEmail'];
-            }
-        }
+    if (
+        isset($_POST['role'])
+        && $_POST['role'] !== $role
+        && !empty($_POST['role'])
+    ) {
+        $updated = true;
+        $role = $_POST['role'];
+    }
 
-        if (
-            isset($_POST['newUsername'])
-            && $_POST['newUsername'] !== $username
-            && !empty($_POST['newUsername'])
-        ) {
-            //Überprüfung ob Username schon in der Datenbank vorhanden ist.
-            if (!isUsernameUnique($_POST['newUsername'], $db_obj)) {
-                $usernameErr = "Dieser Benutzername ist bereits vergeben!";
-            } else {
-                $updated = true;
-                $username = $_POST['newUsername'];
-            }
-        }
+    if (
+        isset($_POST['gender'])
+        && $_POST['gender'] !== $gender
+        && !empty($_POST['gender'])
+    ) {
+        $updated = true;
+        $gender = $_POST['gender'];
+    }
 
-        if (
-            isset($_POST['newPassword'])
-            && password_hash($_POST['newPassword'], PASSWORD_DEFAULT) !== $password
-            && !empty($_POST['newPassword'])
-        ) {
-            if (!passwordRegExCheck($_POST['newPassword'])) {
-                $passwordErr = "Das Passwort muss mindestens 8 Zeichen lang sein," . "<br>" . "
-                einen Großbuchstaben," . "<br>" . "
-                einen Kleinbuchstaben " . "<br>" . "
-                und eine Zahl enthalten!";
-            } else {
-                if ($_POST['newPassword'] == $_POST['newPasswordCheck']) {
-                    $updated = true;
-                    $password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
-                } else {
-                    $passwordCheckErr = "Die Passwörter stimmen nicht überein!";
-                }
-            }
-        }
+    if (
+        isset($_POST['newCompany'])
+        && $_POST['newCompany'] !== $company
+        && !empty($_POST['newCompany'])
+    ) {
+        $updated = true;
+        $company = input_data($_POST['newCompany']);
+    }
 
-        // Update the user's information in the database
-        if ($updated && $emailErr == "" && $usernameErr == "" && $passwordErr == "" && $passwordCheckErr == "") {
-            $stmt = $db_obj->prepare($query);
-            $stmt->bind_param("sssi", $email, $username, $password, $_SESSION['userId']);
-            if ($stmt->execute()) {
-                $successfullyChanged = true;
-                $stmt->close();
-                $db_obj->close();
-                header('location: Commons/logout.php');
-                exit();
-            } else {
-                $stmt->close();
-                $db_obj->close();
-                echo "Error: " . $query . "<br>" . $db_obj->error;
-            }
+    if (
+        isset($_POST['newFirstname'])
+        && $_POST['newFirstname'] !== $firstname
+        && !empty($_POST['newFirstname'])
+    ) {
+        $updated = true;
+        $firstname = input_data($_POST['newFirstname']);
+    }
+
+    if (
+        isset($_POST['newLastname'])
+        && $_POST['newLastname'] !== $lastname
+        && !empty($_POST['newLastname'])
+    ) {
+        $updated = true;
+        $lastname = input_data($_POST['newLastname']);
+    }
+
+    if (
+        isset($_POST['newUsername'])
+        && $_POST['newUsername'] !== $username
+        && !empty($_POST['newUsername'])
+    ) {
+        //Überprüfung ob Username schon in der Datenbank vorhanden ist.
+        if (!isUsernameUnique(input_data($_POST['newUsername']), $db_obj)) {
+            $usernameErr = "Dieser Benutzername ist bereits vergeben!";
         } else {
-            echo "Es konnten keine Änderungen vorgenommen werden!";
+            $updated = true;
+            $username = input_data($_POST['newUsername']);
         }
-    } else {
-        $oldPasswordErr = "Das eingegebene Passwort ist falsch!";
+    }
+
+    if (
+        isset($_POST['newEmail'])
+        && $_POST['newEmail'] !== $email
+        && !empty($_POST['newEmail'])
+    ) {
+        $updated = true;
+        $email = input_data($_POST['newEmail']);
     }
 
 
+    if (
+        isset($_POST['newPassword'])
+        && !empty($_POST['newPassword'])
+    ) {
+        $updated = true;
+        $password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+    }
+
+
+    $query = "UPDATE `users` SET `role` = ?, `gender` = ?, `companyName` = ?, `firstName` = ?, `lastName` = ?,
+`email` = ?, `username` = ?, `password` = ? WHERE `userId` = ?";
+    $stmt = $db_obj->prepare($query);
+    $stmt->bind_param(
+        "ssssssssi",
+        $role,
+        $gender,
+        $company,
+        $firstname,
+        $lastname,
+        $email,
+        $username,
+        $password, $_GET['userId']
+    );
+
+    // Update the user's information in the database
+    if ($updated && $usernameErr == "") {
+        if ($stmt->execute()) {
+            $stmt->close();
+            $db_obj->close();
+            header('Refresh:0; url=index.php?site=admin_benutzer_Verwaltung');
+            exit();
+        } else {
+            $stmt->close();
+            $db_obj->close();
+            echo "Error: " . $query . "<br>" . $db_obj->error;
+        }
+    }
 }
 
 //Vereinheitlichts die Eingabe bevor sie eingespeichert wird. --> vlt nützlich für DB-Anbindung?
@@ -151,20 +184,6 @@ function isUsernameUnique($username, $db_obj)
     }
 
 }
-
-function passwordRegExCheck($password)
-{
-    //Passwort regex check
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $number = preg_match('@[0-9]@', $password);
-    //$uppercase = preg_match('@[^\w]@', $password); kann man auch, aber zu mühsam jetzt
-    if (!$uppercase || !$lowercase || !$number || strlen($password) < 5) {
-        return false;
-    } else {
-        return true;
-    }
-}
 ?>
 
 <div class="text-center container-fluid">
@@ -173,8 +192,8 @@ function passwordRegExCheck($password)
 
     <hr class="featurette-divider">
 
-    <h2 class="mt-5">Hallo
-        <?php echo $_SESSION["username"]; ?>!
+    <h2 class="mt-5">Sie bearbeiten gerade das Profil von
+        <?php echo $username; ?>!
     </h2>
 
     <?php if (isset($_POST["submit"])) {
@@ -190,11 +209,7 @@ function passwordRegExCheck($password)
                 <?php
                 echo "<div class='alert alert-danger' role='alert'>
                 Folgende Fehler sind aufgetreten: <br>
-                $emailErr <br>
                 $usernameErr <br>
-                $passwordErr <br>
-                $passwordCheckErr <br>
-                $oldPasswordErr <br>
                 </div>";
                 ?>
             </div>
@@ -204,14 +219,56 @@ function passwordRegExCheck($password)
 
     <form method="POST">
 
-        <!-- Block Email Start -->
+        <!-- Block Rolle Start -->
+        <div class="row mb-5">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="role" class="d-flex justify-content-start">Aktuelle Rolle</label>
+                <?php
+                echo "
+            <select class='form-select' name='role' aria-label='role select'>
+            <option value='user'" . ($role == 'user' ? "selected" : "") . ">User</option>
+            <option value='admin' " . ($role == 'admin' ? "selected" : "") . ">Admin</option>
+            </select>
+          ";
+                ?>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <!-- Block Rolle Ende -->
+
+        <!-- Block Anrede Start -->
+        <div class="row mb-5">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="gender" class="d-flex justify-content-start">Aktuelle Anrede</label>
+                <?php
+                echo "
+            <select class='form-select' name='gender' aria-label='Gender select'>
+            <option value='Firma'" . ($gender == 'Firma' ? "selected" : "") . ">Firma</option>
+            <option value='Herr' " . ($gender == 'Herr' ? "selected" : "") . ">Herr</option>
+            <option value='Frau' " . ($gender == 'Frau' ? "selected" : "") . ">Frau</option>
+            <option value='Divers' " . ($gender == 'Divers' ? "selected" : "") . ">Divers</option>
+            </select>
+          ";
+                ?>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <!-- Block Anrede Ende -->
+
+        <!-- Block Firma Start -->
         <div class="row mb-1">
             <div class="col">
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
-                <label for="oldEmail" class="d-flex justify-content-start">E-Mail Adresse</label>
-                <input class="form-control" id="oldEmail" name="oldEmail" type="email" value="<?php echo $email; ?>"
-                    aria-label="Disabled input example" disabled readonly>
+                <label for="oldCompany" class="d-flex justify-content-start">Aktueller Firmaname</label>
+                <input class="form-control" id="oldCompany" name="oldCompany" type="text"
+                    value="<?php echo $company; ?>" aria-label="Disabled input company" disabled readonly>
             </div>
             <div class="col">
             </div>
@@ -220,13 +277,61 @@ function passwordRegExCheck($password)
             <div class="col">
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
-                <label for="newEmail" class="d-flex justify-content-start">Neue E-Mail Adresse eingeben</label>
-                <input class="form-control" id="newEmail" name="newEmail" type="email">
+                <label for="newCompany" class="d-flex justify-content-start">Neuen Firmennamen eingeben</label>
+                <input class="form-control" id="newCompany" name="newCompany" type="text">
             </div>
             <div class="col">
             </div>
         </div>
-        <!-- Block Email Ende -->
+        <!-- Block Firma Ende -->
+
+        <!-- Block Vorname Start -->
+        <div class="row mb-1">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="oldFirstname" class="d-flex justify-content-start">Aktueller Vorname</label>
+                <input class="form-control" id="oldFirstname" name="oldFirstname" type="text"
+                    value="<?php echo $firstname; ?>" aria-label="Disabled input example" disabled readonly>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="newFirstname" class="d-flex justify-content-start">Neuen Vorname eingeben</label>
+                <input class="form-control" id="newFirstname" name="newFirstname" type="text">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <!-- Block Vorname Ende -->
+
+        <!-- Block Nachname Start -->
+        <div class="row mb-1">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="oldLastname" class="d-flex justify-content-start">Aktueller Nachname</label>
+                <input class="form-control" id="oldLastname" name="oldLastname" type="text"
+                    value="<?php echo $lastname; ?>" aria-label="Disabled input example" disabled readonly>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="newLastname" class="d-flex justify-content-start">Neuen Nachname eingeben</label>
+                <input class="form-control" id="newLastname" name="newLastname" type="text">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <!-- Block Nachname Ende -->
 
         <!-- Block Benutzername Start -->
         <div class="row mb-1">
@@ -252,14 +357,14 @@ function passwordRegExCheck($password)
         </div>
         <!-- Block Benutzername Ende -->
 
-
-        <!-- Block Passwort Start -->
+        <!-- Block Email Start -->
         <div class="row mb-1">
             <div class="col">
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
-                <label for="oldPassword" class="d-flex justify-content-start">Altes Passwort eingeben</label>
-                <input class="form-control" id="oldPassword" name="oldPassword" type="password">
+                <label for="oldEmail" class="d-flex justify-content-start">E-Mail Adresse</label>
+                <input class="form-control" id="oldEmail" name="oldEmail" type="email" value="<?php echo $email; ?>"
+                    aria-label="Disabled input example" disabled readonly>
             </div>
             <div class="col">
             </div>
@@ -268,12 +373,21 @@ function passwordRegExCheck($password)
             <div class="col">
             </div>
             <div class="col-sm-6 col-md-5 col-lg-3">
+                <label for="newEmail" class="d-flex justify-content-start">Neue E-Mail Adresse eingeben</label>
+                <input class="form-control" id="newEmail" name="newEmail" type="email">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <!-- Block Email Ende -->
+
+        <!-- Block Passwort Start -->
+        <div class="row mb-5">
+            <div class="col">
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3">
                 <label for="newPassword" class="d-flex justify-content-start">Neues Passwort eingeben</label>
-                <input class="form-control" id="newPassword" placeholder="neues Passwort" name="newPassword"
-                    type="password">
-                <label for="newPasswordCheck" class="d-flex justify-content-start"></label>
-                <input class="form-control" id="newPasswordCheck" placeholder="neues Passwort wiederholen"
-                    name="newPasswordCheck" type="password">
+                <input class="form-control" id="newPassword" name="newPassword" type="password">
             </div>
             <div class="col">
             </div>
