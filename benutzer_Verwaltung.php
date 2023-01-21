@@ -18,6 +18,12 @@ if ($db_obj->connect_error) {
   echo 'Connection error: ' . $db_obj->connect_error;
   exit();
 }
+
+if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
+  $userId = $_POST['deactivateUser'];
+  $sql = "UPDATE users SET deleted = 1 WHERE userId = $userId";
+  $db_obj->query($sql);
+}
 ?>
 
 <!-- Benutzer anzeigen -->
@@ -28,7 +34,7 @@ if ($db_obj->connect_error) {
 
       <h1 class="h3 mb-3 fw-normal">Benutzer verwalten</h1>
 
-      <form action="">
+      <form method="POST" id="userManagement">
         <table class="table">
           <thead>
             <tr>
@@ -45,27 +51,73 @@ if ($db_obj->connect_error) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">4</th>
-              <td>Herr</td>
-              <td></td>
-              <td>Frank</td>
-              <td>Watson</td>
-              <td>watsonFra</td>
-              <td>frankWatson@gmail.com</td>
-              <td>user</td>
-              <td>Aktiv</td>
-              <td>
-                <a href="index.php?site=benutzer_bearbeiten&userId=4" class="btn btn-sonstige">Bearbeiten</a>
-              </td>
-              <td>
-                <button type="button" class="btn btn-sonstige" data-bs-toggle="modal"
-                  data-bs-target="#confirmDelete">Deaktivieren</button>
-              </td>
-              <td>
-                <a href="index.php?site=reservierung&userId=4" class="btn btn-sonstige">Reservierungen anzeigen</a>
-              </td>
-            </tr>
+            <?php
+
+            $sql = "SELECT * FROM users";
+            $result = $db_obj->query($sql);
+
+            while ($row = $result->fetch_assoc()) {
+              $userId = $row['userId'];
+              $anrede = $row['gender'];
+              $firmenname = $row['companyName'];
+              $vorname = $row['firstName'];
+              $nachname = $row['lastName'];
+              $benutzername = $row['username'];
+              $email = $row['email'];
+              $role = getRole($row['role']);
+              $status = getStatus($row['deleted']);
+
+              echo "<tr>";
+              echo "<th scope='row'>$userId</th>";
+              echo "<td>$anrede</td>";
+              echo "<td>$firmenname</td>";
+              echo "<td>$vorname</td>";
+              echo "<td>$nachname</td>";
+              echo "<td>$benutzername</td>";
+              echo "<td>$email</td>";
+              echo "<td>$role</td>";
+              echo "<td>$status</td>";
+              echo "<td>";
+              echo "<a href='index.php?site=benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
+              echo "</td>";
+              echo "<td>";
+              echo " 
+              <button type='button' class='btn btn-sonstige' data-bs-toggle='modal' data-bs-target='#deactivateUserModal'
+                data-bs-deactivateUser='$userId' data-bs-deactivateUsername='$benutzername'>Deaktivieren</button>
+              ";
+              echo "</td>";
+              echo "<td>";
+              echo "<a href='index.php?site=reservierung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
+              echo "</td>";
+              echo "</tr>";
+
+
+            }
+
+            function getRole($role)
+            {
+              switch ($role) {
+                case "user":
+                  return "Benutzer";
+                case "admin":
+                  return "Admin";
+                default:
+                  return "unknown";
+              }
+            }
+
+            function getStatus($deleted)
+            {
+              switch ($deleted) {
+                case 0:
+                  return "Aktiv";
+                case 1:
+                  return "Inaktiv";
+                default:
+                  return "unknown";
+              }
+            }
+            ?>
           </tbody>
         </table>
       </form>
@@ -74,22 +126,47 @@ if ($db_obj->connect_error) {
   </div>
 </div>
 
-<div class="modal" id="confirmDelete" tabindex="-1">
+
+<div class="modal fade" id="deactivateUserModal" tabindex="-1" aria-labelledby="deactivateUserModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Benutzer deaktivieren</h5>
+        <h1 class="modal-title fs-5" id="deactivateUserModal">Benutzer deaktivieren</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Sind Sie sich sicher, dass Sie den Benutzer deaktivieren wollen?</p>
+        <p></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nein</button>
-        <button type="button" class="btn btn-primary">Ja</button>
+        <form method="POST">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nein</button>
+          <input type="hidden" name="deactivateUser">
+          <button type="submit" class="btn btn-primary">Ja</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  const deactivateUserModal = document.getElementById('deactivateUserModal')
+  deactivateUserModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const userId = button.getAttribute('data-bs-deactivateUser')
+    const username = button.getAttribute('data-bs-deactivateUsername')
+
+    // Update the modal's content.
+    const modalBodyParagraph = deactivateUserModal.querySelector('.modal-body p')
+    const deactivateUser = deactivateUserModal.querySelector('input[name="deactivateUser"]')
+    deactivateUser.value = userId
+    modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} deaktivieren möchten?`
+
+  })
+
+</script>
+
+
 
 <!-- Benutzer verwalten -->
