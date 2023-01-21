@@ -25,14 +25,6 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
   $sql = "UPDATE users SET deleted = 1 WHERE userId = $userId";
   $db_obj->query($sql);
 }
-
-//Benutzer aktivieren
-if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
-  $userId = $_POST['activateUser'];
-  $sql = "UPDATE users SET deleted = 0 WHERE userId = $userId";
-  $db_obj->query($sql);
-}
-
 ?>
 
 <!-- Benutzer anzeigen -->
@@ -94,13 +86,15 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
                   echo "<td>";
                   echo " 
               <button type='button' class='btn btn-sonstige' data-bs-toggle='modal' data-bs-target='#deactivateUserModal'
-                data-bs-deactivateUser='$userId' data-bs-deactivateUsername='$benutzername'>Deaktivieren/Aktivieren</button>
+                data-bs-deactivateUser='$userId' data-bs-deactivateUsername='$benutzername'>Deaktivieren</button>
               ";
                   echo "</td>";
                   echo "<td>";
                   echo "<a href='index.php?site=reservierung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
                   echo "</td>";
                   echo "</tr>";
+
+
                 }
 
                 function getRole($role)
@@ -160,45 +154,20 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
 </div>
 
 <script>
+  const deactivateUserModal = document.getElementById('deactivateUserModal')
+  deactivateUserModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const userId = button.getAttribute('data-bs-deactivateUser')
+    const username = button.getAttribute('data-bs-deactivateUsername')
 
-const deactivateUserModal = document.getElementById('deactivateUserModal')
-
-  if ($deleted == 0) {
-
-    deactivateUserModal.addEventListener('show.bs.modal', event => {
-      // Button that triggered the modal
-      const button = event.relatedTarget
-      // Extract info from data-bs-* attributes
-      const userId = button.getAttribute('data-bs-deactivateUser')
-      const username = button.getAttribute('data-bs-deactivateUsername')
-
-      // Update the modal's content.
-      const modalBodyParagraph = deactivateUserModal.querySelector('.modal-body p')
-      const deactivateUser = deactivateUserModal.querySelector('input[name="deactivateUser"]')
-      deactivateUser.value = userId
-      modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} aktivieren oder deaktivieren möchten?`
-
-    })
-  }
-  else {
-
-      deactivateUserModal.addEventListener('show.bs.modal', event => {
-      // Button that triggered the modal
-      const button = event.relatedTarget
-      // Extract info from data-bs-* attributes
-      const userId = button.getAttribute('data-bs-deactivateUser')
-      const username = button.getAttribute('data-bs-deactivateUsername')
-
-      // Update the modal's content.
-      const modalBodyParagraph = deactivateUserModal.querySelector('.modal-body p')
-      const deactivateUser = deactivateUserModal.querySelector('input[name="activateUser"]')
-      deactivateUser.value = userId
-      modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} aktivieren oder deaktivieren möchten?`
-
+    // Update the modal's content.
+    const modalBodyParagraph = deactivateUserModal.querySelector('.modal-body p')
+    const deactivateUser = deactivateUserModal.querySelector('input[name="deactivateUser"]')
+    deactivateUser.value = userId
+    modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} deaktivieren möchten?`
 
   })
-}
-
-
 
 </script>
