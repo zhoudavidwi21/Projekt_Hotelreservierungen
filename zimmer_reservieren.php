@@ -5,6 +5,14 @@
 <?php require_once('db/dbaccess.php'); ?>
 
 <?php
+//Nur angemeldete Nutzer können Zimmer reservieren
+if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
+    header('Refresh:1; url=index.php?site=error');
+    exit();
+}
+?>
+
+<?php
 
 if (isset($_POST['booking'])) {
   if (

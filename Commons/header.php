@@ -83,9 +83,9 @@ ob_start();
             </li>
 
             <?php if ($_SESSION['role'] === "admin") { ?>
-              <li><a class="dropdown-item" href="index.php?site=benutzer_Verwaltung">Benutzer verwalten</a></li>
+              <li><a class="dropdown-item" href="index.php?site=admin_benutzer_Verwaltung">Benutzer verwalten</a></li>
 
-              <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren_Verwaltung">Reservierungen verwalten</a></li>
+              <li><a class="dropdown-item" href="index.php?site=admin_zimmer_reservieren_Verwaltung">Reservierungen verwalten</a></li>
 
               <li><a class="dropdown-item" href="index.php?site=newsbeitraege_erstellen">Newsbeiträge erstellen</a></li>
               <li>

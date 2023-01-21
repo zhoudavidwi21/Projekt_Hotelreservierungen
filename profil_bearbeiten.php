@@ -3,7 +3,7 @@
 <?php require_once('db/dbaccess.php'); ?>
 
 <?php
-//Nur angemeldete Nutzer können Zimmer reservieren
+//Nur angemeldete Nutzer können Profil bearbeiten
 if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
     header('Refresh:1; url=index.php?site=error');
     exit();
