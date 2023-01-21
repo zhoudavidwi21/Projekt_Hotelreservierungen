@@ -171,5 +171,3 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
   })
 
 </script>
-
-</script>
