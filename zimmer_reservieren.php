@@ -24,10 +24,9 @@ if (isset($_POST['booking'])) {
   } else {
     echo "<div class='alert alert-danger' role='alert'>
     Folgende Fehler sind aufgetreten: <br>
-    $roomErr <br>
-    $arrivalDateErr <br>
-    $departureDateErr
-    </div>";
+    " . $roomErr . " <br>
+    " . $arrivalDateErr . " <br>
+    " . $departureDateErr . " </div>";
   }
 }
 ?>

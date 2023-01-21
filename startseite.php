@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="7500">
-            <img src="./Images/Zimmer/Zimmer_02.jpg" class="d-block w-100" alt="Foto Hotel Zimmer 02">
+            <img src="./Images/Zimmer/Zimmer_301.jpg" class="d-block w-100" alt="Foto Hotel Zimmer 02">
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
