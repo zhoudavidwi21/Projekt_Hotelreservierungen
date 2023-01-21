@@ -33,7 +33,6 @@ Zimmer 202 (07):
 Typ: DZ
 Name: Wilder Wald
 Beschreibung: 
-Premium Doppelzimmer "am Platz"
 Hof- oder straßenseitig, ohne Donaublick, Couch, Dusche/WC, TV, Schreibtisch, Bademantel, Badekorb mit Handtüchern, Föhn, Kosmetikspiegel, Telefon, kostenloses WLAN, Safe und Minibar
 Preis: 120,20
 
