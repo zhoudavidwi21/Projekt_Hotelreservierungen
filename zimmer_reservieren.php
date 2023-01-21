@@ -101,7 +101,8 @@ $stmt->bind_param("i", $_SESSION['userId']);
 
         <div class="row row-cols-1">
           <div class="p-2 g-col">
-            <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label class="form-check-label" for="breakfast">
+            <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label
+              class="form-check-label" for="breakfast">
               Frühstück inkludieren (10€/Nacht)
             </label>
           </div>
@@ -127,7 +128,8 @@ $stmt->bind_param("i", $_SESSION['userId']);
     <div class="row justify-content-md-center">
       <div class="col-lg-1 col-md-3">
         <label for="arrivalDate">Anreisedatum</label>
-        <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3" aria-describedby="validationArrival" required>
+        <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3"
+          aria-describedby="validationArrival" required>
 
       </div>
     </div>
@@ -135,7 +137,8 @@ $stmt->bind_param("i", $_SESSION['userId']);
     <div class="row justify-content-md-center">
       <div class="col-lg-1 col-md-3">
         <label for="departureDate">Abreisedatum</label>
-        <input type="date" name="departureDate" id="departureDate" class="form-control mb-3" aria-describedby="validationDeparture" required>
+        <input type="date" name="departureDate" id="departureDate" class="form-control mb-3"
+          aria-describedby="validationDeparture" required>
 
       </div>
     </div>
@@ -158,8 +161,8 @@ $stmt->bind_param("i", $_SESSION['userId']);
     exit();
   }
 
- // $sql = "SELECT * FROM `reservations` ORDER BY `fk_userID` ASC";
-  $sql = "SELECT * FROM `reservations` WHERE `fk_userId` == $_SESSION `userID` AND `deleted` = 0";
+  // $sql = "SELECT * FROM `reservations` ORDER BY `fk_userID` ASC";
+  $sql = "SELECT * FROM `reservations` WHERE `fk_userId` = ?";
   $stmt = $db_obj->prepare($sql);
   // $stmt->execute();
   $stmt->bind_param("i", $_SESSION['userId']);
@@ -167,18 +170,18 @@ $stmt->bind_param("i", $_SESSION['userId']);
   $result = $stmt->get_result();
   $row = $result->fetch_assoc();
 
-/*  
+  /*  
   if ($stmt->execute()) {
-      $result = $stmt->get_result();
-      $row = $result->fetch_assoc();
-      $username = $row["username"];
-      $email = $row["email"];
-      $password = $row["password"];
-      $stmt->close();
+  $result = $stmt->get_result();
+  $row = $result->fetch_assoc();
+  $username = $row["username"];
+  $email = $row["email"];
+  $password = $row["password"];
+  $stmt->close();
   } else {
-      echo "Error: " . $sql . "<br>" . $db_obj->error;
+  echo "Error: " . $sql . "<br>" . $db_obj->error;
   }
-*/
+  */
 
   if ($result->num_rows === 0) {
     echo "<div class='alert alert-danger' role='alert'>
@@ -187,14 +190,14 @@ $stmt->bind_param("i", $_SESSION['userId']);
     $db_obj->close();
   } else {
 
-    for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
+    while ($row = $result->fetch_assoc()) {
 
       // Anzahl der Nächte berechnen
       $date_arr = date_create($row["arrivalDate"]);
       $date_dep = date_create($row["departureDate"]);
       $intervall = date_diff($date_arr, $date_dep, true);
       //echo $intervall->format("%a");
-
+  
       echo "<hr class='featurette-divider'>";
 
       echo "
@@ -224,4 +227,4 @@ $stmt->bind_param("i", $_SESSION['userId']);
   ?>
 
 
-  </div>
+</div>
