@@ -1,13 +1,7 @@
 offene Punkte:
 --------------
-ALT-Daten (für z.B. Blinde angegeben):
-    --> done: Header, Startseite, AGBs, Datenschutz, Impressum, Hilfe&FAQs, Unsere Geschichte, Impressionen, 
-                Kulinarik, Wellness, Login, Register, Zimmer reservieren Logo, Profil bearbeiten, 
-                Benutzer verwalten,  Reservierungen verwalten, Newsbeiträge erstellen Logo, Newsbeiträge Logo,
-                Newsbeiträge Bilder, Zimmer reservieren - Fotos von Zimmern, Newsbeiträge erstellen - Thumbs???
-    --> fehlt noch: 
 
-Reservierungen verwalten für Admin
+
 Benutzer verwalten für Admin
 alle Seiten testen, ob Zugriff erlaubt ist oder nicht!!!
 benutzer_Verwaltung validieren
@@ -38,6 +32,14 @@ News-Seite erstellen --> done
 Reservieren-Seite erstellen --> done
 Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite (auch mit Bild), Download Originalgröße!!! --> done
 Zimmer ansehen oder Zimmer reservieren: 7 Zimmer anbieten (je nach Status guest oder eingeloggter User andere Möglichkeiten) --> done
+Reservierungen verwalten für Admin --> done
+
+ALT-Daten (für z.B. Blinde angegeben): --> done
+    --> done: Header, Startseite, AGBs, Datenschutz, Impressum, Hilfe&FAQs, Unsere Geschichte, Impressionen, 
+                Kulinarik, Wellness, Login, Register, Zimmer reservieren Logo, Profil bearbeiten, 
+                Benutzer verwalten,  Reservierungen verwalten, Newsbeiträge erstellen Logo, Newsbeiträge Logo,
+                Newsbeiträge Bilder, Zimmer reservieren - Fotos von Zimmern, Newsbeiträge erstellen - Thumbs???
+    --> fehlt noch: NICHTS
 
 
 
