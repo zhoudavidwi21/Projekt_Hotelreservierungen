@@ -77,7 +77,7 @@ ob_start();
             </li>
             <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren">Zimmer reservieren</a></li>
 
-            <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren_ansehen">Zimmer reservieren ansehen</a></li>
+            <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren_ansehen">Meine Reservierungen ansehen</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
