@@ -45,7 +45,7 @@ if (isset($_POST['reservationStatus'])) {
     $stmt->execute();
     $stmt->close();
     $db_obj->close();
-    header('Refresh:0; url=index.php?site=zimmer_reservieren_Verwaltung');
+    header('Refresh:0; url=index.php?site=admin_zimmer_reservieren_Verwaltung');
     exit();
 
 }
@@ -195,7 +195,7 @@ if (isset($_POST['reservationStatus'])) {
                         */
                     }
 
-                    echo "<a href='index.php?site=zimmer_reservieren_Verwaltung' class='btn btn-secondary'>Zurück</a>";
+                    echo "<a href='index.php?site=admin_zimmer_reservieren_Verwaltung' class='btn btn-secondary'>Zurück</a>";
 
                     echo "<button type='submit' class='btn btn-sonstige'>Ändern</button>";
 

@@ -99,7 +99,7 @@ if ($db_obj->connect_error) {
                 echo "<td>" . date_format($date_res, "d.m.Y H:i") . "</td>";
                 echo "<td>$reservationStatus</td>";
                 echo "<td>";
-                echo "<a href='index.php?site=reservierung_details&reservationId=$reservationId' class='btn btn-sonstige'>Details</a>";
+                echo "<a href='index.php?site=admin_zimmer_reservierung_details&reservationId=$reservationId' class='btn btn-sonstige'>Details</a>";
                 echo "</td>";
                 echo "</tr>";
               }

@@ -25,6 +25,13 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
   $sql = "UPDATE users SET deleted = 1 WHERE userId = $userId";
   $db_obj->query($sql);
 }
+
+//Benutzer aktivieren
+if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
+  $userId = $_POST['activateUser'];
+  $sql = "UPDATE users SET deleted = 0 WHERE userId = $userId";
+  $db_obj->query($sql);
+}
 ?>
 
 <!-- Benutzer anzeigen -->
@@ -81,16 +88,25 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
                   echo "<td>$role</td>";
                   echo "<td>$status</td>";
                   echo "<td>";
-                  echo "<a href='index.php?site=benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
+                  echo "<a href='index.php?site=admin_benutzer_bearbeiten&userId=$userId' class='btn btn-sonstige'>Bearbeiten</a>";
                   echo "</td>";
                   echo "<td>";
-                  echo " 
+
+                  if ($status == "Aktiv") {
+
+                    echo " 
               <button type='button' class='btn btn-sonstige' data-bs-toggle='modal' data-bs-target='#deactivateUserModal'
                 data-bs-deactivateUser='$userId' data-bs-deactivateUsername='$benutzername'>Deaktivieren</button>
               ";
+                  } else {
+                    echo " 
+                    <button type='button' class='btn btn-sonstige' data-bs-toggle='modal' data-bs-target='#activateUserModal'
+                      data-bs-activateUser='$userId' data-bs-activateUsername='$benutzername'>Aktivieren</button>
+                    ";
+                  }
                   echo "</td>";
                   echo "<td>";
-                  echo "<a href='index.php?site=reservierung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
+                  echo "<a href='index.php?site=admin_zimmer_reservieren_verwalten&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
                   echo "</td>";
                   echo "</tr>";
 
@@ -153,6 +169,27 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
   </div>
 </div>
 
+<div class="modal fade" id="activateUserModal" tabindex="-1" aria-labelledby="activateUserModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="activateUserModal">Benutzer aktivieren</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <form method="POST">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nein</button>
+          <input type="hidden" name="activateUser">
+          <button type="submit" class="btn btn-primary">Ja</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   const deactivateUserModal = document.getElementById('deactivateUserModal')
   deactivateUserModal.addEventListener('show.bs.modal', event => {
@@ -167,6 +204,24 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
     const deactivateUser = deactivateUserModal.querySelector('input[name="deactivateUser"]')
     deactivateUser.value = userId
     modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} deaktivieren möchten?`
+
+  })
+
+</script>
+<script>
+  const activateUserModal = document.getElementById('activateUserModal')
+  activateUserModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const userId = button.getAttribute('data-bs-activateUser')
+    const username = button.getAttribute('data-bs-activateUsername')
+
+    // Update the modal's content.
+    const modalBodyParagraph = activateUserModal.querySelector('.modal-body p')
+    const activateUser = activateUserModal.querySelector('input[name="activateUser"]')
+    activateUser.value = userId
+    modalBodyParagraph.textContent = `Sind Sie sich sicher, dass Sie den Benutzer ${username} aktivieren möchten?`
 
   })
 
