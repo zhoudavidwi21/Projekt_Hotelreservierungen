@@ -1,38 +1,23 @@
 <?php include "Commons/sessions.php"; ?>
 
-<?php include "Commons/zimmer_reservieren_validation.php"; ?>
-
 <?php require_once('db/dbaccess.php'); ?>
 
 <?php
-
-if (isset($_POST['booking'])) {
-  if (
-    $roomErr == "" && $arrivalDateErr == "" && $departureDateErr == ""
-  ) {
-
-    $_SESSION['resRoom'] = $room;
-    $_SESSION['resArrival'] = $arrivalDate;
-    $_SESSION['resDeparture'] = $departureDate;
-    $_SESSION['resServices']['resBreakfast'] = $services['breakfast'];
-    $_SESSION['resServices']['resParking'] = $services['parking'];
-    $_SESSION['resServices']['resPet'] = $services['pet'];
-
-    header('Refresh:0; url=index.php?site=zimmer_reservieren_confirmed');
-    ob_end_flush();
-    exit();
-  } else {
-    echo "<div class='alert alert-danger' role='alert'>
-    Folgende Fehler sind aufgetreten: <br>
-    " . $roomErr . " <br>
-    " . $arrivalDateErr . " <br>
-    " . $departureDateErr . " </div>";
-  }
+//Nur angemeldete Nutzer können ihr Reservierungen ansehen
+if (isset($_SESSION['role']) && $_SESSION['role'] === "guest") {
+  header('Refresh:1; url=index.php?site=error');
+  exit();
 }
+?>
 
-$sql = "SELECT * FROM `users` WHERE `userId` = ? AND `deleted` = 0";
-$stmt = $db_obj->prepare($sql);
-$stmt->bind_param("i", $_SESSION['userId']);
+<?php
+$db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
+
+//Überprüfung ob Verbindung erfolgreich
+if ($db_obj->connect_error) {
+  echo 'Connection error: ' . $db_obj->connect_error;
+  exit();
+}
 ?>
 
 <div class="text-center container-fluid">
@@ -54,15 +39,6 @@ $stmt->bind_param("i", $_SESSION['userId']);
   </h2>
 
   <?php
-
-  $db_obj = new mysqli($host, $dbUser, $dbPassword, $database);
-
-  //Überprüfung ob Verbindung erfolgreich
-  if ($db_obj->connect_error) {
-    echo 'Connection error: ' . $db_obj->connect_error;
-    exit();
-  }
-
   $sql = "SELECT * FROM `reservations` WHERE `fk_userId` = ?";
   $stmt = $db_obj->prepare($sql);
   $stmt->bind_param("i", $_SESSION['userId']);
@@ -95,6 +71,30 @@ $stmt->bind_param("i", $_SESSION['userId']);
       $resultRooms = $stmtRooms->get_result()->fetch_assoc();
       $roomNumber = $resultRooms["roomNumber"];
 
+      //Services auslesen
+      $reservationId = $row["reservationId"];
+      $services = array();
+      $sqlServices = "SELECT * FROM `reservations_services` WHERE `fk_reservationId` = $reservationId";
+      $stmtServices = $db_obj->prepare($sqlServices);
+      $stmtServices->execute();
+      $resultServices = $stmtServices->get_result();
+
+      if ($resultServices->num_rows !== 0) {
+        while ($rowServices = $resultServices->fetch_assoc()) {
+          switch ($rowServices['fk_serviceId']) {
+            case 1:
+              $services[] = "Frühstück";
+              break;
+            case 2:
+              $services[] = "Parkplatz";
+              break;
+            case 3:
+              $services[] = "Haustier";
+              break;
+          }
+        }
+      }
+
       echo "<hr class='featurette-divider'>";
 
       echo "
@@ -105,7 +105,10 @@ $stmt->bind_param("i", $_SESSION['userId']);
           <p class='fs-5 lh-1'>Zeitraum von :
             " . date_format($date_arr, "d.m.Y") . " bis " . date_format($date_dep, "d.m.Y") . "
           <p class='fs-6 lh-1'>Anzahl der Nächte: 
-            " . $intervall->format("%a") . "         
+            " . $intervall->format("%a") . " 
+            <p class='fs-6 lh-1'>Services: 
+            " . implode(", ", $services) . "
+            <p class='fs-4 lh-1'>Preis gesamt:        
           <p class='fs-4 lh-1'>Preis gesamt:
             " . number_format($row['totalPrice'], 2, ",", ".") . " €
             <p class='fs-6 lh-1'>Datum der Reservierung: 

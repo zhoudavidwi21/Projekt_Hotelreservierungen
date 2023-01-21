@@ -134,7 +134,7 @@ if (isset($_POST['upload']) && ($titleErr == "" && $fileErr == "" && $bodyErr ==
   if ($stmt->execute()) {
     $stmt->close();
     $db_obj->close();
-    header('Location: ./index.php?site=newsbeitraege');
+    header('Refresh:1; url=index.php?site=newsbeitraege');
     exit();
   } else {
     $stmt->close();

@@ -137,21 +137,3 @@
 
 
 </div>
-
-<?php
-echo "
-<select form='reservationManagement'
-class='form-select' name='reservationStatus_$user' aria-label='Reservation Status select'>
-  <option value='neu'" . ($row['reservationStatus'] == 'neu' ? "selected" : "") . ">neu</option>
-  <option value='bestätigt' " . ($row['reservationStatus'] == 'bestätigt' ? "selected" : "") . ">bestätigt</option>
-  <option value='storniert' " . ($row['reservationStatus'] == 'storniert' ? "selected" : "") . ">storniert</option>
-</select>
-
-"
-
-
-
-
-
-
-  ?>
