@@ -75,6 +75,8 @@ if ($db_obj->connect_error) {
               <?php
               $sql = "SELECT * FROM reservations";
 
+
+              //Falls bestimme Filterparameter gesetzt sind --> anderes Query
               if (isset($_GET['userId']) && !empty($_GET['userId'])) {
                 $userId = $_GET['userId'];
 
@@ -95,12 +97,15 @@ if ($db_obj->connect_error) {
               $result = $db_obj->query($sql);
 
               while ($row = $result->fetch_assoc()) {
+
+                //Reservierungsdaten auslesen
                 $reservationId = $row['reservationId'];
                 $roomId = $row['fk_roomId'];
                 $userId = $row['fk_userId'];
                 $reservationStatus = $row['reservationStatus'];
                 $gesamtPreis = $row['totalPrice'];
 
+                //Datum auslesen
                 $date_arr = date_create($row["arrivalDate"]);
                 $date_dep = date_create($row["departureDate"]);
                 $date_res = date_create($row["reservationDate"]);

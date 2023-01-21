@@ -105,7 +105,7 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
                   }
                   echo "</td>";
                   echo "<td>";
-                  echo "<a href='index.php?site=reservierung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
+                  echo "<a href='index.php?site=admin_zimmer_reservieren_Verwaltung&userId=$userId' class='btn btn-sonstige'>Reservierungen anzeigen</a>";
                   echo "</td>";
                   echo "</tr>";
 
