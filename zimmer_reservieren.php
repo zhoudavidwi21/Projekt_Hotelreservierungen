@@ -37,7 +37,7 @@ $stmt->bind_param("i", $_SESSION['userId']);
 
 <div class="text-center container-fluid">
 
-    <h1 class="h1 mb-3 fw-normal">Zimmer reservieren</h1>
+  <h1 class="h1 mb-3 fw-normal">Zimmer reservieren</h1>
 
 
   <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
@@ -98,13 +98,13 @@ $stmt->bind_param("i", $_SESSION['userId']);
       <div class="checkbox">
         <div class="grid gap-0 row-gap-3">
 
-        <div class="row row-cols-1">
-          <div class="p-2 g-col">
-            <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label
-              class="form-check-label" for="breakfast">
-              Frühstück inkludieren (10€/Nacht)
-            </label>
-          </div>
+          <div class="row row-cols-1">
+            <div class="p-2 g-col">
+              <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label
+                class="form-check-label" for="breakfast">
+                Frühstück inkludieren (10€/Nacht)
+              </label>
+            </div>
 
             <div class="p-2 g-col">
               <input class="form-check-input" type="checkbox" name="parking" id="parking" value="true">
@@ -124,20 +124,20 @@ $stmt->bind_param("i", $_SESSION['userId']);
         </div>
       </div>
 
-    <div class="row justify-content-md-center">
-      <div class="col-sm-6 col-md-5 col-lg-3">
-        <label for="arrivalDate">Anreisedatum</label>
-        <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3"
-          aria-describedby="validationArrival" required>
+      <div class="row justify-content-md-center">
+        <div class="col-sm-6 col-md-5 col-lg-3">
+          <label for="arrivalDate">Anreisedatum</label>
+          <input type="date" name="arrivalDate" id="arrivalDate" class="form-control mb-3"
+            aria-describedby="validationArrival" required>
 
         </div>
       </div>
 
-    <div class="row justify-content-md-center">
-      <div class="col-sm-6 col-md-5 col-lg-3">
-        <label for="departureDate">Abreisedatum</label>
-        <input type="date" name="departureDate" id="departureDate" class="form-control mb-3"
-          aria-describedby="validationDeparture" required>
+      <div class="row justify-content-md-center">
+        <div class="col-sm-6 col-md-5 col-lg-3">
+          <label for="departureDate">Abreisedatum</label>
+          <input type="date" name="departureDate" id="departureDate" class="form-control mb-3"
+            aria-describedby="validationDeparture" required>
 
         </div>
       </div>
@@ -149,4 +149,4 @@ $stmt->bind_param("i", $_SESSION['userId']);
       </div>
     </form>
 
-</div>
+  </div>

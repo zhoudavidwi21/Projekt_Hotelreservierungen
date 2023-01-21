@@ -168,7 +168,7 @@ function passwordRegExCheck($password)
 ?>
 
 <div class="text-center container-fluid">
-    <h1 class="h1 mb-3 fw-normal">Profil bearbeiten</h1>
+    <h1 class="h1 mb-3 fw-normal">Benutzer bearbeiten</h1>
     <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
     <hr class="featurette-divider">

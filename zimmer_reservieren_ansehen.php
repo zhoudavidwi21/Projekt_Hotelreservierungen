@@ -37,7 +37,7 @@ $stmt->bind_param("i", $_SESSION['userId']);
 
 <div class="text-center container-fluid">
 
-<h1 class="h1 mb-3 fw-normal">Zimmer Reservierungen ansehen</h1>
+  <h1 class="h1 mb-3 fw-normal">Zimmer Reservierungen ansehen</h1>
 
   <div class="row justify-content-md-center">
     <div class="col-lg-2 col-md-3">
@@ -76,31 +76,39 @@ $stmt->bind_param("i", $_SESSION['userId']);
     $db_obj->close();
   } else {
 
-   // for ($i = 1; $row = $result->fetch_assoc(); $i += 1) {
-      while ($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
 
 
-      // Anzahl der Nächte berechnen
       $date_arr = date_create($row["arrivalDate"]);
       $date_dep = date_create($row["departureDate"]);
+      $date_res = date_create($row["reservationDate"]);
+
+      // Anzahl der Nächte berechnen
       $intervall = date_diff($date_arr, $date_dep, true);
-      //echo $intervall->format("%a");
+
+      //Zimmernummer auslesen
+      $roomId = $row["fk_roomId"];
+      $sqlRooms = "SELECT * FROM `rooms` WHERE `roomId` = $roomId";
+      $stmtRooms = $db_obj->prepare($sqlRooms);
+      $stmtRooms->execute();
+      $resultRooms = $stmtRooms->get_result()->fetch_assoc();
+      $roomNumber = $resultRooms["roomNumber"];
 
       echo "<hr class='featurette-divider'>";
 
       echo "
         <div class='row featurette'>
           <h3 class='featurette-heading fw-normal lh-1'><br>
-            <span class='text-muted'>Reservierung " . $row["reservationId"] . " von Zimmer " . $row["fk_roomId"] . "</span> 
+            <span class='text-muted'>Reservierung " . $row["reservationId"] . " von Zimmer " . $roomNumber . "</span> 
             </h3>
           <p class='fs-5 lh-1'>Zeitraum von :
-            " . $row["arrivalDate"] . " bis " . $row["departureDate"] . "
+            " . date_format($date_arr, "d.m.Y") . " bis " . date_format($date_dep, "d.m.Y") . "
           <p class='fs-6 lh-1'>Anzahl der Nächte: 
             " . $intervall->format("%a") . "         
           <p class='fs-4 lh-1'>Preis gesamt:
             " . number_format($row['totalPrice'], 2, ",") . " €
             <p class='fs-6 lh-1'>Datum der Reservierung: 
-            " . $row["reservationDate"] . "  
+            " . date_format($date_res, "d.m.Y H:i") . "  
           <p class='fs-5 lh-1'>Status der Reservierung :
             " . $row["reservationStatus"] . "
               
@@ -115,4 +123,4 @@ $stmt->bind_param("i", $_SESSION['userId']);
   ?>
 
 
-  </div>
+</div>
