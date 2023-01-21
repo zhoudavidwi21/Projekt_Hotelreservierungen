@@ -171,8 +171,6 @@ function passwordRegExCheck($password)
     <h1 class="h1 mb-3 fw-normal">Profil bearbeiten</h1>
     <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
-    <hr class="featurette-divider">
-
     <h2 class="mt-5">Hallo
         <?php echo $_SESSION["username"]; ?>!
     </h2>

@@ -63,7 +63,8 @@ ob_start();
           <!-- Menü für alle Personen END-->
 
       </div>
-      <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === "user" || $_SESSION['role'] === "admin")) { ?>
+       <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === "user" || $_SESSION['role'] === "admin")) { ?>
+
         <!-- Menü für eingeloggte Personen START-->
         <div class="d-flex gap-1 dropdown">
           <button class="btn btn-anmelden dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,6 +76,8 @@ ob_start();
               <hr class="dropdown-divider">
             </li>
             <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren">Zimmer reservieren</a></li>
+
+            <li><a class="dropdown-item" href="index.php?site=zimmer_reservieren_ansehen">Zimmer reservieren ansehen</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
