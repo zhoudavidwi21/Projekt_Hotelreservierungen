@@ -71,7 +71,8 @@ $stmt->bind_param("i", $_SESSION['userId']);
 
   if ($result->num_rows === 0) {
     echo "<div class='alert alert-danger' role='alert'>
-     Es wurden keine Reservierungen in der Datenbank gefunden.";
+     Es wurden keine Reservierungen in der Datenbank gefunden.
+     </div>";
     $stmt->close();
     $db_obj->close();
   } else {
@@ -106,7 +107,7 @@ $stmt->bind_param("i", $_SESSION['userId']);
           <p class='fs-6 lh-1'>Anzahl der Nächte: 
             " . $intervall->format("%a") . "         
           <p class='fs-4 lh-1'>Preis gesamt:
-            " . number_format($row['totalPrice'], 2, ",") . " €
+            " . number_format($row['totalPrice'], 2, ",", ".") . " €
             <p class='fs-6 lh-1'>Datum der Reservierung: 
             " . date_format($date_res, "d.m.Y H:i") . "  
           <p class='fs-5 lh-1'>Status der Reservierung :

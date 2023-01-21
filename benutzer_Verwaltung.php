@@ -19,6 +19,7 @@ if ($db_obj->connect_error) {
   exit();
 }
 
+//Benutzer deaktivieren
 if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
   $userId = $_POST['deactivateUser'];
   $sql = "UPDATE users SET deleted = 1 WHERE userId = $userId";
@@ -170,7 +171,3 @@ if (isset($_POST['deactivateUser']) && !empty($_POST['deactivateUser'])) {
   })
 
 </script>
-
-
-
-<!-- Benutzer verwalten -->
