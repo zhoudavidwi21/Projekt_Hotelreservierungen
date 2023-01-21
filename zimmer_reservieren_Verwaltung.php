@@ -76,7 +76,7 @@
         </div>
         ";
 
-/*
+      /*
 
 // Daten abfragen
 $sql = "SELECT reservationStatus FROM reservations";
@@ -98,12 +98,9 @@ echo "<input type= submit/ ><br />";
 echo "Auswahl: ".$_POST["reservationStatus"];
 
 */
-
-
-
-
     }
-    
+    $stmt->close();
+    $db_obj->close();
   }
   ?>
 
