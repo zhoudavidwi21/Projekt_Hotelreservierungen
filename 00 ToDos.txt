@@ -1,14 +1,13 @@
 offene Punkte:
 --------------
+benutzer_Verwaltung validieren
+
+alle Seiten testen, ob Zugriff erlaubt ist oder nicht:
 admin_benutzer_Verwaltung - error bearbeiten
 register_confirmed - error dazu oder funktioniert sie dann nicht mehr?
 register - manuelle Eingabe führt zu Formatierungsfehler - behebbar?
 startseite - manuelle Eingabe führt zu Formatierungsfehler - behebbar?
 zimmer_reservierung_erfolgreich - error dazu oder funktioniert sie dann nicht mehr?
-
-Benutzer verwalten für Admin
-alle Seiten testen, ob Zugriff erlaubt ist oder nicht!!!
-benutzer_Verwaltung validieren
 
 erledigte Punkte:
 -----------------
@@ -37,6 +36,7 @@ Reservieren-Seite erstellen --> done
 Newsbeiträge Texteingabe möglich mit Übertragung auf Newsbeiträge-Seite (auch mit Bild), Download Originalgröße!!! --> done
 Zimmer ansehen oder Zimmer reservieren: 7 Zimmer anbieten (je nach Status guest oder eingeloggter User andere Möglichkeiten) --> done
 Reservierungen verwalten für Admin --> done
+Benutzer verwalten für Admin --> done
 
 ALT-Daten (für z.B. Blinde angegeben): --> done
     --> done: Header, Startseite, AGBs, Datenschutz, Impressum, Hilfe&FAQs, Unsere Geschichte, Impressionen, 
