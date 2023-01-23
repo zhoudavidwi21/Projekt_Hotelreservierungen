@@ -36,11 +36,12 @@ if (isset($_POST['activateUser']) && !empty($_POST['activateUser'])) {
 
 <!-- Benutzer anzeigen -->
 <div class="text-center container-fluid">
+
+  <h1 class="h1 mb-3 fw-normal">Benutzer verwalten</h1>
+
   <div class="row justify-content-md-center">
     <div class="col-sm-3 col-md-7 col-lg-10">
       <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
-
-      <h1 class="h3 mb-3 fw-normal">Benutzer verwalten</h1>
 
       <div class="table-responsive">
         <div class="table-wrapper">
