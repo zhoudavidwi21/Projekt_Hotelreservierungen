@@ -1,6 +1,14 @@
 <?php include "./Commons/sessions.php"; ?>
 
 <?php
+//Nur Admins können Newsbeiträge erstellen
+if (isset($_SESSION['role']) && $_SESSION['role'] == "guest") {
+    header('Refresh:1; url=index.php?site=error');
+    exit();
+}
+?>
+
+<?php
 unset($_SESSION['resRoom']);
 unset($_SESSION['resArrival']);
 unset($_SESSION['resDeparture']);
