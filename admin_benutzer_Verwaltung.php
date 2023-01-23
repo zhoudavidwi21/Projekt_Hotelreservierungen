@@ -5,7 +5,7 @@
 <?php
 //Nur Admins können Benutzer verwalten
 if (isset($_SESSION['role']) && $_SESSION['role'] !== "admin") {
-  header('Refresh:1; url=index.php?error');
+  header('Refresh:1; url=index.php?site=error');
   exit();
 }
 ?>
