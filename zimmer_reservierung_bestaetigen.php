@@ -37,6 +37,7 @@ $totalPrice = $_SESSION['resTotal'];
 $stmt->bind_param("iisss", $userId, $roomId, $arrivalDate, $departureDate, $totalPrice);
 
 if ($stmt->execute()) {
+    $reservationId = $db_obj->insert_id;
     $stmt->close();
     $i = 1;
     foreach ($_SESSION['resServices'] as $service => $value) {
@@ -45,7 +46,6 @@ if ($stmt->execute()) {
             (`fk_reservationId`, `fk_serviceId`) VALUES (?, ?)";
             $stmt = $db_obj->prepare($sql);
             $stmt->bind_param("ii", $reservationId, $serviceId);
-            $reservationId = $db_obj->insert_id;
             $serviceId = $i;
             $stmt->execute();
             $stmt->close();
