@@ -133,7 +133,7 @@ function roomAvailable($room, $arrivalDate, $departureDate, $db_obj)
 
     $sql = "SELECT * FROM reservations 
     WHERE fk_roomId IN ($query) 
-    AND reservationStatus = 'confirmed' 
+    AND reservationStatus = 'bestätigt' 
     ORDER BY arrivalDate ASC";
 
     $stmt = $db_obj->prepare($sql);
@@ -166,7 +166,7 @@ function getBookedDates($room, $db_obj)
 
     $sql = "SELECT * FROM reservations 
     WHERE fk_roomId IN ($query) 
-    AND reservationStatus = 'confirmed' 
+    AND reservationStatus = 'bestätigt' 
     ORDER BY arrivalDate ASC";
 
     $stmt = $db_obj->prepare($sql);
