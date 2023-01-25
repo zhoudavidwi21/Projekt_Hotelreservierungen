@@ -21,11 +21,14 @@ if ($db_obj->connect_error) {
 ?>
 
 <div class="text-center container-fluid">
+
+<h1 class="h1 mb-3 fw-normal">Reservierung bestätigen</h1>
+
     <div class="row justify-content-md-center">
         <div class="col-sm-6 col-md-5 col-lg-4">
             <img class="mb-4" src="./Images/Kastanie_transparent.png" alt="Kastanien Logo" width="144" height="114">
 
-            <h1 class="h3 mb-3 fw-normal">Reservierung bestätigen</h1>
+
 
             <div class="table-responsive">
                 <div class="table-wrapper">
