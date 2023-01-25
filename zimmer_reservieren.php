@@ -101,7 +101,8 @@ $stmt->bind_param("i", $_SESSION['userId']);
 
             <div class="row row-cols-1">
               <div class="p-2 g-col">
-                <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> <label class="form-check-label" for="breakfast">
+                <input class="form-check-input" type="checkbox" name="breakfast" id="breakfast" value="true"> 
+                <label class="form-check-label" for="breakfast">
                   Frühstück inkludieren (10€/Nacht)
                 </label>
               </div>

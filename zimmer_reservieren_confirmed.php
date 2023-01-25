@@ -86,8 +86,8 @@ if ($db_obj->connect_error) {
                             <tr>
                                 <th scope="row">Frühstück</th>
                                 <td>
-                                    <?php if (isset($_SESSION['resBreakfast'])) {
-                                        if ($_SESSION['resBreakfast'] == "true") {
+                                    <?php if (isset($_SESSION['resServices']['resBreakfast'])) {
+                                        if ($_SESSION['resServices']['resBreakfast'] == "true") {
                                             echo "Ja";
                                         } else {
                                             echo "Nein";
@@ -107,8 +107,8 @@ if ($db_obj->connect_error) {
                             <tr>
                                 <th scope="row">Parkplatz</th>
                                 <td>
-                                    <?php if (isset($_SESSION['resParking'])) {
-                                        if ($_SESSION['resParking'] == "true") {
+                                    <?php if (isset($_SESSION['resServices']['resParking'])) {
+                                        if ($_SESSION['resServices']['resParking'] == "true") {
                                             echo "Ja";
                                         } else {
                                             echo "Nein";
@@ -128,8 +128,8 @@ if ($db_obj->connect_error) {
                             <tr>
                                 <th scope="row">Haustier</th>
                                 <td>
-                                    <?php if (isset($_SESSION['resPet'])) {
-                                        if ($_SESSION['resPet'] == "true") {
+                                    <?php if (isset($_SESSION['resServices']['resPet'])) {
+                                        if ($_SESSION['resServices']['resPet'] == "true") {
                                             echo "Ja";
                                         } else {
                                             echo "Nein";
@@ -141,8 +141,8 @@ if ($db_obj->connect_error) {
                                     $query = "SELECT * FROM services WHERE serviceName = 'pet'";
                                     $result = $db_obj->query($query);
                                     $row = $result->fetch_assoc();
-                                    $parkingPrice = floatval($row['servicePrice']);
-                                    echo number_format($parkingPrice * $diff->format("%a"), 2, ",", ".") . "€";
+                                    $petPrice = floatval($row['servicePrice']);
+                                    echo number_format($petPrice * $diff->format("%a"), 2, ",", ".") . "€";
                                     ?>
                                 </td>
                             </tr>
@@ -152,10 +152,10 @@ if ($db_obj->connect_error) {
                                     <?php
                                     $roomTotal = $roomPrice * $diff->format("%a");
                                     $serviceTotal = 0;
-                                    if (isset($_SESSION['resBreakfast']) && $_SESSION['resBreakfast'] == "true") {
+                                    if (isset($_SESSION['resServices']['resBreakfast']) && $_SESSION['resServices']['resBreakfast'] == "true") {
                                         $serviceTotal += $breakfastPrice * $diff->format("%a");
                                     }
-                                    if (isset($_SESSION['resParking']) && $_SESSION['resParking'] == "true") {
+                                    if (isset($_SESSION['resServices']['resParking']) && $_SESSION['resServices']['resParking'] == "true") {
                                         $serviceTotal += $parkingPrice * $diff->format("%a");
                                     }
                                     $sum = $roomTotal + $serviceTotal;
@@ -172,10 +172,7 @@ if ($db_obj->connect_error) {
                 </div>
 
                 <a href="index.php?site=zimmer_reservieren" class="btn btn-secondary">Zurück</a>
-
-                <a href="index.php?site=zimmer_reservierung_bestaetigen" class="btn btn-sonstige">
-                    Bestätigen
-                </a>
+                <a href="index.php?site=zimmer_reservierung_bestaetigen" class="btn btn-sonstige">Bestätigen</a>
             </div>
         </div>
     </div>
